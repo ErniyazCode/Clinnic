@@ -1,23 +1,401 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reactive Clinic Almaty | Leading Turkish Doctors</title>
-  <meta name="description"
-    content="Expert medical consultations and diagnostics in Almaty by Turkish specialists. International clinical protocols and evidence-based medicine." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reactive Clinic | Международная медицина в Алматы</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- External Libs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-white text-clinic-text antialiased">
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
+<body>
+    <!-- Floating Navigation Island -->
+    <nav class="nav-island">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">
+                <img src="image.png" alt="Reactive Clinic">
+            </a>
+            <div class="nav-links">
+                <a href="#about">О клинике</a>
+                <a href="#services">Отделения</a>
+                <a href="#doctors">Врачи</a>
+            </div>
+            <a href="#contact" class="nav-btn">Запись</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- BLOCK 1: Immersive Hero -->
+        <section class="hero">
+            <div class="container" style="position: relative; z-index: 10;">
+                <div class="hero-content-centered">
+                    <!-- Subtle Cultural Textures -->
+                    <div class="cultural-ornament ornament-turkey" style="top: -10%; right: -15%;"></div>
+                    <div class="cultural-ornament ornament-kz" style="bottom: -15%; left: -10%;"></div>
+
+                    <div class="clinic-badge"
+                        style="margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem; padding: 0.6rem 1.6rem; background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(0,0,0,0.04); border-radius: 100px; color: var(--c-slate); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; backdrop-filter: blur(15px); box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+                        <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--c-cyan);">
+                            <i class="fas fa-globe-europe"></i> Istanbul
+                        </span>
+                        <span style="opacity: 0.2;">|</span>
+                        <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--c-medical);">
+                            <i class="fas fa-location-dot"></i> Almaty
+                        </span>
+                    </div>
+
+                    <h1>Получите консультацию <br><span>международных врачей в Алматы</span></h1>
+
+                    <p class="hero-desc">
+                        Передовые медицинские протоколы Турции и Европы теперь доступны в Казахстане. Экспертная
+                        диагностика и персонализированное лечение международного уровня.
+                    </p>
+
+                    <div class="hero-cta-row"
+                        style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                        <a href="#contact" class="btn-futuristic btn-futuristic-primary"
+                            style="padding: 1.2rem 3.5rem; font-size: 0.9rem; box-shadow: 0 15px 35px rgba(16, 185, 129, 0.25);">
+                            Записаться на прием
+                        </a>
+                        <a href="#about"
+                            style="color: var(--c-slate); font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; opacity: 0.8; transition: 0.3s; padding-bottom: 2px; border-bottom: 2px solid rgba(16, 185, 129, 0.2);">
+                            Узнать больше <i class="fas fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bottom Service Cards -->
+                <div class="hero-cards-container">
+                    <!-- Card 1 -->
+                    <div class="hero-card">
+                        <div class="card-icon"><i class="fas fa-user-md"></i></div>
+                        <h3>Прием врачей</h3>
+                        <p>Эксперты из Турции и США</p>
+                        <a href="#doctors" class="card-link"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="hero-card">
+                        <div class="card-icon"><i class="fas fa-stethoscope"></i></div>
+                        <h3>Check-Up</h3>
+                        <p>Полная диагностика за 1 день</p>
+                        <a href="#checkup" class="card-link"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="hero-card">
+                        <div class="card-icon"><i class="fas fa-flask"></i></div>
+                        <h3>Лаборатория</h3>
+                        <p>Точные анализы на месте</p>
+                        <a href="#lab" class="card-link"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="hero-card">
+                        <div class="card-icon"><i class="fas fa-procedures"></i></div>
+                        <h3>Стационар</h3>
+                        <p>Комфортные палаты люкс</p>
+                        <a href="#hospital" class="card-link"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCK 2: Prevention & Philosophy -->
+        <section id="about" style="padding: 6rem 0; background: white;">
+            <div class="container">
+                <div class="bento-grid-futurist" style="grid-template-columns: 1.5fr 1fr;">
+                    <div class="bento-card col-12"
+                        style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+                        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--c-slate);">80% заболеваний
+                            можно предотвратить, <span style="color: var(--c-cyan);">если обнаружить их на ранней
+                                стадии</span></h2>
+                        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Найдём причину ваших симптомов, а не будем
+                            лечить их годами. Персонализированная диагностика и план восстановления за 1 визит.</p>
+
+                        <div
+                            style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                            <div style="background: white; padding: 1.5rem; border-radius: 20px;">
+                                <i class="fas fa-microscope"
+                                    style="color: var(--c-cyan); font-size: 1.5rem; margin-bottom: 1rem;"></i>
+                                <h4 style="margin: 0;">Комплексная диагностика</h4>
+                            </div>
+                            <div style="background: white; padding: 1.5rem; border-radius: 20px;">
+                                <i class="fas fa-dna"
+                                    style="color: var(--c-medical); font-size: 1.5rem; margin-bottom: 1rem;"></i>
+                                <h4 style="margin: 0;">Анализ причин</h4>
+                            </div>
+                            <div style="background: white; padding: 1.5rem; border-radius: 20px;">
+                                <i class="fas fa-file-medical-alt"
+                                    style="color: var(--c-gold); font-size: 1.5rem; margin-bottom: 1rem;"></i>
+                                <h4 style="margin: 0;">План восстановления</h4>
+                            </div>
+                        </div>
+                        <p style="font-weight: 600; color: var(--c-void);">Теперь не нужно ехать в Турцию, чтобы
+                            получить консультацию врача международного уровня.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCK 3: Steps (How it works) -->
+        <section style="padding: 4rem 0;">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-label">Process</span>
+                    <h2>Как проходит приём турецкого врача</h2>
+                </div>
+                <div class="bento-grid-futurist" style="grid-template-columns: repeat(3, 1fr);">
+                    <!-- Step 1 -->
+                    <div class="bento-card" style="position: relative;">
+                        <span
+                            style="font-size: 4rem; position: absolute; top: 1rem; right: 1.5rem; opacity: 0.1; font-weight: 800;">01</span>
+                        <h3 style="margin-top: 2rem;">Консультация специалиста</h3>
+                        <p>Приём ведут врачи с опытом работы в ведущих клиниках Турции.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="bento-card" style="position: relative;">
+                        <span
+                            style="font-size: 4rem; position: absolute; top: 1rem; right: 1.5rem; opacity: 0.1; font-weight: 800;">02</span>
+                        <h3 style="margin-top: 2rem;">Анализ обследований</h3>
+                        <p>Разбор анализов, снимков и истории болезни по международным стандартам.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="bento-card" style="position: relative;">
+                        <span
+                            style="font-size: 4rem; position: absolute; top: 1rem; right: 1.5rem; opacity: 0.1; font-weight: 800;">03</span>
+                        <h3 style="margin-top: 2rem;">Чёткий план действий</h3>
+                        <p>Вы получаете персональный план лечения или рекомендации по дальнейшим шагам.</p>
+                    </div>
+                    <div class="col-12" style="text-align: center; margin-top: 1rem;">
+                        <p style="color: var(--c-medical); font-weight: 600;">Всё — очно в Алматы, без языкового барьера
+                            и перелётов.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCK 4: Why different (Premium Medical Insight) -->
+        <section
+            style="background: radial-gradient(circle at 10% 20%, #0f172a 0%, #020617 100%); color: white; padding: 10rem 0; position: relative; overflow: hidden;">
+            <!-- Atmospheric Glows -->
+            <div
+                style="position: absolute; top: -10%; left: -10%; width: 40%; height: 60%; background: radial-gradient(circle, rgba(34, 211, 238, 0.05) 0%, transparent 70%); filter: blur(60px); pointer-events: none;">
+            </div>
+            <div
+                style="position: absolute; bottom: -10%; right: -10%; width: 40%; height: 60%; background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, transparent 70%); filter: blur(60px); pointer-events: none;">
+            </div>
+
+            <div class="container" style="position: relative; z-index: 2;">
+                <div class="hero-grid" style="align-items: center; gap: 6rem;">
+                    <div>
+                        <span class="section-label"
+                            style="color: var(--c-cyan); opacity: 0.8; margin-bottom: 1.5rem;">Philosophy</span>
+                        <h2
+                            style="font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; margin-bottom: 3rem; font-weight: 800; letter-spacing: -0.04em;">
+                            Почему это другой уровень <br><span
+                                style="opacity: 0.6; font-weight: 400;">консультации</span></h2>
+
+                        <div class="features-list" style="display: grid; gap: 2rem;">
+                            <!-- Item 1 -->
+                            <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                                <div
+                                    style="flex-shrink: 0; width: 42px; height: 42px; background: rgba(34, 211, 238, 0.1); border: 1px solid rgba(34, 211, 238, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--c-cyan);">
+                                    <i class="fas fa-globe-americas"></i>
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 1.1rem; margin-bottom: 0.4rem; font-weight: 700;">
+                                        Международный опыт</h4>
+                                    <p style="opacity: 0.6; font-size: 0.95rem; line-height: 1.4;">Врачи с практикой в
+                                        ведущих клиниках Турции и Европы.</p>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                                <div
+                                    style="flex-shrink: 0; width: 42px; height: 42px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--c-medical);">
+                                    <i class="fas fa-microscope"></i>
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 1.1rem; margin-bottom: 0.4rem; font-weight: 700;">
+                                        Доказательная медицина</h4>
+                                    <p style="opacity: 0.6; font-size: 0.95rem; line-height: 1.4;">Диагностика и лечение
+                                        только на основе подтвержденных данных.</p>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                                <div
+                                    style="flex-shrink: 0; width: 42px; height: 42px; background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--c-gold);">
+                                    <i class="fas fa-file-medical-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 1.1rem; margin-bottom: 0.4rem; font-weight: 700;">Мировые
+                                        протоколы</h4>
+                                    <p style="opacity: 0.6; font-size: 0.95rem; line-height: 1.4;">Используем стандарты
+                                        лечения Турции, Европы и США.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="position: relative;">
+                        <!-- Floating Accent -->
+                        <div
+                            style="position: absolute; inset: -20px; background: linear-gradient(135deg, var(--c-medical), var(--c-cyan)); opacity: 0.1; filter: blur(40px); border-radius: 40px;">
+                        </div>
+
+                        <div
+                            style="position: relative; background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 4rem 3rem; border-radius: 40px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 40px 100px -20px rgba(0,0,0,0.5);">
+                            <div style="width: 50px; height: 2px; background: var(--c-cyan); margin-bottom: 2rem;">
+                            </div>
+                            <h3
+                                style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: -0.02em;">
+                                Это не <br><span style="color: var(--c-cyan);">формальный</span> приём.</h3>
+                            <p style="font-size: 1.2rem; opacity: 0.8; line-height: 1.5; font-weight: 500;">Это
+                                экспертное медицинское решение, которое меняет ход лечения.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCK 5: Specialist Marquee -->
+        <section class="doctor-marquee" id="doctors">
+            <div class="container" style="margin-bottom: 5rem;">
+                <span class="section-label" style="color: rgba(255,255,255,0.4);">Experts</span>
+                <h2 style="color: white;">Ведущие врачи из Турции — теперь в Алматы</h2>
+                <p style="color: rgba(255,255,255,0.7);">Приём ведут специалисты с клиническим опытом работы в сети</p>
+            </div>
+
+            <div class="marquee-content">
+                <!-- Slide 1 -->
+                <div class="doctor-slide">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800"
+                        alt="Doctor 1">
+                    <h3 style="color: white; font-size: 1.5rem; margin-bottom: 0.5rem;">Dr. Ahmet Yilmaz</h3>
+                    <p style="color: var(--c-cyan); font-weight: 700;">Специализация: Онкология</p>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-top: 0.5rem;">Опыт: 15+
+                        лет<br>Клиническая практика: Турция<br>Эксперт по диагностике сложных случаев.</p>
+                </div>
+                <!-- Slide 2 -->
+                <div class="doctor-slide">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71f15360ee?auto=format&fit=crop&q=80&w=800"
+                        alt="Doctor 2">
+                    <h3 style="color: white; font-size: 1.5rem; margin-bottom: 0.5rem;">Dr. Elena Petrova</h3>
+                    <p style="color: var(--c-cyan); font-weight: 700;">Специализация: Кардиология</p>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-top: 0.5rem;">Опыт: 12+
+                        лет<br>Международные протоколы (США)<br>Лечение сложных патологий сердца.</p>
+                </div>
+                <!-- Slide 3 -->
+                <div class="doctor-slide">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800"
+                        alt="Doctor 3">
+                    <h3 style="color: white; font-size: 1.5rem; margin-bottom: 0.5rem;">Dr. Mehmet Oz</h3>
+                    <p style="color: var(--c-cyan); font-weight: 700;">Специализация: Ортопедия</p>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-top: 0.5rem;">Опыт: 20+
+                        лет<br>Хирургия суставов (Турция)<br>Малоинвазивные методики восстановления.</p>
+                </div>
+                <!-- Slide 4 Duplicate for loop -->
+                <div class="doctor-slide">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800"
+                        alt="Doctor 1">
+                    <h3 style="color: white; font-size: 1.5rem; margin-bottom: 0.5rem;">Dr. Ahmet Yilmaz</h3>
+                    <p style="color: var(--c-cyan); font-weight: 700;">Специализация: Онкология</p>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-top: 0.5rem;">Опыт: 15+
+                        лет<br>Клиническая практика: Турция<br>Эксперт по диагностике сложных случаев.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCK 6: Expertise Directions -->
+        <section id="services" style="padding: 6rem 0;">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-label">Medical Areas</span>
+                    <h2>Медицинская экспертиза</h2>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                    <span
+                        style="padding: 1rem 2rem; background: white; border-radius: 50px; box-shadow: var(--sh-lux); font-size: 1.1rem;">Ортопедия</span>
+                    <span
+                        style="padding: 1rem 2rem; background: white; border-radius: 50px; box-shadow: var(--sh-lux); font-size: 1.1rem;">Физиотерапия</span>
+                    <span
+                        style="padding: 1rem 2rem; background: white; border-radius: 50px; box-shadow: var(--sh-lux); font-size: 1.1rem;">Терапевт
+                        / IV-терапия</span>
+                    <span
+                        style="padding: 1rem 2rem; background: white; border-radius: 50px; box-shadow: var(--sh-lux); font-size: 1.1rem;">Чек-ап</span>
+                    <span
+                        style="padding: 1rem 2rem; background: white; border-radius: 50px; box-shadow: var(--sh-lux); font-size: 1.1rem;">Лаборатория</span>
+                    <span
+                        style="padding: 1rem 2rem; background: white; border-radius: 50px; box-shadow: var(--sh-lux); font-size: 1.1rem;">Косметология</span>
+                    <span
+                        style="padding: 1rem 2rem; background: white; border-radius: 50px; box-shadow: var(--sh-lux); font-size: 1.1rem;">Диетология</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCK 7: Contact Section -->
+        <section id="contact" style="background: var(--bg-main);">
+            <div class="container">
+                <div class="bento-card col-12"
+                    style="background: var(--c-slate); color: white; padding: 6rem; text-align: center; display: flex; flex-direction: column; align-items: center;">
+                    <h2 style="color: white; font-size: 3.5rem; margin-bottom: 2rem;">Получите консультацию
+                        <br>международных врачей в Алматы
+                    </h2>
+                    <p style="font-size: 1.2rem; opacity: 0.7; margin-bottom: 3rem; max-width: 600px;">Запишитесь на
+                        приём и получите профессиональное мнение по вашему диагнозу и дальнейшему лечению.</p>
+                    <a href="#" class="btn-futuristic btn-futuristic-primary">
+                        Оставить заявку на консультацию
+                    </a>
+                    <p style="margin-top: 1.5rem; opacity: 0.5; font-size: 0.9rem;">Наш координатор свяжется с вами и
+                        подберёт удобное время приёма.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="image.png" alt="Logo" style="height: 30px; margin-bottom: 2rem;">
+                    <p style="opacity: 0.5; font-size: 0.9rem;">Revolutionary medical standards for the modern era.
+                        Providing Swiss-level care in Almaty.</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1.5rem;">Platform</h4>
+                    <p style="opacity: 0.7; font-size: 0.9rem; margin-bottom: 0.5rem;">Diagnostics</p>
+                    <p style="opacity: 0.7; font-size: 0.9rem; margin-bottom: 0.5rem;">Experts</p>
+                    <p style="opacity: 0.7; font-size: 0.9rem;">Technologies</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1.5rem;">Contact</h4>
+                    <p style="opacity: 0.7; font-size: 0.9rem; margin-bottom: 1.5rem;">Almaty, Dostyk Ave 123</p>
+                    <p style="opacity: 0.7; font-size: 0.9rem;">+7 (727) 123 45 67</p>
+                </div>
+                <div style="text-align: right;">
+                    <p style="opacity: 0.4;">&copy; 2024 ReActive International</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
