@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    @apply bg-slate-50 text-slate-900 selection:bg-[#007f94]/20 selection:text-[#007f94];
+    cursor: auto !important;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    cursor: pointer !important;
+  }
+
+  /* Modern typography scaling */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Roboto', sans-serif;
+    @apply font-bold tracking-tight text-slate-900;
+  }
+
+  h1 {
+    @apply tracking-tighter;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-[1400px] mx-auto px-4 md:px-10 lg:px-16;
+  }
+
+  .section-padding {
+    @apply py-12 lg:py-24;
+  }
+
+  /* Modern Pill Button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-slate-900 text-white font-medium rounded-full transition-all duration-300 hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-slate-900/10;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-medium rounded-full border border-slate-200 transition-all duration-300 hover:bg-slate-50 hover:border-slate-300 active:scale-[0.98];
+  }
+
+  /* Glass Card */
+  .card-glass {
+    @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-sm rounded-3xl;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
