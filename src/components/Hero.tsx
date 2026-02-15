@@ -123,8 +123,8 @@ const Hero = ({ data }: { data: any }) => {
                     {/* Main Headline */}
                     <motion.h1
                         variants={itemVariants}
-                        style={{ fontSize: `clamp(2.15rem, 7vw, ${titleSize}px)` }}
-                        className="font-extrabold text-[#0a1e2b] tracking-tighter leading-[1.05] md:leading-[1.1] mb-6 px-1 whitespace-pre-line"
+                        style={{ fontSize: `clamp(2.15rem, 7vw, ${titleSize}px)`, textWrap: 'balance' }}
+                        className="font-extrabold text-[#0a1e2b] tracking-tighter leading-[1.05] md:leading-[1.1] mb-6 px-1 whitespace-normal md:whitespace-pre-line"
                     >
                         <HighlightedText text={title} />
                     </motion.h1>
@@ -135,8 +135,8 @@ const Hero = ({ data }: { data: any }) => {
                         className="max-w-4xl mx-auto space-y-3 mb-8 md:mb-10 px-0"
                     >
                         <h2
-                            style={{ fontSize: `clamp(0.95rem, 2.5vw, ${subtitleSize}px)` }}
-                            className="font-black text-[#007f94]/70 tracking-tighter leading-tight uppercase whitespace-pre-wrap md:whitespace-nowrap"
+                            style={{ fontSize: `clamp(0.95rem, 2.5vw, ${subtitleSize}px)`, textWrap: 'balance' }}
+                            className="font-black text-[#007f94]/70 tracking-tighter leading-tight uppercase whitespace-normal md:whitespace-nowrap"
                         >
                             <HighlightedText text={subtitle} />
                         </h2>
