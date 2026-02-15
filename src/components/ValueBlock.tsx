@@ -56,7 +56,7 @@ const ValueBlock = ({ data }: { data: any }) => {
                         <div className="space-y-4 max-w-2xl mx-auto">
                             <p
                                 style={{ fontSize: `${descSize + 4}px` }}
-                                className="text-[#007f94] font-bold leading-relaxed whitespace-pre-line"
+                                className="text-[#007f94] font-bold leading-relaxed whitespace-pre-line max-w-[320px] mx-auto md:max-w-none"
                             >
                                 <HighlightedText text={mainText} />
                             </p>

@@ -52,7 +52,10 @@ const WhyDifferent = ({ data }: { data: any }) => {
                         duration={1}
                         className="w-full lg:w-1/2 relative order-1 lg:order-1"
                     >
-                        <div className="relative rounded-2xl md:rounded-[3rem] overflow-hidden aspect-[3/2] md:aspect-[4/5] shadow-xl md:shadow-2xl">
+                        {/* Decorative Offset Border */}
+                        <div className="absolute top-4 left-4 w-full h-full rounded-2xl md:rounded-[3rem] border-2 border-[#007f94]/10 z-0 translate-x-4 translate-y-4" />
+
+                        <div className="relative z-10 rounded-2xl md:rounded-[3rem] overflow-hidden aspect-[3/2] md:aspect-[4/5] shadow-xl md:shadow-2xl">
                             <img
                                 src={image}
                                 className="w-full h-full object-cover object-top md:object-center scale-110"

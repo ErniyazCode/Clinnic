@@ -124,7 +124,7 @@ const Hero = ({ data }: { data: any }) => {
                     <motion.h1
                         variants={itemVariants}
                         style={{ fontSize: `clamp(2rem, 5vw, ${titleSize}px)` }}
-                        className="font-extrabold text-[#0a1e2b] tracking-tighter leading-[1.05] md:leading-[1.1] mb-6 px-1 whitespace-pre-line"
+                        className="font-extrabold text-[#0a1e2b] tracking-tighter leading-[1.05] md:leading-[1.1] mb-6 px-1 whitespace-normal md:whitespace-pre-line"
                     >
                         <HighlightedText text={title} />
                     </motion.h1>

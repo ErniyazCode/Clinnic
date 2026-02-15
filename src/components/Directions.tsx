@@ -145,7 +145,7 @@ const Directions = ({ data }: { data: any }) => {
                     {/* Final CTA Card - Takes full width on mobile or 2 cols on tablet */}
                     <FadeIn
                         delay={0.4}
-                        className="bg-[#0a1e2b] rounded-3xl md:rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between text-white relative overflow-hidden group shadow-2xl h-full sm:col-span-2 md:col-span-1"
+                        className="bg-[#0a1e2b] rounded-3xl md:rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between text-white relative overflow-hidden group shadow-2xl h-full col-span-2 sm:col-span-2 md:col-span-1"
                     >
                         {/* Decorative background circle */}
                         <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#007f94]/20 rounded-full blur-3xl pointer-events-none" />
