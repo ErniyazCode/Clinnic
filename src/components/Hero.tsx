@@ -100,7 +100,7 @@ const Hero = () => {
                     {/* Main Headline */}
                     <motion.h1
                         variants={itemVariants}
-                        className="text-5xl xs:text-6xl md:text-6xl lg:text-[5.5rem] font-extrabold text-[#0a1e2b] tracking-tighter leading-[1.05] md:leading-[1.1] mb-6 px-1"
+                        className="text-4xl xs:text-5xl md:text-6xl lg:text-[5.5rem] font-extrabold text-[#0a1e2b] tracking-tighter leading-[1.05] md:leading-[1.1] mb-6 px-1"
                     >
                         Ведущие врачи <br /> <span className="text-[#007f94]">из Турции теперь</span> <br /> принимают в Алматы
                     </motion.h1>
