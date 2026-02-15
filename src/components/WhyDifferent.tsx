@@ -30,7 +30,7 @@ const WhyDifferent = () => {
     return (
         <section id="why-different" className="py-12 md:py-24 bg-[#f8fafc] overflow-hidden">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="flex flex-col lg:flex-row gap-16 items-center">
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
 
                     {/* Visual Side */}
                     <FadeIn
@@ -76,20 +76,21 @@ const WhyDifferent = () => {
                                 Почему это <br /> <span className="text-[#007f94]">другой уровень</span> консультации
                             </h2>
 
-                            <div className="space-y-4 md:space-y-8 mb-8 md:mb-12">
+                            <div className="space-y-6 md:space-y-8 mb-8 md:mb-12">
                                 {facts.map((fact, i) => (
                                     <FadeIn
                                         key={i}
                                         direction="left"
                                         delay={i * 0.1}
-                                        className="flex gap-3 md:gap-6 group"
+                                        style={{}}
+                                        className="flex gap-4 md:gap-6 group"
                                     >
-                                        <div className="w-8 h-8 md:w-12 md:h-12 shrink-0 rounded-lg md:rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-[#007f94] group-hover:bg-[#007f94] group-hover:text-white transition-all duration-300">
-                                            <fact.icon size={16} className="md:w-6 md:h-6" strokeWidth={1.5} />
+                                        <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-lg md:rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-[#007f94] group-hover:bg-[#007f94] group-hover:text-white transition-all duration-300">
+                                            <fact.icon size={20} className="md:w-6 md:h-6" strokeWidth={1.5} />
                                         </div>
                                         <div>
-                                            <h3 className="text-xs md:text-lg font-bold text-slate-900 mb-0.5 md:mb-1 group-hover:text-[#007f94] transition-colors uppercase tracking-tight">{fact.text}</h3>
-                                            <p className="text-slate-500 text-[10px] md:text-sm leading-snug md:leading-relaxed max-w-md">{fact.desc}</p>
+                                            <h3 className="text-sm md:text-lg font-bold text-slate-900 mb-1 md:mb-1 group-hover:text-[#007f94] transition-colors uppercase tracking-tight">{fact.text}</h3>
+                                            <p className="text-slate-500 text-xs md:text-sm leading-relaxed max-w-md">{fact.desc}</p>
                                         </div>
                                     </FadeIn>
                                 ))}
@@ -103,13 +104,13 @@ const WhyDifferent = () => {
                                 <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6">
                                     <div>
                                         <p className="text-[#007f94]/70 font-bold text-[10px] md:text-sm uppercase tracking-widest mb-1 md:mb-2">Вердикт эксперта</p>
-                                        <h4 className="text-white text-base md:text-2xl font-bold leading-tight">
+                                        <h4 className="text-white text-lg md:text-2xl font-bold leading-tight">
                                             Это не формальный приём. <br />
-                                            Это экспертное медицинское решение.
+                                            Это экспертное решение.
                                         </h4>
                                     </div>
                                     <Magnetic>
-                                        <a href="#contact" className="px-6 md:px-8 py-3 md:py-4 text-center bg-[#007f94] text-white font-bold text-sm md:text-base rounded-xl md:rounded-2xl hover:opacity-90 transition-all shadow-xl shadow-[#007f94]/20 whitespace-nowrap">
+                                        <a href="#contact" className="px-6 md:px-8 py-3 md:py-4 text-center bg-[#007f94] text-white font-bold text-sm md:text-base rounded-xl md:rounded-2xl hover:opacity-90 transition-all shadow-xl shadow-[#007f94]/20 whitespace-nowrap w-full md:w-auto">
                                             Записаться
                                         </a>
                                     </Magnetic>

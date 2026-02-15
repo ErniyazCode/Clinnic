@@ -48,27 +48,28 @@ const ValueBlock = () => {
                             <p className="text-sm md:text-2xl text-slate-800 font-bold leading-relaxed mb-1 md:mb-2">
                                 Найдём причину ваших симптомов, а не будем лечить их годами
                             </p>
-                            <p className="text-[11px] md:text-lg text-slate-500 max-w-2xl mx-auto opacity-70">
+                            <p className="text-xs md:text-lg text-slate-500 max-w-2xl mx-auto opacity-70">
                                 Персонализированная диагностика и план восстановления за 1 визит
                             </p>
                         </div>
                     </FadeIn>
                 </div>
 
-                {/* Methods Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8 mb-12 md:mb-20">
+                {/* Methods Grid - Optimized for Mobile */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-12 md:mb-20">
                     {methods.map((method, i) => (
                         <FadeIn
                             key={i}
                             delay={i * 0.1}
                             duration={0.5}
-                            className={`bg-white p-4 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-[#007f94]/5 transition-all duration-500 ${i === 2 ? 'col-span-2 md:col-span-1' : ''}`}
+                            style={{}}
+                            className={`bg-white p-6 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-[#007f94]/5 transition-[box-shadow,border-color] duration-500`}
                         >
-                            <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-[#007f94]/5 flex items-center justify-center text-[#007f94] mb-4 md:mb-8">
+                            <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-[#007f94]/5 flex items-center justify-center text-[#007f94] mb-4 md:mb-8">
                                 <method.icon size={24} className="md:w-8 md:h-8" strokeWidth={1.5} />
                             </div>
-                            <h3 className="text-sm md:text-2xl font-bold text-slate-900 mb-1 md:mb-4">{method.title}</h3>
-                            <p className="text-slate-500 text-xs md:text-base font-medium leading-snug md:leading-relaxed">{method.desc}</p>
+                            <h3 className="text-lg md:text-2xl font-bold text-slate-900 mb-2 md:mb-4">{method.title}</h3>
+                            <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed">{method.desc}</p>
                         </FadeIn>
                     ))}
                 </div>
@@ -76,8 +77,8 @@ const ValueBlock = () => {
                 {/* Footer Note */}
                 <div className="flex justify-center">
                     <FadeIn delay={0.2} duration={0.6}>
-                        <div className="bg-[#0a1e2b] text-white px-5 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl shadow-xl shadow-slate-900/20 max-w-[90%] md:max-w-2xl text-center">
-                            <p className="text-[11px] md:text-lg font-medium leading-tight md:leading-normal">
+                        <div className="bg-[#0a1e2b] text-white px-5 py-4 md:px-8 md:py-4 rounded-xl md:rounded-2xl shadow-xl shadow-slate-900/20 max-w-[95%] md:max-w-2xl text-center">
+                            <p className="text-xs md:text-lg font-medium leading-normal">
                                 Теперь не нужно ехать в Турцию, чтобы получить консультацию врача международного уровня.
                             </p>
                         </div>

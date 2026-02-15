@@ -40,7 +40,7 @@ const ProcessBlock = () => {
                     <div className="max-w-2xl text-center md:text-left">
                         <FadeIn direction="right" duration={0.6}>
                             <div className="flex items-center justify-center md:justify-start gap-2 mb-2 md:mb-6">
-                                <span className="w-6 md:w-12 h-[2px] bg-[#007f94]" />
+                                <span className="w-8 h-[2px] bg-[#007f94]" />
                                 <span className="text-[#007f94] font-bold uppercase tracking-widest text-xs md:text-sm">Ваш путь к здоровью</span>
                             </div>
                             <h2 className="text-3xl md:text-5xl font-bold text-[#0a1e2b] leading-tight tracking-tight">
@@ -52,28 +52,29 @@ const ProcessBlock = () => {
                 </div>
 
                 {/* Steps Grid */}
-                <div className="grid lg:grid-cols-3 gap-4 lg:gap-10 mb-12 md:mb-28">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10 mb-12 md:mb-28">
                     {steps.map((step, i) => (
                         <FadeIn
                             key={i}
                             delay={i * 0.15}
                             duration={0.6}
-                            className="group relative bg-white rounded-2xl md:rounded-[3rem] p-5 md:p-10 shadow-sm border border-slate-100 hover:border-[#007f94]/30 hover:shadow-2xl hover:shadow-[#007f94]/5 transition-all duration-500"
+                            style={{}}
+                            className="group relative bg-white rounded-2xl md:rounded-[3rem] p-6 md:p-10 shadow-sm border border-slate-100 hover:border-[#007f94]/30 hover:shadow-2xl hover:shadow-[#007f94]/5 transition-[box-shadow,border-color,background-color] duration-500"
                         >
                             {/* Step Number Overlay */}
-                            <span className="absolute top-4 right-6 md:top-8 md:right-10 text-4xl md:text-8xl font-black text-slate-50 group-hover:text-[#007f94]/5 transition-colors duration-500 pointer-events-none">
+                            <span className="absolute top-4 right-6 md:top-8 md:right-10 text-5xl md:text-8xl font-black text-slate-50 group-hover:text-[#007f94]/5 transition-colors duration-500 pointer-events-none">
                                 {step.num}
                             </span>
 
-                            <div className={`w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl ${step.color} flex items-center justify-center mb-4 md:mb-10 group-hover:scale-110 transition-transform duration-500 relative z-10`}>
-                                <step.icon size={20} className="md:w-[30px] md:h-[30px]" strokeWidth={1.5} />
+                            <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl ${step.color} flex items-center justify-center mb-4 md:mb-10 group-hover:scale-110 transition-transform duration-500 relative z-10`}>
+                                <step.icon size={24} className="md:w-[30px] md:h-[30px]" strokeWidth={1.5} />
                             </div>
 
                             <div className="relative z-10">
-                                <h3 className="text-base md:text-2xl font-black text-[#0a1e2b] mb-1.5 md:mb-4 group-hover:text-[#007f94] transition-colors">
+                                <h3 className="text-xl md:text-2xl font-black text-[#0a1e2b] mb-2 md:mb-4 group-hover:text-[#007f94] transition-colors">
                                     {step.title}
                                 </h3>
-                                <p className="text-slate-500 text-xs md:text-lg leading-snug md:leading-relaxed font-medium">
+                                <p className="text-slate-500 text-sm md:text-lg leading-relaxed font-medium">
                                     {step.desc}
                                 </p>
                             </div>
@@ -89,7 +90,7 @@ const ProcessBlock = () => {
                     direction="up"
                     delay={0.2}
                     duration={0.7}
-                    className="relative bg-[#0a1e2b] rounded-2xl md:rounded-[4rem] overflow-hidden p-6 md:p-10 lg:p-20 group"
+                    className="relative bg-[#0a1e2b] rounded-2xl md:rounded-[4rem] overflow-hidden p-8 md:p-10 lg:p-20 group"
                 >
                     {/* Abstract background graphics */}
                     <div className="absolute top-0 right-0 w-full h-full">
@@ -97,13 +98,13 @@ const ProcessBlock = () => {
                         <div className="absolute bottom-[-20%] left-[-10%] w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-blue-500/10 rounded-full blur-[50px] md:blur-[100px]" />
                     </div>
 
-                    <div className="relative z-10 grid lg:grid-cols-2 gap-6 md:gap-8 items-center">
+                    <div className="relative z-10 grid lg:grid-cols-2 gap-8 md:gap-8 items-center">
                         <div className="text-center lg:text-left">
-                            <h3 className="text-xl md:text-5xl font-black text-white mb-3 md:mb-6 leading-tight tracking-tighter">
+                            <h3 className="text-2xl md:text-5xl font-black text-white mb-4 md:mb-6 leading-tight tracking-tighter">
                                 Получите второе мнение <br />
                                 <span className="text-[#007f94]">бесценного уровня</span>
                             </h3>
-                            <p className="text-slate-400 text-xs md:text-lg mb-6 md:mb-8 max-w-md mx-auto lg:mx-0">
+                            <p className="text-slate-400 text-sm md:text-lg mb-8 md:mb-8 max-w-md mx-auto lg:mx-0 leading-relaxed">
                                 Запишитесь на консультацию сегодня и получите персональный план лечения в течение 24 часов.
                             </p>
 
@@ -113,9 +114,9 @@ const ProcessBlock = () => {
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                         href="#contact"
-                                        className="inline-flex items-center gap-2 md:gap-3 px-6 md:px-10 py-3 md:py-5 bg-[#007f94] text-white font-bold text-xs md:text-lg rounded-full shadow-2xl shadow-[#007f94]/30 hover:opacity-90 transition-all"
+                                        className="inline-flex items-center gap-2 md:gap-3 px-8 md:px-10 py-4 md:py-5 bg-[#007f94] text-white font-bold text-sm md:text-lg rounded-full shadow-2xl shadow-[#007f94]/30 hover:opacity-90 transition-all w-full md:w-auto justify-center"
                                     >
-                                        Записаться сейчас <ArrowRight size={16} className="md:w-5 md:h-5" />
+                                        Записаться сейчас <ArrowRight size={18} className="md:w-5 md:h-5" />
                                     </motion.a>
                                 </Magnetic>
                             </div>
@@ -159,4 +160,3 @@ const ProcessBlock = () => {
 };
 
 export default ProcessBlock;
-

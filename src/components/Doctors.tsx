@@ -36,7 +36,7 @@ const Doctors = () => {
         <section id="doctors" className="section-padding bg-slate-50 overflow-hidden relative">
             <div className="section-container relative z-10">
                 {/* APEX: Centered Header */}
-                <div className="text-center max-w-4xl mx-auto mb-20">
+                <div className="text-center max-w-4xl mx-auto mb-10 md:mb-20">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -44,32 +44,34 @@ const Doctors = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <span className="text-[#007f94] font-bold uppercase tracking-widest text-xs md:text-sm mb-4 block">Команда</span>
-                        <h2 className="text-3xl md:text-5xl font-bold text-[#0a1e2b] mb-6 leading-tight">
+                        <h2 className="text-3xl md:text-5xl font-bold text-[#0a1e2b] mb-4 md:mb-6 leading-tight">
                             Ведущие врачи из Турции <br /> <span className="text-[#007f94]">теперь в Алматы.</span>
                         </h2>
-                        <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed px-4">
+                        <p className="text-sm md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed px-4">
                             Приём ведут специалисты с клиническим опытом работы в лучших госпиталях Стамбула.
                         </p>
                     </motion.div>
                 </div>
 
-                {/* BASE: Doctors Grid */}
-                <div className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 mb-16 overflow-x-auto md:overflow-x-visible pb-8 md:pb-0 scrollbar-hide px-4 -mx-4 md:px-0 md:mx-0 snap-x snap-mandatory">
+                {/* BASE: Doctors Grid - Vertical on Mobile, Grid on Desktop */}
+                <div className="flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-8 mb-12 md:mb-16">
                     {doctors.map((doc, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: i * 0.2 }}
-                            className="group flex flex-col items-center text-center min-w-[280px] md:min-w-0 snap-center"
+                            initial={{ opacity: 0, y: 30, translateZ: 0 }}
+                            whileInView={{ opacity: 1, y: 0, translateZ: 0 }}
+                            viewport={{ once: true, margin: "-20px" }}
+                            transition={{ duration: 0.6, delay: i * 0.15, ease: [0.21, 1, 0.36, 1] as any }}
+                            style={{ willChange: "transform, opacity", opacity: 0 }}
+                            className="group flex flex-col items-center text-center w-full"
                         >
                             {/* Image Container - Large & Rounded like PDF */}
-                            <div className="w-full aspect-[3/4] mb-6 md:mb-8 overflow-hidden rounded-3xl md:rounded-[2.5rem] bg-slate-200 relative shadow-md group-hover:shadow-2xl transition-all duration-500">
+                            <div className="w-full aspect-[4/5] md:aspect-[3/4] mb-6 md:mb-8 overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-slate-200 relative shadow-md group-hover:shadow-2xl transition-all duration-500">
                                 <img
                                     src={doc.image}
                                     alt={doc.name}
-                                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                                    onError={(e) => e.currentTarget.src = 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800'}
                                 />
 
                                 {/* Hover Overlay */}
@@ -80,23 +82,23 @@ const Doctors = () => {
                                 </div>
                             </div>
 
-                            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-1 md:mb-2">{doc.name}</h3>
-                            <p className="text-[#007f94] text-sm md:text-base font-medium mb-3 md:mb-4">{doc.role}</p>
+                            <h3 className="text-2xl md:text-2xl font-bold text-slate-900 mb-1 md:mb-2">{doc.name}</h3>
+                            <p className="text-[#007f94] text-base md:text-base font-medium mb-3 md:mb-4">{doc.role}</p>
 
-                            <div className="flex items-center justify-center gap-2 text-xs md:text-sm text-slate-400 mb-4 md:mb-6">
-                                <MapPin size={12} className="md:w-[14px] md:h-[14px]" />
+                            <div className="flex items-center justify-center gap-2 text-sm md:text-sm text-slate-400 mb-4 md:mb-6">
+                                <MapPin size={14} className="md:w-[14px] md:h-[14px]" />
                                 <span>{doc.practice}</span>
                             </div>
 
-                            <a href="#contact" className="inline-flex items-center gap-2 text-sm md:text-base text-slate-900 font-bold border-b border-slate-200 pb-0.5 hover:border-[#007f94] hover:text-[#007f94] transition-colors">
-                                Записаться <ArrowUpRight size={16} />
+                            <a href="#contact" className="inline-flex items-center gap-2 text-base md:text-base text-slate-900 font-bold border-b border-slate-200 pb-0.5 hover:border-[#007f94] hover:text-[#007f94] transition-colors">
+                                Записаться <ArrowUpRight size={18} />
                             </a>
                         </motion.div>
                     ))}
                 </div>
 
                 <div className="text-center">
-                    <a href="#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 font-bold rounded-full border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all">
+                    <a href="#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 font-bold rounded-full border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all w-full md:w-auto justify-center">
                         Посмотреть всех врачей <ArrowUpRight size={18} />
                     </a>
                 </div>
