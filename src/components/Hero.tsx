@@ -48,7 +48,7 @@ const Hero = () => {
     return (
         <section
             ref={containerRef}
-            className="relative min-h-screen flex items-center justify-center bg-white pt-28 md:pt-32 pb-12 overflow-hidden"
+            className="relative min-h-screen flex items-center justify-center bg-white pt-24 pb-12 overflow-hidden"
         >
             {/* 1. LAYERED BACKGROUND */}
             <div className="absolute inset-0 z-0 pointer-events-none">
@@ -102,7 +102,7 @@ const Hero = () => {
                         variants={itemVariants}
                         className="text-4xl xs:text-5xl md:text-6xl lg:text-[5.5rem] font-extrabold text-[#0a1e2b] tracking-tighter leading-[1.1] md:leading-[1.1] mb-6 px-1"
                     >
-                        Ведущие врачи <br className="hidden md:block" /> <span className="text-[#007f94]">из Турции теперь</span> <br className="hidden md:block" /> принимают в Алматы
+                        Ведущие врачи <br /> <span className="text-[#007f94]">из Турции теперь</span> <br /> принимают в Алматы
                     </motion.h1>
 
                     {/* Detailed Subtext */}
@@ -111,7 +111,7 @@ const Hero = () => {
                         className="max-w-4xl mx-auto space-y-3 mb-8 md:mb-10 px-0"
                     >
                         <h2 className="text-sm xs:text-base md:text-3xl font-black text-[#007f94]/70 tracking-tighter leading-tight uppercase whitespace-pre-wrap md:whitespace-nowrap">
-                            Узнайте риски до того, <span className="text-[#007f94]">как они станут диагнозами</span>
+                            Узнайте риски до того, <br className="hidden md:block" /> <span className="text-[#007f94]">как они станут диагнозами</span>
                         </h2>
 
                         <p className="text-xs md:text-lg text-slate-500 font-medium max-w-[320px] md:max-w-2xl mx-auto leading-relaxed opacity-80">
@@ -119,8 +119,6 @@ const Hero = () => {
                         </p>
                     </motion.div>
 
-                    {/* Main CTA Section */}
-                    {/* Main CTA Section */}
                     {/* Main CTA Section */}
                     <motion.div
                         variants={itemVariants}
@@ -148,12 +146,11 @@ const Hero = () => {
                         </Magnetic>
                     </motion.div>
 
-                    {/* Benefit Bar */}
+                    {/* Benefit Bar - Unified for Mobile/Desktop */}
                     <div className="w-full border-t border-slate-100 pt-6 md:pt-8 mb-12 px-2 md:px-0">
-                        {/* Desktop: All in one row */}
                         <motion.div
                             variants={itemVariants}
-                            className="hidden md:flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
+                            className="flex flex-wrap items-center justify-center gap-x-4 md:gap-x-8 gap-y-3"
                         >
                             {[
                                 { icon: ShieldCheck, text: "Протоколы JCI" },
@@ -162,32 +159,11 @@ const Hero = () => {
                                 { icon: Users, text: "Персональный менеджер" },
                                 { icon: Sparkles, text: "Всё за 1 визит" }
                             ].map((item, i) => (
-                                <span key={i} className="flex items-center gap-2 whitespace-nowrap text-[#007f94] font-bold tracking-tight text-sm">
-                                    <item.icon size={14} className="text-[#007f94] shrink-0" />
+                                <span key={i} className="flex items-center gap-1.5 md:gap-2 whitespace-nowrap text-[#007f94] font-bold tracking-tight text-[10px] md:text-sm bg-slate-50 md:bg-transparent px-2 md:px-0 py-1 md:py-0 rounded-md md:rounded-none">
+                                    <item.icon size={12} className="text-[#007f94] shrink-0 md:w-[14px] md:h-[14px]" />
                                     {item.text}
                                 </span>
                             ))}
-                        </motion.div>
-
-                        {/* Mobile: 3 top, 2 bottom */}
-                        <motion.div
-                            variants={itemVariants}
-                            className="flex md:hidden flex-col gap-y-4"
-                        >
-                            <div className="flex justify-center flex-wrap gap-x-4 gap-y-2">
-                                {[
-                                    { icon: ShieldCheck, text: "Протоколы JCI" },
-                                    { icon: Search, text: "Чекап: 80" },
-                                    { icon: Clock, text: "Без очередей" },
-                                    { icon: Users, text: "Персональный менеджер" },
-                                    { icon: Sparkles, text: "Всё за 1 визит" }
-                                ].map((item, i) => (
-                                    <span key={i} className="flex items-center gap-1.5 whitespace-nowrap text-[#007f94] font-bold tracking-tight text-[10px] bg-slate-50 px-2 py-1 rounded-md">
-                                        <item.icon size={12} className="text-[#007f94] shrink-0" />
-                                        {item.text}
-                                    </span>
-                                ))}
-                            </div>
                         </motion.div>
                     </div>
 
@@ -196,7 +172,7 @@ const Hero = () => {
                         <motion.div
                             style={{ scale }}
                             variants={portalVariants}
-                            className="aspect-[4/3] sm:aspect-[21/9] rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-2xl relative"
+                            className="aspect-[21/9] rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-2xl relative"
                         >
                             <motion.img
                                 style={{ scale: imageScale }}
@@ -207,65 +183,54 @@ const Hero = () => {
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent" />
                         </motion.div>
 
-                        {/* Floating Action Cards - Integrated closer to content on mobile */}
+                        {/* Floating Action Cards */}
                         {/* Card 1: Dr. Mustafa Demir */}
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 1, duration: 1 }}
-                            className="absolute left-4 right-auto sm:-left-6 lg:-left-12 bottom-4 sm:top-[20%] z-20"
+                            className="absolute -left-2 sm:-left-6 lg:-left-12 top-[10%] sm:top-1/4 z-20"
                         >
                             <motion.div
                                 animate={{ y: [0, -5, 0] }}
                                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                                className="bg-white/95 backdrop-blur-xl p-3 sm:p-6 rounded-2xl sm:rounded-[2.5rem] shadow-xl border border-white/50 w-auto sm:max-w-[260px] text-left flex items-center sm:block gap-3"
+                                className="bg-white/95 backdrop-blur-xl p-3 sm:p-6 rounded-2xl sm:rounded-[2.5rem] shadow-xl border border-white/50 max-w-[160px] sm:max-w-[260px] text-left"
                             >
-                                <div className="flex items-center gap-2 sm:gap-4 mb-0 sm:mb-4">
-                                    <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#007f94] overflow-hidden shadow-lg shrink-0">
+                                <div className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4">
+                                    <div className="w-8 h-8 sm:w-14 sm:h-14 rounded-full border-2 border-[#007f94] overflow-hidden shadow-lg shrink-0">
                                         <img src="/doctor.png" className="w-full h-auto" alt="Doctor" onError={(e) => e.currentTarget.src = 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=200'} />
                                     </div>
-                                    <div className="block sm:hidden">
-                                        <p className="text-xs font-bold text-slate-900 leading-tight">Д-р Мустафа Демир</p>
-                                        <p className="text-[9px] text-[#007f94] font-bold uppercase mt-0.5">Acıbadem Surgeon</p>
+                                    <div>
+                                        <p className="text-[10px] sm:text-sm font-bold text-slate-900 leading-tight">Д-р Мустафа Демир</p>
+                                        <p className="text-[7px] sm:text-[9px] text-[#007f94] font-bold uppercase mt-0.5 sm:mt-1">Acıbadem Surgeon</p>
                                     </div>
                                 </div>
-                                <div className="hidden sm:block">
-                                    <div className="flex items-center gap-2 sm:gap-4 mb-2">
-                                        <div>
-                                            <p className="text-[10px] sm:text-sm font-bold text-slate-900 leading-tight">Д-р Мустафа Демир</p>
-                                            <p className="text-[7px] sm:text-[9px] text-[#007f94] font-bold uppercase mt-0.5 sm:mt-1">Acıbadem Surgeon</p>
-                                        </div>
-                                    </div>
-                                    <p className="text-[8px] sm:text-[11px] text-slate-500 font-medium leading-tight sm:leading-relaxed">Действующий профессор медицинских наук из Стамбула.</p>
-                                </div>
+                                <p className="text-[8px] sm:text-[11px] text-slate-500 font-medium leading-tight sm:leading-relaxed">Действующий профессор медицинских наук из Стамбула.</p>
                             </motion.div>
                         </motion.div>
 
                         {/* Card 2: Expertise Badge */}
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 1.2, duration: 1 }}
-                            className="absolute right-4 left-auto sm:-right-6 lg:-right-12 top-4 sm:bottom-[20%] z-20 sm:top-auto"
+                            className="absolute -right-2 sm:-right-6 lg:-right-12 bottom-[10%] sm:bottom-1/4 z-20"
                         >
                             <motion.div
                                 animate={{ y: [0, 5, 0] }}
                                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                                className="bg-[#007f94]/90 backdrop-blur-xl p-2 sm:p-6 rounded-xl sm:rounded-[2.5rem] shadow-xl border border-white/20 w-auto sm:max-w-[240px] text-left text-white"
+                                className="bg-[#007f94]/90 backdrop-blur-xl p-3 sm:p-6 rounded-2xl sm:rounded-[2.5rem] shadow-xl border border-white/20 max-w-[140px] sm:max-w-[240px] text-left text-white"
                             >
-                                <div className="flex items-center gap-2 sm:gap-3 mb-0 sm:mb-4">
+                                <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
                                     <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-white/20 flex items-center justify-center shrink-0">
                                         <ShieldCheck size={16} className="sm:w-6 sm:h-6" />
                                     </div>
-                                    <div className="sm:block hidden">
+                                    <div>
                                         <p className="text-[10px] sm:text-sm font-bold leading-tight">Expert Opinion</p>
                                         <p className="text-[7px] sm:text-[9px] text-white/70 font-bold uppercase">International Status</p>
                                     </div>
-                                    <div className="sm:hidden block">
-                                        <p className="text-[9px] font-bold leading-tight">Expert Opinion</p>
-                                    </div>
                                 </div>
-                                <p className="text-[8px] sm:text-[11px] text-white/80 font-medium leading-tight sm:leading-relaxed hidden sm:block">Второе мнение от ведущих специалистов мира.</p>
+                                <p className="text-[8px] sm:text-[11px] text-white/80 font-medium leading-tight sm:leading-relaxed">Второе мнение от ведущих специалистов мира.</p>
                             </motion.div>
                         </motion.div>
                     </div>
