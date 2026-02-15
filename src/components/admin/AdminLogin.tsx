@@ -68,12 +68,7 @@ const AdminLogin = () => {
         e.preventDefault();
         if (code === generatedCode) {
             localStorage.setItem('admin_session', 'true');
-
-            // Hardcoding the token but slightly splitting it to avoid simple GitHub scanners
-            const token = 'ghp' + '_U0FSDfkK8mCUJIEp3675fSGksBn42l2nOtki';
-            localStorage.setItem('github_token', token);
-
-            // Redirect to home
+            // GitHub token is now handled via VITE_GITHUB_TOKEN in Vercel
             window.location.href = '/';
         } else {
             setError('Неверный код подтверждения');

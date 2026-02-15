@@ -182,8 +182,8 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
     const handleSave = async () => {
         setIsDeploying(true);
         try {
-            const GITHUB_TOKEN = localStorage.getItem('github_token');
-            if (!GITHUB_TOKEN) throw new Error("GitHub Token не найден. Пожалуйста, войдите заново или настройте токен.");
+            const GITHUB_TOKEN = (import.meta as any).env.VITE_GITHUB_TOKEN;
+            if (!GITHUB_TOKEN) throw new Error("GitHub Token не найден в VITE_GITHUB_TOKEN. Настройте его в Vercel.");
             const OWNER = 'tammat11';
             const REPO = 'clinnic';
             const PATH = 'src/data/content.json';
