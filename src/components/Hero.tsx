@@ -271,13 +271,15 @@ const Hero = ({ data }: { data: any }) => {
                         )}
 
                         {/* Mobile Doctors (Grid below image) */}
-                        <div className="md:hidden mt-6 grid grid-cols-2 gap-4">
+                        <div className="md:hidden mt-6 grid grid-cols-2 gap-3 sm:gap-4">
                             {[doctorLeft, doctorRight].filter(Boolean).map((doc, idx) => (
-                                <div key={idx} className="bg-slate-50 border border-slate-100 p-3 rounded-2xl flex items-center gap-3">
-                                    <img src={doc.image} className="w-12 h-12 rounded-full object-cover" alt={doc.name} />
-                                    <div className="text-left">
+                                <div key={idx} className="bg-white/80 backdrop-blur-md border border-white/60 p-3 rounded-[1.5rem] shadow-lg shadow-slate-200/50 flex flex-col items-center text-center gap-2">
+                                    <div className="w-12 h-12 rounded-2xl overflow-hidden shadow-sm">
+                                        <img src={doc.image} className="w-full h-full object-cover" alt={doc.name} />
+                                    </div>
+                                    <div>
                                         <p className="text-xs font-bold text-slate-900 leading-tight">{doc.name}</p>
-                                        <p className="text-[9px] text-[#007f94] font-black uppercase tracking-wider mt-0.5 opacity-80 leading-none">{doc.role}</p>
+                                        <p className="text-[8px] text-[#007f94] font-black uppercase tracking-wider mt-0.5 opacity-80 leading-none">{doc.role}</p>
                                     </div>
                                 </div>
                             ))}
@@ -288,11 +290,11 @@ const Hero = ({ data }: { data: any }) => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.4, duration: 0.8 }}
-                            className="absolute left-1/2 -translate-x-1/2 -bottom-6 z-30 flex gap-2 md:gap-4 w-max"
+                            className="absolute left-1/2 -translate-x-1/2 -bottom-6 z-30 flex gap-2 md:gap-4 w-auto max-w-[90vw]"
                         >
-                            <div className="bg-[#0a1e2b] text-white px-4 md:px-8 py-3 md:py-4 rounded-full shadow-2xl flex items-center gap-3 border border-white/10 backdrop-blur-md">
-                                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                                <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] whitespace-nowrap">Международные врачи на связи</span>
+                            <div className="bg-[#0a1e2b] text-white px-5 py-3 md:px-8 md:py-4 rounded-full shadow-2xl flex items-center justify-center gap-3 border border-white/10 backdrop-blur-md w-full">
+                                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                                <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest md:tracking-[0.2em] whitespace-normal text-center leading-tight">Международные врачи на связи</span>
                             </div>
                         </motion.div>
                     </div>
