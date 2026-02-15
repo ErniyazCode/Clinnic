@@ -32,10 +32,11 @@ const Hero = () => {
         right: { x: -20, y: 0 }
     };
     const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: 20, translateZ: 0 },
         visible: {
             opacity: 1,
             y: 0,
+            translateZ: 0,
             transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as any }
         }
     };
