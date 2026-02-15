@@ -48,7 +48,7 @@ const Hero = () => {
     return (
         <section
             ref={containerRef}
-            className="relative min-h-screen flex items-center justify-center bg-white pt-32 md:pt-24 pb-12 overflow-hidden"
+            className="relative min-h-screen flex items-center justify-center bg-white pt-28 md:pt-32 pb-12 overflow-hidden"
         >
             {/* 1. LAYERED BACKGROUND */}
             <div className="absolute inset-0 z-0 pointer-events-none">
@@ -57,7 +57,7 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 2, ease: "easeOut" }}
-                    className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#007f94]/5 rounded-full blur-[140px]"
+                    className="absolute top-1/4 left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#007f94]/5 rounded-full blur-[80px] md:blur-[140px]"
                 />
             </div>
 
@@ -72,7 +72,7 @@ const Hero = () => {
                     {/* Badge */}
                     <motion.div
                         variants={itemVariants}
-                        className="inline-flex items-center gap-3 mb-6 md:mb-10 px-4 py-1.5 bg-slate-50 border border-slate-100 rounded-full"
+                        className="inline-flex items-center gap-3 mb-6 md:mb-10 px-3 py-1.5 md:px-4 bg-slate-50 border border-slate-100 rounded-full"
                     >
                         <div className="flex items-center gap-1.5">
                             <div className="w-4 h-4 rounded-full overflow-hidden border border-slate-200 flex items-center justify-center bg-white">
@@ -100,9 +100,9 @@ const Hero = () => {
                     {/* Main Headline */}
                     <motion.h1
                         variants={itemVariants}
-                        className="text-[3rem] xs:text-[3.6rem] sm:text-5xl md:text-6xl lg:text-[5.5rem] font-extrabold text-[#0a1e2b] tracking-tighter leading-[0.9] md:leading-[1.1] mb-6 px-1"
+                        className="text-4xl xs:text-5xl md:text-6xl lg:text-[5.5rem] font-extrabold text-[#0a1e2b] tracking-tighter leading-[1.1] md:leading-[1.1] mb-6 px-1"
                     >
-                        Ведущие врачи <br /> <span className="text-[#007f94]">из Турции теперь</span> <br /> принимают в Алматы
+                        Ведущие врачи <br className="hidden md:block" /> <span className="text-[#007f94]">из Турции теперь</span> <br className="hidden md:block" /> принимают в Алматы
                     </motion.h1>
 
                     {/* Detailed Subtext */}
@@ -110,29 +110,30 @@ const Hero = () => {
                         variants={itemVariants}
                         className="max-w-4xl mx-auto space-y-3 mb-8 md:mb-10 px-0"
                     >
-                        <h2 className="text-[14px] xs:text-[14px] md:text-3xl font-black text-[#007f94]/70 tracking-tighter leading-tight uppercase whitespace-nowrap">
+                        <h2 className="text-sm xs:text-base md:text-3xl font-black text-[#007f94]/70 tracking-tighter leading-tight uppercase whitespace-pre-wrap md:whitespace-nowrap">
                             Узнайте риски до того, <span className="text-[#007f94]">как они станут диагнозами</span>
                         </h2>
 
-                        <p className="text-[11px] md:text-lg text-slate-500 font-medium max-w-[320px] md:max-w-2xl mx-auto leading-relaxed opacity-80">
+                        <p className="text-xs md:text-lg text-slate-500 font-medium max-w-[320px] md:max-w-2xl mx-auto leading-relaxed opacity-80">
                             Консультации, диагностика и планы медицинской реабилитации <br className="hidden xs:block md:hidden" /> экспертного уровня без выезда за границу.
                         </p>
                     </motion.div>
 
                     {/* Main CTA Section */}
                     {/* Main CTA Section */}
+                    {/* Main CTA Section */}
                     <motion.div
                         variants={itemVariants}
-                        className="flex flex-row items-center justify-center gap-4 mb-10 w-full mx-auto px-4"
+                        className="flex flex-row items-center justify-center gap-3 sm:gap-4 mb-10 w-full mx-auto px-4"
                     >
                         <Magnetic>
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 href="#contact"
-                                className="flex-1 sm:flex-none px-6 sm:px-10 md:px-12 py-5 bg-[#007f94] text-white font-bold rounded-2xl shadow-xl shadow-[#007f94]/20 flex items-center justify-center gap-3 text-sm sm:text-base md:text-xl whitespace-nowrap"
+                                className="flex-1 sm:flex-none px-4 md:px-12 py-4 md:py-5 bg-[#007f94] text-white font-bold rounded-2xl shadow-xl shadow-[#007f94]/20 flex items-center justify-center gap-2 md:gap-3 text-sm md:text-xl whitespace-nowrap"
                             >
-                                Записаться <ArrowUpRight size={20} className="shrink-0" />
+                                Записаться <ArrowUpRight size={18} className="shrink-0 md:w-5 md:h-5" />
                             </motion.a>
                         </Magnetic>
                         <Magnetic>
@@ -140,7 +141,7 @@ const Hero = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 href="#cost"
-                                className="flex-1 sm:flex-none px-6 sm:px-10 md:px-12 py-5 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition-all text-sm sm:text-base md:text-xl flex justify-center whitespace-nowrap"
+                                className="flex-1 sm:flex-none px-4 md:px-12 py-4 md:py-5 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition-all text-sm md:text-xl flex justify-center whitespace-nowrap"
                             >
                                 Стоимость
                             </motion.a>
@@ -173,24 +174,15 @@ const Hero = () => {
                             variants={itemVariants}
                             className="flex md:hidden flex-col gap-y-4"
                         >
-                            <div className="flex justify-center gap-x-4">
+                            <div className="flex justify-center flex-wrap gap-x-4 gap-y-2">
                                 {[
                                     { icon: ShieldCheck, text: "Протоколы JCI" },
                                     { icon: Search, text: "Чекап: 80" },
-                                    { icon: Clock, text: "Без очередей" }
-                                ].map((item, i) => (
-                                    <span key={i} className="flex items-center gap-1.5 whitespace-nowrap text-[#007f94] font-bold tracking-tight text-[10px]">
-                                        <item.icon size={12} className="text-[#007f94] shrink-0" />
-                                        {item.text}
-                                    </span>
-                                ))}
-                            </div>
-                            <div className="flex justify-center gap-x-6">
-                                {[
+                                    { icon: Clock, text: "Без очередей" },
                                     { icon: Users, text: "Персональный менеджер" },
                                     { icon: Sparkles, text: "Всё за 1 визит" }
                                 ].map((item, i) => (
-                                    <span key={i} className="flex items-center gap-1.5 whitespace-nowrap text-[#007f94] font-bold tracking-tight text-[10px]">
+                                    <span key={i} className="flex items-center gap-1.5 whitespace-nowrap text-[#007f94] font-bold tracking-tight text-[10px] bg-slate-50 px-2 py-1 rounded-md">
                                         <item.icon size={12} className="text-[#007f94] shrink-0" />
                                         {item.text}
                                     </span>
@@ -200,11 +192,11 @@ const Hero = () => {
                     </div>
 
                     {/* Action Portal */}
-                    <div className="relative w-full max-w-6xl mx-auto mb-14 px-4 sm:px-0">
+                    <div className="relative w-full max-w-6xl mx-auto mb-14 px-0 sm:px-0">
                         <motion.div
                             style={{ scale }}
                             variants={portalVariants}
-                            className="aspect-[21/9] rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-2xl relative"
+                            className="aspect-[4/3] sm:aspect-[21/9] rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-2xl relative"
                         >
                             <motion.img
                                 style={{ scale: imageScale }}
@@ -212,57 +204,68 @@ const Hero = () => {
                                 className="w-full h-full object-cover"
                                 alt="Modern Clinic Excellence"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent" />
                         </motion.div>
 
-                        {/* Floating Action Cards */}
+                        {/* Floating Action Cards - Integrated closer to content on mobile */}
                         {/* Card 1: Dr. Mustafa Demir */}
                         <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            animate={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1, duration: 1 }}
-                            className="absolute -left-2 sm:-left-6 lg:-left-12 top-[-10%] sm:top-1/4 z-20"
+                            className="absolute left-4 right-auto sm:-left-6 lg:-left-12 bottom-4 sm:top-[20%] z-20"
                         >
                             <motion.div
-                                animate={{ y: [0, -10, 0] }}
+                                animate={{ y: [0, -5, 0] }}
                                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                                className="bg-white/90 backdrop-blur-xl p-3 sm:p-6 rounded-2xl sm:rounded-[2.5rem] shadow-2xl border border-white/50 max-w-[160px] sm:max-w-[260px] text-left"
+                                className="bg-white/95 backdrop-blur-xl p-3 sm:p-6 rounded-2xl sm:rounded-[2.5rem] shadow-xl border border-white/50 w-auto sm:max-w-[260px] text-left flex items-center sm:block gap-3"
                             >
-                                <div className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4">
-                                    <div className="w-8 h-8 sm:w-14 sm:h-14 rounded-full border-2 border-[#007f94] overflow-hidden shadow-lg shrink-0">
-                                        <img src="/ChatGPT Image Feb 14, 2026 at 09_19_23 PM.png" className="w-full h-auto" alt="Doctor" />
+                                <div className="flex items-center gap-2 sm:gap-4 mb-0 sm:mb-4">
+                                    <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#007f94] overflow-hidden shadow-lg shrink-0">
+                                        <img src="/doctor.png" className="w-full h-auto" alt="Doctor" onError={(e) => e.currentTarget.src = 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=200'} />
                                     </div>
-                                    <div>
-                                        <p className="text-[10px] sm:text-sm font-bold text-slate-900 leading-tight">Д-р Мустафа Демир</p>
-                                        <p className="text-[7px] sm:text-[9px] text-[#007f94] font-bold uppercase mt-0.5 sm:mt-1">Acıbadem Surgeon</p>
+                                    <div className="block sm:hidden">
+                                        <p className="text-xs font-bold text-slate-900 leading-tight">Д-р Мустафа Демир</p>
+                                        <p className="text-[9px] text-[#007f94] font-bold uppercase mt-0.5">Acıbadem Surgeon</p>
                                     </div>
                                 </div>
-                                <p className="text-[8px] sm:text-[11px] text-slate-500 font-medium leading-tight sm:leading-relaxed">Действующий профессор медицинских наук из Стамбула.</p>
+                                <div className="hidden sm:block">
+                                    <div className="flex items-center gap-2 sm:gap-4 mb-2">
+                                        <div>
+                                            <p className="text-[10px] sm:text-sm font-bold text-slate-900 leading-tight">Д-р Мустафа Демир</p>
+                                            <p className="text-[7px] sm:text-[9px] text-[#007f94] font-bold uppercase mt-0.5 sm:mt-1">Acıbadem Surgeon</p>
+                                        </div>
+                                    </div>
+                                    <p className="text-[8px] sm:text-[11px] text-slate-500 font-medium leading-tight sm:leading-relaxed">Действующий профессор медицинских наук из Стамбула.</p>
+                                </div>
                             </motion.div>
                         </motion.div>
 
                         {/* Card 2: Expertise Badge */}
                         <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.2, duration: 1 }}
-                            className="absolute -right-2 sm:-right-6 lg:-right-12 bottom-[5%] sm:bottom-1/4 z-20"
+                            className="absolute right-4 left-auto sm:-right-6 lg:-right-12 top-4 sm:bottom-[20%] z-20 sm:top-auto"
                         >
                             <motion.div
-                                animate={{ y: [0, 10, 0] }}
+                                animate={{ y: [0, 5, 0] }}
                                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                                className="bg-[#007f94]/90 backdrop-blur-xl p-3 sm:p-6 rounded-2xl sm:rounded-[2.5rem] shadow-2xl border border-white/20 max-w-[140px] sm:max-w-[240px] text-left text-white"
+                                className="bg-[#007f94]/90 backdrop-blur-xl p-2 sm:p-6 rounded-xl sm:rounded-[2.5rem] shadow-xl border border-white/20 w-auto sm:max-w-[240px] text-left text-white"
                             >
-                                <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
+                                <div className="flex items-center gap-2 sm:gap-3 mb-0 sm:mb-4">
                                     <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                                        <ShieldCheck size={20} className="sm:w-6 sm:h-6" />
+                                        <ShieldCheck size={16} className="sm:w-6 sm:h-6" />
                                     </div>
-                                    <div>
+                                    <div className="sm:block hidden">
                                         <p className="text-[10px] sm:text-sm font-bold leading-tight">Expert Opinion</p>
                                         <p className="text-[7px] sm:text-[9px] text-white/70 font-bold uppercase">International Status</p>
                                     </div>
+                                    <div className="sm:hidden block">
+                                        <p className="text-[9px] font-bold leading-tight">Expert Opinion</p>
+                                    </div>
                                 </div>
-                                <p className="text-[8px] sm:text-[11px] text-white/80 font-medium leading-tight sm:leading-relaxed">Второе мнение от ведущих специалистов мира.</p>
+                                <p className="text-[8px] sm:text-[11px] text-white/80 font-medium leading-tight sm:leading-relaxed hidden sm:block">Второе мнение от ведущих специалистов мира.</p>
                             </motion.div>
                         </motion.div>
                     </div>
