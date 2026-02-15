@@ -20,6 +20,7 @@ export default {
             fontFamily: {
                 sans: ['Inter', 'system-ui', 'sans-serif'],
                 display: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
+                outfit: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
             },
             spacing: {
                 'section': '120px',

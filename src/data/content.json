@@ -30,12 +30,12 @@
             {
                 "name": "Д-р Ахмет Кая",
                 "role": "Профессор Кардиологии",
-                "image": "/doctors/doctor-1.jpg"
+                "image": "/doctors/doctor-3.jpg"
             },
             {
                 "name": "Д-р Мехмет Оз",
                 "role": "Ведущий Невролог",
-                "image": "/doctors/doctor-2.jpg"
+                "image": "/doctors/doctor-4.jpg"
             }
         ]
     },
@@ -47,9 +47,9 @@
         "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000",
         "titleSize": 42,
         "descSize": 18,
-        "padding": 80,
-        "methodTitleSize": 20,
-        "methodDescSize": 14,
+        "padding": 100,
+        "methodTitleSize": 22,
+        "methodDescSize": 15,
         "methods": [
             {
                 "icon": "Search",
@@ -144,7 +144,7 @@
                 "years": "Опыт: 15+ лет",
                 "practice": "Клиническая практика: Турция",
                 "bio": "Эксперт по диагностике и лечению сложных случаев. Работает по международным протоколам, применяемым в клиниках Турции, Европы и США.",
-                "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800"
+                "image": "/doctors/doctor-3.jpg"
             },
             {
                 "id": "2",
@@ -153,7 +153,7 @@
                 "years": "Опыт: 15+ лет",
                 "practice": "Клиническая практика: Турция",
                 "bio": "Эксперт по диагностике и лечению сложных случаев. Специализируется на системном восстановлении организма.",
-                "image": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=800"
+                "image": "/doctors/doctor-4.jpg"
             },
             {
                 "id": "3",
@@ -162,7 +162,34 @@
                 "years": "Опыт: 20+ лет",
                 "practice": "Клиническая практика: Турция",
                 "bio": "Ведущий специалист по комплексной диагностике и составлению планов оздоровления.",
-                "image": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=800"
+                "image": "/doctors/doctor-5.jpg"
+            },
+            {
+                "id": "4",
+                "name": "Д-р Керем Бурсин",
+                "role": "Эндокринолог",
+                "years": "Опыт: 12+ лет",
+                "practice": "Американский госпиталь, Стамбул",
+                "bio": "Специалист по гормональному здоровью и метаболическим нарушениям.",
+                "image": "/doctors/doctor-6.jpg"
+            },
+            {
+                "id": "5",
+                "name": "Д-р Гекче Бахадыр",
+                "role": "Ревматолог",
+                "years": "Опыт: 18+ лет",
+                "practice": "Клиника Аджибадем",
+                "bio": "Эксперт по лечению аутоиммунных заболеваний и патологий суставов.",
+                "image": "/doctors/doctor-7.jpg"
+            },
+            {
+                "id": "6",
+                "name": "Д-р Онур Сайлак",
+                "role": "Гастроэнтеролог",
+                "years": "Опыт: 14+ лет",
+                "practice": "Университет Хаджеттепе",
+                "bio": "Специализируется на сложных заболеваниях ЖКТ и подборе лечебного питания.",
+                "image": "/doctors/doctor-8.jpg"
             }
         ]
     },
