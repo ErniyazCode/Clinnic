@@ -110,38 +110,38 @@ const Directions = () => {
                     </FadeIn>
                 </div>
 
-                {/* Grid - Adjusted for Mobile Comfort */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                {/* Grid - 2 columns on Mobile */}
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
                     {specialties.map((item, i) => (
                         <FadeIn
                             key={i}
                             delay={i * 0.05}
                             duration={0.5}
                             style={{}}
-                            className={`group relative p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] border border-slate-100 transition-[box-shadow,border-color,background-color] duration-500 hover:shadow-2xl hover:shadow-slate-200/50 flex flex-col justify-between ${colorMap[item.color]}`}
+                            className={`group relative p-4 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-slate-100 transition-[box-shadow,border-color,background-color] duration-500 hover:shadow-2xl hover:shadow-slate-200/50 flex flex-col justify-between ${colorMap[item.color]}`}
                         >
                             {/* Decorative elements */}
-                            <div className="absolute top-4 right-4 md:top-6 md:right-6 opacity-5 group-hover:opacity-20 transition-opacity">
-                                <item.icon size={50} className="md:w-[80px] md:h-[80px]" strokeWidth={1} />
+                            <div className="absolute top-3 right-3 md:top-6 md:right-6 opacity-5 group-hover:opacity-20 transition-opacity">
+                                <item.icon size={40} className="md:w-[80px] md:h-[80px]" strokeWidth={1} />
                             </div>
 
                             <div className="relative z-10">
-                                <div className="flex flex-row md:flex-row md:items-center justify-between gap-3 mb-4 md:mb-8">
-                                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#0a1e2b] group-hover:scale-110 group-hover:bg-[#007f94] group-hover:text-white transition-all duration-500">
-                                        <item.icon size={24} className="md:w-[28px] md:h-[28px]" strokeWidth={1.5} />
+                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-3 mb-3 md:mb-8">
+                                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#0a1e2b] group-hover:scale-110 group-hover:bg-[#007f94] group-hover:text-white transition-all duration-500">
+                                        <item.icon size={20} className="md:w-[28px] md:h-[28px]" strokeWidth={1.5} />
                                     </div>
-                                    <div className="self-center md:self-auto flex items-center gap-1.5 px-3 py-1 bg-white/60 backdrop-blur-sm rounded-full border border-slate-100 shadow-sm">
-                                        <Star size={12} className="md:w-[10px] md:h-[10px] text-yellow-500 fill-yellow-500" />
-                                        <span className="text-[10px] md:text-xs font-black text-slate-600 uppercase tracking-tighter">{item.stats}</span>
+                                    <div className="flex items-center gap-1 px-2 py-0.5 bg-white/60 backdrop-blur-sm rounded-full border border-slate-100 shadow-sm w-fit">
+                                        <Star size={10} className="md:w-[10px] md:h-[10px] text-yellow-500 fill-yellow-500" />
+                                        <span className="text-[8px] md:text-xs font-black text-slate-600 uppercase tracking-tighter whitespace-nowrap">{item.stats}</span>
                                     </div>
                                 </div>
 
-                                <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-3 md:mb-6 group-hover:translate-x-1 transition-transform leading-tight break-words">{item.title}</h3>
+                                <h3 className="text-sm md:text-2xl font-black text-slate-900 mb-2 md:mb-6 group-hover:translate-x-1 transition-transform leading-tight break-words">{item.title}</h3>
 
-                                <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
+                                <ul className="space-y-1 md:space-y-3 mb-2 md:mb-8">
                                     {item.features.map((feat, idx) => (
-                                        <li key={idx} className="flex items-start gap-2 md:gap-2 text-slate-600 text-sm md:text-sm font-medium">
-                                            <CheckCircle2 size={16} className="min-w-[16px] md:w-[14px] md:h-[14px] text-[#007f94] mt-0.5" />
+                                        <li key={idx} className="flex items-start gap-1.5 md:gap-2 text-slate-600 text-[10px] md:text-sm font-medium">
+                                            <CheckCircle2 size={12} className="min-w-[12px] md:w-[14px] md:h-[14px] text-[#007f94] mt-0.5" />
                                             <span className="leading-snug">{feat}</span>
                                         </li>
                                     ))}
