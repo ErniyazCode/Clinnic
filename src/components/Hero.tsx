@@ -1,27 +1,77 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight, Check, ShieldCheck, MapPin, Sparkles, Clock, Users, Search, Activity, FileText, Stethoscope } from 'lucide-react';
 import Magnetic from './common/Magnetic';
 
 const Hero = () => {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end start"]
+    });
+
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+    const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+
+    // Animation Variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.2
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+        visible: {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            transition: { type: "spring", damping: 25, stiffness: 100 }
+        }
+    };
+
+    const portalVariants = {
+        hidden: { scale: 1.1, clipPath: 'inset(10% 10% 10% 10%)', opacity: 0 },
+        visible: {
+            scale: 1,
+            clipPath: 'inset(0% 0% 0% 0%)',
+            opacity: 1,
+            transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] }
+        }
+    };
+
     return (
         <section
+            ref={containerRef}
             className="relative min-h-screen flex items-center justify-center bg-white pt-24 pb-12 overflow-hidden"
         >
             {/* 1. LAYERED BACKGROUND */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:40px_40px] opacity-20" />
-                <div
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 2, ease: "easeOut" }}
                     className="absolute top-1/4 left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#007f94]/5 rounded-full blur-[80px] md:blur-[140px]"
                 />
             </div>
 
-            <div
+            <motion.div
                 className="container mx-auto px-4 md:px-6 relative z-10 w-full"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
             >
                 <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
 
                     {/* Badge */}
-                    <div
+                    <motion.div
+                        variants={itemVariants}
                         className="inline-flex items-center gap-3 mb-6 md:mb-10 px-3 py-1.5 md:px-4 bg-slate-50 border border-slate-100 rounded-full"
                     >
                         <div className="flex items-center gap-1.5">
@@ -45,17 +95,19 @@ const Hero = () => {
                                 />
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Main Headline */}
-                    <h1
+                    <motion.h1
+                        variants={itemVariants}
                         className="text-4xl xs:text-5xl md:text-6xl lg:text-[5.5rem] font-extrabold text-[#0a1e2b] tracking-tighter leading-[1.05] md:leading-[1.1] mb-6 px-1"
                     >
                         Ведущие врачи <br /> <span className="text-[#007f94]">из Турции теперь</span> <br /> принимают в Алматы
-                    </h1>
+                    </motion.h1>
 
                     {/* Detailed Subtext */}
-                    <div
+                    <motion.div
+                        variants={itemVariants}
                         className="max-w-4xl mx-auto space-y-3 mb-8 md:mb-10 px-0"
                     >
                         <h2 className="text-base xs:text-lg md:text-3xl font-black text-[#007f94]/70 tracking-tighter leading-tight uppercase whitespace-pre-wrap md:whitespace-nowrap">
@@ -65,33 +117,39 @@ const Hero = () => {
                         <p className="text-sm md:text-lg text-slate-500 font-medium max-w-[340px] md:max-w-2xl mx-auto leading-relaxed opacity-80">
                             Консультации, диагностика и планы медицинской реабилитации <br className="hidden xs:block md:hidden" /> экспертного уровня без выезда за границу.
                         </p>
-                    </div>
+                    </motion.div>
 
                     {/* Main CTA Section */}
-                    <div
+                    <motion.div
+                        variants={itemVariants}
                         className="flex flex-row items-center justify-center gap-3 sm:gap-4 mb-10 w-full mx-auto px-4"
                     >
                         <Magnetic>
-                            <a
+                            <motion.a
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                                 href="#contact"
-                                className="flex-1 sm:flex-none px-4 md:px-12 py-4 md:py-5 bg-[#007f94] text-white font-bold rounded-2xl shadow-xl shadow-[#007f94]/20 flex items-center justify-center gap-2 md:gap-3 text-base md:text-xl whitespace-nowrap hover:scale-105 active:scale-95 transition-transform duration-200"
+                                className="flex-1 sm:flex-none px-4 md:px-12 py-4 md:py-5 bg-[#007f94] text-white font-bold rounded-2xl shadow-xl shadow-[#007f94]/20 flex items-center justify-center gap-2 md:gap-3 text-base md:text-xl whitespace-nowrap"
                             >
                                 Записаться <ArrowUpRight size={18} className="shrink-0 md:w-5 md:h-5" />
-                            </a>
+                            </motion.a>
                         </Magnetic>
                         <Magnetic>
-                            <a
+                            <motion.a
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                                 href="#cost"
-                                className="flex-1 sm:flex-none px-4 md:px-12 py-4 md:py-5 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition-all text-base md:text-xl flex justify-center whitespace-nowrap hover:scale-105 active:scale-95 duration-200"
+                                className="flex-1 sm:flex-none px-4 md:px-12 py-4 md:py-5 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition-all text-base md:text-xl flex justify-center whitespace-nowrap"
                             >
                                 Стоимость
-                            </a>
+                            </motion.a>
                         </Magnetic>
-                    </div>
+                    </motion.div>
 
                     {/* Benefit Bar - Unified for Mobile/Desktop */}
                     <div className="w-full border-t border-slate-100 pt-6 md:pt-8 mb-12 px-2 md:px-0">
-                        <div
+                        <motion.div
+                            variants={itemVariants}
                             className="flex flex-wrap items-center justify-center gap-x-4 md:gap-x-8 gap-y-3"
                         >
                             {[
@@ -106,28 +164,36 @@ const Hero = () => {
                                     {item.text}
                                 </span>
                             ))}
-                        </div>
+                        </motion.div>
                     </div>
 
                     {/* Action Portal */}
                     <div className="relative w-full max-w-6xl mx-auto mb-14 px-0 sm:px-0">
-                        <div
+                        <motion.div
+                            style={{ scale }}
+                            variants={portalVariants}
                             className="aspect-[21/9] rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-2xl relative"
                         >
-                            <img
+                            <motion.img
+                                style={{ scale: imageScale }}
                                 src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000"
                                 className="w-full h-full object-cover"
                                 alt="Modern Clinic Excellence"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent" />
-                        </div>
+                        </motion.div>
 
                         {/* Floating Action Cards */}
                         {/* Card 1: Dr. Mustafa Demir */}
-                        <div
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 1, duration: 1 }}
                             className="absolute -left-2 sm:-left-6 lg:-left-12 top-[10%] sm:top-1/4 z-20"
                         >
-                            <div
+                            <motion.div
+                                animate={{ y: [0, -5, 0] }}
+                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                                 className="bg-white/95 backdrop-blur-xl p-3 sm:p-6 rounded-2xl sm:rounded-[2.5rem] shadow-xl border border-white/50 max-w-[160px] sm:max-w-[260px] text-left"
                             >
                                 <div className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4">
@@ -140,14 +206,19 @@ const Hero = () => {
                                     </div>
                                 </div>
                                 <p className="text-[8px] sm:text-[11px] text-slate-500 font-medium leading-tight sm:leading-relaxed">Действующий профессор медицинских наук из Стамбула.</p>
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
 
                         {/* Card 2: Expertise Badge */}
-                        <div
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 1.2, duration: 1 }}
                             className="absolute -right-2 sm:-right-6 lg:-right-12 bottom-[10%] sm:bottom-1/4 z-20"
                         >
-                            <div
+                            <motion.div
+                                animate={{ y: [0, 5, 0] }}
+                                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                                 className="bg-[#007f94]/90 backdrop-blur-xl p-3 sm:p-6 rounded-2xl sm:rounded-[2.5rem] shadow-xl border border-white/20 max-w-[140px] sm:max-w-[240px] text-left text-white"
                             >
                                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
@@ -160,11 +231,11 @@ const Hero = () => {
                                     </div>
                                 </div>
                                 <p className="text-[8px] sm:text-[11px] text-white/80 font-medium leading-tight sm:leading-relaxed">Второе мнение от ведущих специалистов мира.</p>
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 };
