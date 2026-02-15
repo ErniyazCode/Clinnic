@@ -53,8 +53,8 @@ const Doctors = () => {
                     </motion.div>
                 </div>
 
-                {/* BASE: Doctors Grid - Vertical on Mobile, Grid on Desktop */}
-                <div className="flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-8 mb-12 md:mb-16">
+                {/* BASE: Doctors Grid - Horizontal Scroll on Mobile, Grid on Desktop */}
+                <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16 snap-x snap-mandatory scrollbar-hide pb-8 -mx-6 px-6">
                     {doctors.map((doc, i) => (
                         <motion.div
                             key={i}
@@ -63,10 +63,10 @@ const Doctors = () => {
                             viewport={{ once: true, margin: "-20px" }}
                             transition={{ duration: 0.6, delay: i * 0.15, ease: [0.21, 1, 0.36, 1] as any }}
                             style={{ willChange: "transform, opacity", opacity: 0 }}
-                            className="group flex flex-col items-center text-center w-full"
+                            className="group flex flex-col items-center text-center min-w-[260px] xs:min-w-[300px] md:min-w-0 w-full snap-center"
                         >
                             {/* Image Container - Large & Rounded like PDF */}
-                            <div className="w-full aspect-[4/5] md:aspect-[3/4] mb-6 md:mb-8 overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-slate-200 relative shadow-md group-hover:shadow-2xl transition-all duration-500">
+                            <div className="w-full aspect-[4/5] md:aspect-[3/4] mb-4 md:mb-8 overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-slate-200 relative shadow-md group-hover:shadow-2xl transition-all duration-500">
                                 <img
                                     src={doc.image}
                                     alt={doc.name}
@@ -77,21 +77,21 @@ const Doctors = () => {
                                 {/* Hover Overlay */}
                                 <div className="absolute inset-0 bg-[#007f94]/0 group-hover:bg-[#007f94]/10 transition-colors duration-300" />
 
-                                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider text-slate-900 shadow-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 translate-y-0 md:translate-y-2 md:group-hover:translate-y-0 transition-all duration-300">
+                                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[9px] md:text-xs font-bold uppercase tracking-wider text-slate-900 shadow-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 translate-y-0 md:translate-y-2 md:group-hover:translate-y-0 transition-all duration-300">
                                     {doc.years}
                                 </div>
                             </div>
 
-                            <h3 className="text-2xl md:text-2xl font-bold text-slate-900 mb-1 md:mb-2">{doc.name}</h3>
-                            <p className="text-[#007f94] text-base md:text-base font-medium mb-3 md:mb-4">{doc.role}</p>
+                            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-1 md:mb-2">{doc.name}</h3>
+                            <p className="text-[#007f94] text-sm md:text-base font-medium mb-2 md:mb-4">{doc.role}</p>
 
-                            <div className="flex items-center justify-center gap-2 text-sm md:text-sm text-slate-400 mb-4 md:mb-6">
-                                <MapPin size={14} className="md:w-[14px] md:h-[14px]" />
+                            <div className="flex items-center justify-center gap-2 text-[10px] md:text-sm text-slate-400 mb-4 md:mb-6">
+                                <MapPin size={12} className="md:w-[14px] md:h-[14px]" />
                                 <span>{doc.practice}</span>
                             </div>
 
-                            <a href="#contact" className="inline-flex items-center gap-2 text-base md:text-base text-slate-900 font-bold border-b border-slate-200 pb-0.5 hover:border-[#007f94] hover:text-[#007f94] transition-colors">
-                                Записаться <ArrowUpRight size={18} />
+                            <a href="#contact" className="inline-flex items-center gap-2 text-sm md:text-base text-slate-900 font-bold border-b border-slate-200 pb-0.5 hover:border-[#007f94] hover:text-[#007f94] transition-colors">
+                                Записаться <ArrowUpRight size={16} className="md:w-[18px]" />
                             </a>
                         </motion.div>
                     ))}
