@@ -123,7 +123,7 @@ const Hero = ({ data }: { data: any }) => {
                     {/* Main Headline */}
                     <motion.h1
                         variants={itemVariants}
-                        style={{ fontSize: `clamp(2.25rem, 5vw, ${titleSize}px)` }}
+                        style={{ fontSize: `clamp(2rem, 5vw, ${titleSize}px)` }}
                         className="font-extrabold text-[#0a1e2b] tracking-tighter leading-[1.05] md:leading-[1.1] mb-6 px-1 whitespace-pre-line"
                     >
                         <HighlightedText text={title} />
@@ -152,14 +152,14 @@ const Hero = ({ data }: { data: any }) => {
                     {/* Main CTA Section */}
                     <motion.div
                         variants={itemVariants}
-                        className="flex flex-row items-center justify-center gap-3 sm:gap-4 mb-10 w-full mx-auto px-4"
+                        className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 w-full max-w-md sm:max-w-none mx-auto px-4"
                     >
                         <Magnetic>
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 href="#contact"
-                                className="flex-1 sm:flex-none px-4 md:px-12 py-4 md:py-5 bg-[#007f94] text-white font-bold rounded-2xl shadow-xl shadow-[#007f94]/20 flex items-center justify-center gap-2 md:gap-3 text-base md:text-xl whitespace-nowrap"
+                                className="w-full sm:w-auto px-4 md:px-12 py-4 md:py-5 bg-[#007f94] text-white font-bold rounded-2xl shadow-xl shadow-[#007f94]/20 flex items-center justify-center gap-2 md:gap-3 text-base md:text-xl whitespace-nowrap"
                             >
                                 {buttonPrimary} <ArrowUpRight size={18} className="shrink-0 md:w-5 md:h-5" />
                             </motion.a>
@@ -169,7 +169,7 @@ const Hero = ({ data }: { data: any }) => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 href="#cost"
-                                className="flex-1 sm:flex-none px-4 md:px-12 py-4 md:py-5 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition-all text-base md:text-xl flex justify-center whitespace-nowrap"
+                                className="w-full sm:w-auto px-4 md:px-12 py-4 md:py-5 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition-all text-base md:text-xl flex items-center justify-center whitespace-nowrap"
                             >
                                 {buttonSecondary}
                             </motion.a>
@@ -211,21 +211,21 @@ const Hero = ({ data }: { data: any }) => {
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent" />
                         </motion.div>
 
-                        {/* Floating Action Cards - Doctors */}
+                        {/* Floating Action Cards - Doctors (Desktop Only) */}
                         {/* Doctor 1: Left Floating Card */}
                         {doctorLeft && (
                             <motion.div
                                 initial={{ opacity: 0, x: -30, y: 0 }}
                                 animate={{ opacity: 1, x: 0, y: 0 }}
                                 transition={{ delay: 0.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                                className="absolute -left-2 xs:-left-4 sm:-left-8 lg:-left-20 top-[10%] sm:top-[20%] z-20"
+                                className="hidden md:block absolute -left-20 top-[20%] z-20"
                             >
                                 <motion.div
                                     animate={{ y: [0, -10, 0], x: [0, 5, 0] }}
                                     transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                                    className="bg-white/90 backdrop-blur-2xl p-1.5 sm:p-4 rounded-[1.2rem] sm:rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/60 max-w-[130px] xs:max-w-[160px] sm:max-w-[280px] text-left group transition-transform hover:scale-105 duration-500"
+                                    className="bg-white/90 backdrop-blur-2xl p-4 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/60 max-w-[280px] text-left group transition-transform hover:scale-105 duration-500"
                                 >
-                                    <div className="relative aspect-[4/5] rounded-[0.8rem] sm:rounded-[2rem] overflow-hidden mb-1.5 sm:mb-4 shadow-inner bg-slate-100">
+                                    <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden mb-4 shadow-inner bg-slate-100">
                                         <img
                                             src={doctorLeft.image}
                                             className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
@@ -233,9 +233,9 @@ const Hero = ({ data }: { data: any }) => {
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-[#007f94]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                     </div>
-                                    <div className="px-1 sm:px-2 pb-1">
-                                        <p className="text-[10px] sm:text-base font-bold text-slate-900 leading-tight">{doctorLeft.name}</p>
-                                        <p className="text-[7px] sm:text-[10px] text-[#007f94] font-black uppercase tracking-wider mt-0.5 opacity-80">{doctorLeft.role}</p>
+                                    <div className="px-2 pb-1">
+                                        <p className="text-base font-bold text-slate-900 leading-tight">{doctorLeft.name}</p>
+                                        <p className="text-[10px] text-[#007f94] font-black uppercase tracking-wider mt-0.5 opacity-80">{doctorLeft.role}</p>
                                     </div>
                                 </motion.div>
                             </motion.div>
@@ -247,14 +247,14 @@ const Hero = ({ data }: { data: any }) => {
                                 initial={{ opacity: 0, x: 30, y: 0 }}
                                 animate={{ opacity: 1, x: 0, y: 0 }}
                                 transition={{ delay: 1, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                                className="absolute -right-2 xs:-right-4 sm:-right-8 lg:-right-20 bottom-[5%] sm:bottom-[15%] z-20"
+                                className="hidden md:block absolute -right-20 bottom-[15%] z-20"
                             >
                                 <motion.div
                                     animate={{ y: [0, 10, 0], x: [0, -5, 0] }}
                                     transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                                    className="bg-white/90 backdrop-blur-2xl p-1.5 sm:p-4 rounded-[1.2rem] sm:rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/60 max-w-[130px] xs:max-w-[160px] sm:max-w-[280px] text-left group transition-transform hover:scale-105 duration-500"
+                                    className="bg-white/90 backdrop-blur-2xl p-4 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/60 max-w-[280px] text-left group transition-transform hover:scale-105 duration-500"
                                 >
-                                    <div className="relative aspect-[4/5] rounded-[0.8rem] sm:rounded-[2rem] overflow-hidden mb-1.5 sm:mb-4 shadow-inner bg-slate-100">
+                                    <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden mb-4 shadow-inner bg-slate-100">
                                         <img
                                             src={doctorRight.image}
                                             className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
@@ -262,20 +262,33 @@ const Hero = ({ data }: { data: any }) => {
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-[#007f94]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                     </div>
-                                    <div className="px-1 sm:px-2 pb-1">
-                                        <p className="text-[10px] sm:text-base font-bold text-slate-900 leading-tight">{doctorRight.name}</p>
-                                        <p className="text-[7px] sm:text-[10px] text-[#007f94] font-black uppercase tracking-wider mt-0.5 opacity-80">{doctorRight.role}</p>
+                                    <div className="px-2 pb-1">
+                                        <p className="text-base font-bold text-slate-900 leading-tight">{doctorRight.name}</p>
+                                        <p className="text-[10px] text-[#007f94] font-black uppercase tracking-wider mt-0.5 opacity-80">{doctorRight.role}</p>
                                     </div>
                                 </motion.div>
                             </motion.div>
                         )}
+
+                        {/* Mobile Doctors (Grid below image) */}
+                        <div className="md:hidden mt-6 grid grid-cols-2 gap-4">
+                            {[doctorLeft, doctorRight].filter(Boolean).map((doc, idx) => (
+                                <div key={idx} className="bg-slate-50 border border-slate-100 p-3 rounded-2xl flex items-center gap-3">
+                                    <img src={doc.image} className="w-12 h-12 rounded-full object-cover" alt={doc.name} />
+                                    <div className="text-left">
+                                        <p className="text-xs font-bold text-slate-900 leading-tight">{doc.name}</p>
+                                        <p className="text-[9px] text-[#007f94] font-black uppercase tracking-wider mt-0.5 opacity-80 leading-none">{doc.role}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
 
                         {/* Centered Badge - Trust Indicator */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.4, duration: 0.8 }}
-                            className="absolute left-1/2 -translate-x-1/2 -bottom-6 z-30 flex gap-2 md:gap-4"
+                            className="absolute left-1/2 -translate-x-1/2 -bottom-6 z-30 flex gap-2 md:gap-4 w-max"
                         >
                             <div className="bg-[#0a1e2b] text-white px-4 md:px-8 py-3 md:py-4 rounded-full shadow-2xl flex items-center gap-3 border border-white/10 backdrop-blur-md">
                                 <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
