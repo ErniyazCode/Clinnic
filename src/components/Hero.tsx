@@ -32,7 +32,7 @@ const Hero = ({ data }: { data: any }) => {
         floatingDoctors = []
     } = data || {};
 
-    const [doctorLeft, doctorRight] = floatingDoctors;
+
 
     // Animation Variants
     const containerVariants = {
@@ -211,64 +211,7 @@ const Hero = ({ data }: { data: any }) => {
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent" />
                         </motion.div>
 
-                        {/* Floating Action Cards - Doctors */}
-                        {/* Doctor 1: Left Floating Card */}
-                        {doctorLeft && (
-                            <motion.div
-                                initial={{ opacity: 0, x: -30, y: 0 }}
-                                animate={{ opacity: 1, x: 0, y: 0 }}
-                                transition={{ delay: 0.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                                className="block absolute -left-2 top-[10%] md:-left-20 md:top-[20%] z-20"
-                            >
-                                <motion.div
-                                    animate={{ y: [0, -10, 0], x: [0, 5, 0] }}
-                                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                                    className="bg-white/90 backdrop-blur-2xl p-2 md:p-4 rounded-[1.5rem] md:rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/60 max-w-[130px] md:max-w-[280px] text-left group transition-transform hover:scale-105 duration-500"
-                                >
-                                    <div className="relative aspect-[4/5] rounded-[1rem] md:rounded-[2rem] overflow-hidden mb-2 md:mb-4 shadow-inner bg-slate-100">
-                                        <img
-                                            src={doctorLeft.image}
-                                            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
-                                            alt={doctorLeft.name}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-[#007f94]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                    </div>
-                                    <div className="px-1 md:px-2 pb-1">
-                                        <p className="text-[10px] md:text-base font-bold text-slate-900 leading-tight">{doctorLeft.name}</p>
-                                        <p className="text-[7px] md:text-[10px] text-[#007f94] font-black uppercase tracking-wider mt-0.5 opacity-80">{doctorLeft.role}</p>
-                                    </div>
-                                </motion.div>
-                            </motion.div>
-                        )}
 
-                        {/* Doctor 2: Right Floating Card */}
-                        {doctorRight && (
-                            <motion.div
-                                initial={{ opacity: 0, x: 30, y: 0 }}
-                                animate={{ opacity: 1, x: 0, y: 0 }}
-                                transition={{ delay: 1, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                                className="block absolute -right-2 bottom-[15%] md:-right-20 md:bottom-[15%] z-20"
-                            >
-                                <motion.div
-                                    animate={{ y: [0, 10, 0], x: [0, -5, 0] }}
-                                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                                    className="bg-white/90 backdrop-blur-2xl p-2 md:p-4 rounded-[1.5rem] md:rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/60 max-w-[130px] md:max-w-[280px] text-left group transition-transform hover:scale-105 duration-500"
-                                >
-                                    <div className="relative aspect-[4/5] rounded-[1rem] md:rounded-[2rem] overflow-hidden mb-2 md:mb-4 shadow-inner bg-slate-100">
-                                        <img
-                                            src={doctorRight.image}
-                                            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
-                                            alt={doctorRight.name}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-[#007f94]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                    </div>
-                                    <div className="px-1 md:px-2 pb-1">
-                                        <p className="text-[10px] md:text-base font-bold text-slate-900 leading-tight">{doctorRight.name}</p>
-                                        <p className="text-[7px] md:text-[10px] text-[#007f94] font-black uppercase tracking-wider mt-0.5 opacity-80">{doctorRight.role}</p>
-                                    </div>
-                                </motion.div>
-                            </motion.div>
-                        )}
 
 
                     </div>
