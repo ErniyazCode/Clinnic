@@ -65,11 +65,10 @@ const Hero = ({ data }: { data: any }) => {
             </div>
 
             <motion.div
-                className="container mx-auto px-4 relative z-10 w-full mb-6 md:mb-10"
+                className="container mx-auto px-4 relative z-10 w-full"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                style={{ y, opacity }}
             >
                 <div className="flex flex-col items-center text-center max-w-5xl mx-auto w-full">
 
@@ -130,27 +129,25 @@ const Hero = ({ data }: { data: any }) => {
                         </Magnetic>
                     </motion.div>
 
-                </div>
-            </motion.div>
-
-            <motion.div
-                className="w-full relative z-20 container mx-auto px-4 mt-auto border-t border-slate-200/60 pt-4 md:pt-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-            >
-                <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 md:gap-x-12 pb-6 md:pb-0">
-                    {(benefits || []).map((item: any, i: number) => {
-                        const Icon = ICON_POOL[item.icon] || ICON_POOL.Activity;
-                        return (
-                            <div key={i} className="flex items-center gap-2.5 group whitespace-nowrap">
-                                <div className="w-8 h-8 rounded-full bg-[#007f94]/5 flex items-center justify-center text-[#007f94] transition-colors group-hover:bg-[#007f94]/10 border border-[#007f94]/10">
-                                    <Icon className="w-4 h-4 stroke-[2.5]" />
-                                </div>
-                                <span className="text-[11px] md:text-xs font-bold text-slate-600 tracking-wide group-hover:text-slate-800 transition-colors uppercase">{item.text}</span>
-                            </div>
-                        );
-                    })}
+                    {/* Benefits Bar - Integrated */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="w-full border-t border-slate-200/60 pt-8 md:pt-10"
+                    >
+                        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 md:gap-x-12">
+                            {(benefits || []).map((item: any, i: number) => {
+                                const Icon = ICON_POOL[item.icon] || ICON_POOL.Activity;
+                                return (
+                                    <div key={i} className="flex items-center gap-2.5 group whitespace-nowrap">
+                                        <div className="w-8 h-8 rounded-full bg-[#007f94]/5 flex items-center justify-center text-[#007f94] transition-colors group-hover:bg-[#007f94]/10 border border-[#007f94]/10">
+                                            <Icon className="w-4 h-4 stroke-[2.5]" />
+                                        </div>
+                                        <span className="text-[11px] md:text-xs font-bold text-slate-600 tracking-wide group-hover:text-slate-800 transition-colors uppercase">{item.text}</span>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </motion.div>
                 </div>
             </motion.div>
 
