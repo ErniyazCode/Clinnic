@@ -14,7 +14,7 @@ const Hero = ({ data }: { data: any }) => {
     const {
         badgeTR = 'Turkiye',
         badgeKZ = 'Kazakhstan',
-        title = 'Ведущие врачи из *Турции* теперь принимают в Алматы',
+        title = 'Ведущие врачи из *Турции* \nтеперь принимают в Алматы',
         subtitle = 'Узнайте риски до того, как они станут диагнозами',
         description = 'Консультации, диагностика и планы медицинской реабилитации экспертного уровня без выезда за границу.',
         buttonPrimary = 'Записаться на приём',
@@ -49,7 +49,7 @@ const Hero = ({ data }: { data: any }) => {
             ref={containerRef}
             id="hero"
             style={{
-                paddingTop: `clamp(180px, 22vh, ${padding + 40}px)`,
+                paddingTop: `clamp(140px, 18vh, ${padding + 20}px)`,
                 paddingBottom: `clamp(${padding * 0.4}px, 10vh, ${padding}px)`
             }}
             className="relative flex flex-col items-center justify-center min-h-[100svh] overflow-hidden bg-gradient-to-b from-[#fafcff] to-white"
@@ -93,8 +93,8 @@ const Hero = ({ data }: { data: any }) => {
 
                     <motion.h1
                         variants={itemVariants}
-                        className="font-bold text-[#0a1e2b] tracking-tighter leading-[1.1] mb-5 md:mb-10 max-w-4xl whitespace-pre-line mx-auto"
-                        style={{ fontSize: `clamp(26px, 9vw, ${titleSize}px)` }}
+                        className="font-bold text-[#0a1e2b] tracking-tighter leading-[1.05] mb-5 md:mb-10 max-w-4xl whitespace-pre-line mx-auto"
+                        style={{ fontSize: `clamp(24px, 8.5vw, ${titleSize}px)` }}
                     >
                         <HighlightedText text={title} />
                     </motion.h1>
