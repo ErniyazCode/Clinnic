@@ -173,7 +173,7 @@ const ListEditor = ({
                                         <IconPicker
                                             key={field.key}
                                             label={field.label}
-                                            value={item[field.key]}
+                                            value={String(item[field.key] || '')}
                                             onChange={(v) => updateItem(i, field.key, v)}
                                         />
                                     );
@@ -183,7 +183,7 @@ const ListEditor = ({
                                         <ImageField
                                             key={field.key}
                                             label={field.label}
-                                            value={item[field.key]}
+                                            value={String(item[field.key] || '')}
                                             onChange={(v) => updateItem(i, field.key, v)}
                                         />
                                     );
@@ -193,7 +193,7 @@ const ListEditor = ({
                                         <NumberField
                                             key={field.key}
                                             label={field.label}
-                                            value={item[field.key]}
+                                            value={Number(item[field.key] || 0)}
                                             onChange={(v) => updateItem(i, field.key, v)}
                                         />
                                     );
@@ -202,14 +202,14 @@ const ListEditor = ({
                                     <TextareaField
                                         key={field.key}
                                         label={field.label}
-                                        value={item[field.key]}
+                                        value={String(item[field.key] || '')}
                                         onChange={(v) => updateItem(i, field.key, v)}
                                     />
                                 ) : (
                                     <InputField
                                         key={field.key}
                                         label={field.label}
-                                        value={item[field.key]}
+                                        value={String(item[field.key] || '')}
                                         onChange={(v) => updateItem(i, field.key, v)}
                                     />
                                 );
