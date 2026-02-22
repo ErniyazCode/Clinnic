@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { X, Save, Layout, Type, Settings, Image as ImageIcon, Plus, ShieldCheck, Sparkles, Mail, Trash2, Edit2, Upload, Activity, Stethoscope, HeartPulse, Microscope, Thermometer, Syringe, Pill, ClipboardCheck, Ambulance, Dna, BriefcaseMedical, FlaskConical, Search, UserPlus, Loader2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+    X, Save, Layout, Type, Settings, Image as ImageIcon, Plus,
+    ShieldCheck, Sparkles, Mail, Trash2, Edit2, Upload, Activity,
+    Stethoscope, HeartPulse, Microscope, Thermometer, Syringe, Pill,
+    ClipboardCheck, Ambulance, Dna, BriefcaseMedical, FlaskConical,
+    Search, UserPlus, Loader2, GripVertical
+} from 'lucide-react';
 import { AVAILABLE_ICONS, ICON_POOL, IconName } from '../../lib/icons';
 
 interface AdminPanelProps {
@@ -10,14 +16,24 @@ interface AdminPanelProps {
     updateContent: (sectionId: string, updates: any) => void;
 }
 
-// Helper for Icon Selection
-const IconPicker = ({ label, value, onChange }: any) => {
+// --- Helper Components & Types ---
+
+type FieldType = 'text' | 'multiline' | 'number' | 'icon' | 'image';
+
+interface FieldConfig {
+    key: string;
+    label: string;
+    type: FieldType;
+    multiline?: boolean;
+}
+
+const IconPicker = ({ label, value, onChange }: { label: string; value: string; onChange: (v: string) => void }) => {
     return (
         <div className="space-y-2">
             <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block">{label}</label>
             <div className="grid grid-cols-5 gap-2 p-3 bg-white border border-slate-200 rounded-xl">
                 {AVAILABLE_ICONS.map((iconName) => {
-                    const Icon = ICON_POOL[iconName as IconName];
+                    const Icon = ICON_POOL[iconName as IconName] || Activity;
                     const isActive = value === iconName;
                     const nameStr = iconName.toString();
                     return (
@@ -29,8 +45,7 @@ const IconPicker = ({ label, value, onChange }: any) => {
                                 ? 'bg-[#007f94] text-white shadow-lg shadow-[#007f94]/20 scale-110'
                                 : 'bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-[#007f94]'
                                 }`}
-                            title={nameStr}
-                            aria-label={`Выбрать иконку ${nameStr}`}
+                            title={`Выбрать иконку ${nameStr}`}
                         >
                             <Icon size={18} />
                         </button>
@@ -41,8 +56,7 @@ const IconPicker = ({ label, value, onChange }: any) => {
     );
 };
 
-// Helper for Section Layout (Padding)
-const SectionLayout = ({ data, onUpdate, section }: any) => (
+const SectionLayout = ({ data, onUpdate, section }: { data: any; onUpdate: (section: string, key: string, value: any) => void; section: string }) => (
     <div className="mt-6 pt-6 border-t border-slate-100">
         <div className="flex items-center justify-between">
             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
@@ -54,8 +68,7 @@ const SectionLayout = ({ data, onUpdate, section }: any) => (
                     value={data.padding || 0}
                     onChange={(e) => onUpdate(section, 'padding', Number(e.target.value))}
                     className="w-16 p-2 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-center outline-none focus:border-[#007f94]"
-                    title="Vertical Padding"
-                    aria-label="Section Padding"
+                    title="Вертикальный отступ"
                 />
                 <span className="text-xs text-slate-400 font-medium">px</span>
             </div>
@@ -69,7 +82,13 @@ const ListEditor = ({
     label,
     itemLabel = "Элемент",
     fields = []
-}: any) => {
+}: {
+    items: any[];
+    onUpdate: (items: any[]) => void;
+    label: string;
+    itemLabel?: string;
+    fields: FieldConfig[];
+}) => {
     const updateItem = (index: number, key: string, value: any) => {
         const newItems = [...items];
         newItems[index] = { ...newItems[index], [key]: value };
@@ -78,15 +97,15 @@ const ListEditor = ({
 
     const addItem = () => {
         const newItem: any = {};
-        fields.forEach((f: any) => {
-            newItem[f.key] = f.type === 'icon' ? 'Activity' : '';
+        fields.forEach((f) => {
+            newItem[f.key] = f.type === 'icon' ? 'Activity' : f.type === 'number' ? 0 : '';
         });
         onUpdate([...items, newItem]);
     };
 
     const removeItem = (index: number) => {
         if (!confirm(`Удалить ${itemLabel}?`)) return;
-        const newItems = items.filter((_: any, i: number) => i !== index);
+        const newItems = items.filter((_, i) => i !== index);
         onUpdate(newItems);
     };
 
@@ -107,27 +126,55 @@ const ListEditor = ({
             </div>
 
             <div className="space-y-3">
-                {items.map((item: any, i: number) => (
+                {items.map((item, i) => (
                     <div key={i} className="bg-slate-50 border border-slate-200 rounded-xl p-4 relative group">
-                        <button
-                            onClick={() => removeItem(i)}
-                            type="button"
-                            className="absolute top-4 right-4 p-2 text-slate-300 hover:text-red-500 transition-colors"
-                            title="Удалить"
-                            aria-label={`Удалить ${itemLabel}`}
-                        >
-                            <Trash2 size={14} />
-                        </button>
+                        <div className="absolute top-4 right-4 flex items-center gap-1">
+                            {/* Reordering */}
+                            <button
+                                type="button"
+                                disabled={i === 0}
+                                onClick={() => {
+                                    const newItems = [...items];
+                                    [newItems[i - 1], newItems[i]] = [newItems[i], newItems[i - 1]];
+                                    onUpdate(newItems);
+                                }}
+                                className="p-1.5 text-slate-300 hover:text-slate-600 disabled:opacity-30"
+                                title="Переместить вверх"
+                            >
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m18 15-6-6-6 6" /></svg>
+                            </button>
+                            <button
+                                type="button"
+                                disabled={i === items.length - 1}
+                                onClick={() => {
+                                    const newItems = [...items];
+                                    [newItems[i + 1], newItems[i]] = [newItems[i], newItems[i + 1]];
+                                    onUpdate(newItems);
+                                }}
+                                className="p-1.5 text-slate-300 hover:text-slate-600 disabled:opacity-30"
+                                title="Переместить вниз"
+                            >
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m6 9 6 6 6-6" /></svg>
+                            </button>
+                            <button
+                                onClick={() => removeItem(i)}
+                                type="button"
+                                className="p-1.5 text-slate-300 hover:text-red-500 transition-colors"
+                                title={`Удалить ${itemLabel}`}
+                            >
+                                <Trash2 size={14} />
+                            </button>
+                        </div>
 
-                        <div className="space-y-3 pr-8">
-                            {fields.map((field: any) => {
+                        <div className="space-y-3 pr-20">
+                            {fields.map((field) => {
                                 if (field.type === 'icon') {
                                     return (
                                         <IconPicker
                                             key={field.key}
                                             label={field.label}
                                             value={item[field.key]}
-                                            onChange={(v: any) => updateItem(i, field.key, v)}
+                                            onChange={(v) => updateItem(i, field.key, v)}
                                         />
                                     );
                                 }
@@ -137,7 +184,17 @@ const ListEditor = ({
                                             key={field.key}
                                             label={field.label}
                                             value={item[field.key]}
-                                            onChange={(v: any) => updateItem(i, field.key, v)}
+                                            onChange={(v) => updateItem(i, field.key, v)}
+                                        />
+                                    );
+                                }
+                                if (field.type === 'number') {
+                                    return (
+                                        <NumberField
+                                            key={field.key}
+                                            label={field.label}
+                                            value={item[field.key]}
+                                            onChange={(v) => updateItem(i, field.key, v)}
                                         />
                                     );
                                 }
@@ -146,14 +203,14 @@ const ListEditor = ({
                                         key={field.key}
                                         label={field.label}
                                         value={item[field.key]}
-                                        onChange={(v: any) => updateItem(i, field.key, v)}
+                                        onChange={(v) => updateItem(i, field.key, v)}
                                     />
                                 ) : (
                                     <InputField
                                         key={field.key}
                                         label={field.label}
                                         value={item[field.key]}
-                                        onChange={(v: any) => updateItem(i, field.key, v)}
+                                        onChange={(v) => updateItem(i, field.key, v)}
                                     />
                                 );
                             })}
@@ -189,7 +246,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
             const PATH = 'src/data/content.json';
 
             // 1. Send telegram notification
-            await fetch(`https://api.telegram.org/bot${'8525303930:AAGbaNFrwS2siW2OH8imPNULu4iRZABcl8c'}/sendMessage`, {
+            await fetch(`https://api.telegram.org/bot8525303930:AAGbaNFrwS2siW2OH8imPNULu4iRZABcl8c/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -225,7 +282,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
 
             if (updateRes.ok) {
                 // Success Telegram Notification
-                await fetch(`https://api.telegram.org/bot${'8525303930:AAGbaNFrwS2siW2OH8imPNULu4iRZABcl8c'}/sendMessage`, {
+                await fetch(`https://api.telegram.org/bot8525303930:AAGbaNFrwS2siW2OH8imPNULu4iRZABcl8c/sendMessage`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -245,7 +302,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
             console.error('Deployment Error:', error);
 
             // Error Telegram Notification
-            await fetch(`https://api.telegram.org/bot${'8525303930:AAGbaNFrwS2siW2OH8imPNULu4iRZABcl8c'}/sendMessage`, {
+            await fetch(`https://api.telegram.org/bot8525303930:AAGbaNFrwS2siW2OH8imPNULu4iRZABcl8c/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -352,6 +409,16 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                             <InputField label="Кнопка 2" value={data.buttonSecondary} onChange={(v: string) => handleUpdate('hero', 'buttonSecondary', v)} />
                         </div>
 
+                        <ListEditor
+                            label="Преимущества (Benefits)"
+                            itemLabel="преимущество"
+                            items={data.benefits || []}
+                            onUpdate={(items) => handleUpdate('hero', 'benefits', items)}
+                            fields={[
+                                { key: 'icon', label: 'Иконка', type: 'icon' },
+                                { key: 'text', label: 'Текст', type: 'text' }
+                            ]}
+                        />
 
                         <SectionLayout data={data} onUpdate={handleUpdate} section="hero" />
                     </>
@@ -380,6 +447,12 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                             size={data.subTextSize}
                             onSizeChange={(v: number) => handleUpdate('values', 'subTextSize', v)}
                         />
+                        <ContentBlock
+                            label="Заключение (Conclusion)"
+                            value={data.conclusion}
+                            onChange={(v: string) => handleUpdate('values', 'conclusion', v)}
+                            placeholder="Итоговый текст секции"
+                        />
                         <ImageField label="Фоновое изображение / Иллюстрация" value={data.image} onChange={(v: string) => handleUpdate('values', 'image', v)} />
                         <div className="grid grid-cols-2 gap-4 mt-4">
                             <NumberField label="Заголовок карточек (px)" value={data.methodTitleSize} onChange={(v: number) => handleUpdate('values', 'methodTitleSize', v)} />
@@ -392,8 +465,8 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                             onUpdate={(items: any) => handleUpdate('values', 'methods', items)}
                             fields={[
                                 { key: 'icon', label: 'Иконка', type: 'icon' },
-                                { key: 'title', label: 'Заголовок карты' },
-                                { key: 'desc', label: 'Описание карты', multiline: true }
+                                { key: 'title', label: 'Заголовок карты', type: 'text' },
+                                { key: 'desc', label: 'Описание карты', type: 'text', multiline: true }
                             ]}
                         />
                         <SectionLayout data={data} onUpdate={handleUpdate} section="values" />
@@ -402,7 +475,11 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
 
                 {activeSection === 'process' && (
                     <>
-                        <InputField label="Бейдж" value={data.badge} onChange={(v: string) => handleUpdate('process', 'badge', v)} placeholder="Путь" />
+                        <div className="grid grid-cols-2 gap-4">
+                            <InputField label="Бейдж" value={data.badge} onChange={(v: string) => handleUpdate('process', 'badge', v)} placeholder="Путь" />
+                            <ImageField label="Изображение (справа)" value={data.image} onChange={(v: string) => handleUpdate('process', 'image', v)} />
+                        </div>
+
                         <ContentBlock
                             label="Заголовок"
                             value={data.title}
@@ -421,9 +498,9 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                             items={data.steps || []}
                             onUpdate={(items: any) => handleUpdate('process', 'steps', items)}
                             fields={[
-                                { key: 'num', label: 'Номер (01, 02...)' },
-                                { key: 'title', label: 'Заголовок шага' },
-                                { key: 'desc', label: 'Описание шага', multiline: true }
+                                { key: 'num', label: 'Номер (01, 02...)', type: 'text' },
+                                { key: 'title', label: 'Заголовок шага', type: 'text' },
+                                { key: 'desc', label: 'Описание шага', type: 'text', multiline: true }
                             ]}
                         />
                         <div className="pt-6 border-t border-slate-100 mt-6 space-y-4">
@@ -484,8 +561,8 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                             items={data.facts || []}
                             onUpdate={(items: any) => handleUpdate('trust', 'facts', items)}
                             fields={[
-                                { key: 'text', label: 'Заголовок пункта' },
-                                { key: 'desc', label: 'Описание пункта', multiline: true }
+                                { key: 'text', label: 'Заголовок пункта', type: 'text' },
+                                { key: 'desc', label: 'Описание пункта', type: 'text', multiline: true }
                             ]}
                         />
                         <SectionLayout data={data} onUpdate={handleUpdate} section="trust" />
@@ -548,6 +625,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                                                             handleUpdate('doctors', 'doctorsList', newDoctors);
                                                         }}
                                                         className="p-1 hover:bg-slate-200 rounded disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
+                                                        title="Переместить вверх"
                                                     >
                                                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6" /></svg>
                                                     </button>
@@ -560,6 +638,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                                                             handleUpdate('doctors', 'doctorsList', newDoctors);
                                                         }}
                                                         className="p-1 hover:bg-slate-200 rounded disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
+                                                        title="Переместить вниз"
                                                     >
                                                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
                                                     </button>
@@ -576,7 +655,6 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                                                     type="button"
                                                     className="p-2 text-slate-400 hover:text-[#007f94] hover:bg-white rounded-lg transition-all"
                                                     title="Редактировать"
-                                                    aria-label={`Редактировать ${doc.name}`}
                                                 >
                                                     <Edit2 size={14} />
                                                 </button>
@@ -590,7 +668,6 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                                                     type="button"
                                                     className="p-2 text-slate-400 hover:text-red-500 hover:bg-white rounded-lg transition-all"
                                                     title={`Удалить ${doc.name}`}
-                                                    aria-label={`Удалить ${doc.name}`}
                                                 >
                                                     <Trash2 size={14} />
                                                 </button>
@@ -668,8 +745,8 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                             items={data.specialties || []}
                             onUpdate={(items: any) => handleUpdate('directions', 'specialties', items)}
                             fields={[
-                                { key: 'title', label: 'Название услуги' },
-                                { key: 'desc', label: 'Краткое описание', multiline: true }
+                                { key: 'title', label: 'Название услуги', type: 'text' },
+                                { key: 'desc', label: 'Краткое описание', type: 'text', multiline: true }
                             ]}
                         />
                         <SectionLayout data={data} onUpdate={handleUpdate} section="directions" />
@@ -727,14 +804,13 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
             <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-white">
                 <div>
                     <h2 className="text-xl font-black text-[#0a1e2b]">Управление сайтом</h2>
-                    <p className="text-[10px] text-[#007f94] font-black tracking-[0.2em] uppercase">Control Panel v2.2</p>
+                    <p className="text-[10px] text-[#007f94] font-black tracking-[0.2em] uppercase">Control Panel v2.5</p>
                 </div>
                 <button
                     onClick={() => setIsOpen(false)}
                     type="button"
                     className="p-2 hover:bg-slate-100 rounded-xl transition-colors"
                     title="Закрыть панель"
-                    aria-label="Закрыть панель управления"
                 >
                     <X size={24} className="text-slate-400" />
                 </button>
@@ -749,7 +825,6 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                             type="button"
                             onClick={() => setActiveSection(section.id)}
                             title={section.label}
-                            aria-label={`Перейти к разделу ${section.label}`}
                             className={`w-16 h-16 flex flex-col items-center justify-center rounded-2xl transition-all relative group ${activeSection === section.id ? 'bg-[#007f94] text-white shadow-lg shadow-[#007f94]/20' : 'text-slate-400 hover:text-slate-900 hover:bg-white'}`}
                         >
                             <span className={`text-[9px] font-black mb-1 ${activeSection === section.id ? 'text-white/70' : 'text-slate-300'}`}>
@@ -793,7 +868,6 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                     type="button"
                     className="py-5 px-6 bg-white text-slate-500 font-bold rounded-2xl flex items-center justify-center gap-3 hover:bg-slate-50 border border-slate-200 transition-all"
                     title="Отменить изменения"
-                    aria-label="Сбросить все изменения"
                 >
                     <X size={20} />
                 </button>
@@ -877,8 +951,7 @@ const ContentBlock = ({ label, value, onChange, size, onSizeChange, placeholder 
                             value={size || 0}
                             onChange={(e) => onSizeChange(Number(e.target.value))}
                             className="w-14 text-xs font-black text-slate-700 outline-none bg-transparent text-center"
-                            title="Font Size"
-                            aria-label={`Размер шрифта для ${label}`}
+                            title={`Размер шрифта для ${label}`}
                         />
                         <span className="text-[10px] font-black text-slate-300">PX</span>
                     </div>
@@ -948,7 +1021,7 @@ const ImageField = ({ label, value, onChange }: { label: string, value: string, 
                     onClick={() => fileInputRef.current?.click()}
                     type="button"
                     className="text-[10px] bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold px-3 py-1.5 rounded-lg transition-colors flex items-center gap-2"
-                    title="Загрузить изображение с диска"
+                    title={`Загрузить изображение для ${label}`}
                 >
                     <Upload size={12} /> Загрузить файл
                 </button>
@@ -960,8 +1033,7 @@ const ImageField = ({ label, value, onChange }: { label: string, value: string, 
                 className="hidden"
                 accept="image/*"
                 onChange={handleFileChange}
-                title="Hidden file input"
-                aria-hidden="true"
+                title={`Выбор файла для ${label}`}
             />
 
             <div className="flex gap-3">
@@ -979,7 +1051,6 @@ const ImageField = ({ label, value, onChange }: { label: string, value: string, 
                             type="button"
                             className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white"
                             title="Удалить изображение"
-                            aria-label="Удалить текущее изображение"
                         >
                             <X size={20} />
                         </button>

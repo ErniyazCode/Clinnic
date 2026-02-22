@@ -27,9 +27,9 @@ const ProcessBlock = ({ data }: { data: any }) => {
     const partnersList = [
         { name: 'Bupa', logo: '/partners/bupa-international-health-insurance.jpg' },
         { name: 'Cigna', logo: '/partners/cigna-global.jpg' },
+        { name: 'AXA', logo: '/partners/axa_logo_solid_rgb1080.png' },
         { name: 'Aetna', logo: '/partners/logo-aetna.png' },
-        { name: 'Allianz', logo: '/partners/insurancecompanies_20210209094545464_large.webp' },
-        { name: 'AXA', logo: '/partners/axa_logo_solid_rgb1080.png' }
+        { name: 'Allianz', logo: '/partners/insurancecompanies_20210209094545464_large.webp' }
     ];
 
     return (
@@ -136,7 +136,7 @@ const ProcessBlock = ({ data }: { data: any }) => {
                                         whileInView={{ opacity: 1, scale: 1 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: index * 0.1 }}
-                                        className="relative group"
+                                        className={`relative group ${partner.name === 'AXA' ? 'col-span-2 flex justify-center' : ''}`}
                                     >
                                         <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white p-4 md:p-6 flex items-center justify-center shadow-xl overflow-hidden border border-white/10 transition-transform duration-500 hover:scale-105">
                                             <img
