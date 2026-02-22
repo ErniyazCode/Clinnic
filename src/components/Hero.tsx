@@ -94,38 +94,38 @@ const Hero = ({ data }: { data: any }) => {
 
                     <motion.h1
                         variants={itemVariants}
-                        className="font-bold text-[#0a1e2b] tracking-tighter leading-[1.1] mb-6 md:mb-10 max-w-4xl whitespace-pre-line mx-auto px-0 sm:px-4"
-                        style={{ fontSize: `clamp(21px, 7.5vw, ${titleSize}px)` }}
+                        className="font-bold text-[#0a1e2b] tracking-tighter leading-[1.1] mb-6 md:mb-10 max-w-4xl whitespace-pre-line mx-auto px-4"
+                        style={{ fontSize: `clamp(28px, 9vw, ${titleSize}px)` }}
                     >
                         <HighlightedText text={title} />
                     </motion.h1>
 
                     {/* Subtext and Description */}
-                    <motion.div variants={itemVariants} className="flex flex-col items-center gap-4 mb-8 md:mb-14 max-w-4xl px-0 sm:px-6 mx-auto">
+                    <motion.div variants={itemVariants} className="flex flex-col items-center gap-4 mb-10 md:mb-14 max-w-2xl px-4 mx-auto">
                         <h2
-                            className="font-black text-[#007f94] tracking-[0.2em] uppercase"
-                            style={{ fontSize: `clamp(10px, 2.5vw, ${subtitleSize}px)` }}
+                            className="font-black text-[#007f94] tracking-[0.18em] uppercase leading-tight"
+                            style={{ fontSize: `clamp(15px, 4.5vw, 18px)` }}
                         >
                             {subtitle}
                         </h2>
                         <p
-                            className="text-slate-500 font-medium leading-relaxed max-w-none px-2"
-                            style={{ fontSize: `clamp(12px, 3.5vw, ${descSize}px)` }}
+                            className="text-slate-500 font-medium leading-relaxed max-w-[90%]"
+                            style={{ fontSize: `clamp(12px, 3.5vw, 16px)` }}
                         >
                             {description}
                         </p>
                     </motion.div>
 
                     {/* Buttons */}
-                    <motion.div variants={itemVariants} className="flex justify-center w-full px-6 mb-12">
+                    <motion.div variants={itemVariants} className="flex justify-center w-full px-4 mb-14">
                         <Magnetic>
                             <a
                                 href="#contact"
-                                className="group relative overflow-hidden px-10 py-4.5 md:px-12 md:py-5 bg-[#007f94] text-white font-bold rounded-full shadow-[0_10px_40px_rgba(0,127,148,0.25)] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,127,148,0.4)] hover:scale-[1.05] active:scale-[0.98] flex items-center justify-center gap-3 text-sm md:text-lg"
+                                className="group relative overflow-hidden px-10 py-5 bg-[#007f94] text-white font-bold rounded-full shadow-[0_15px_35px_rgba(0,127,148,0.3)] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,127,148,0.45)] hover:scale-[1.03] active:scale-[0.98] flex items-center justify-center gap-3 text-base md:text-xl w-full max-w-[340px] md:max-w-none"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
                                 <span className="relative z-10">{buttonPrimary}</span>
-                                <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 opacity-90 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10" />
+                                <ArrowUpRight className="w-5 h-5 opacity-90 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10" />
                             </a>
                         </Magnetic>
                     </motion.div>
@@ -139,15 +139,15 @@ const Hero = ({ data }: { data: any }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
             >
-                <div className="flex overflow-x-auto md:flex-wrap items-center justify-start md:justify-center gap-x-6 gap-y-3 md:gap-x-12 scrollbar-hide pb-2 md:pb-0">
+                <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 md:gap-x-12 pb-6 md:pb-0">
                     {(benefits || []).map((item: any, i: number) => {
                         const Icon = ICON_POOL[item.icon] || ICON_POOL.Activity;
                         return (
-                            <div key={i} className="flex items-center gap-2 group whitespace-nowrap shrink-0">
-                                <div className="w-7 h-7 rounded-full bg-[#007f94]/5 flex items-center justify-center text-[#007f94] transition-colors group-hover:bg-[#007f94]/10">
-                                    <Icon className="w-3.5 h-3.5 stroke-[2.5]" />
+                            <div key={i} className="flex items-center gap-2.5 group whitespace-nowrap">
+                                <div className="w-8 h-8 rounded-full bg-[#007f94]/5 flex items-center justify-center text-[#007f94] transition-colors group-hover:bg-[#007f94]/10 border border-[#007f94]/10">
+                                    <Icon className="w-4 h-4 stroke-[2.5]" />
                                 </div>
-                                <span className="text-[10px] md:text-xs font-bold text-slate-600 tracking-wide group-hover:text-slate-800 transition-colors uppercase">{item.text}</span>
+                                <span className="text-[11px] md:text-xs font-bold text-slate-600 tracking-wide group-hover:text-slate-800 transition-colors uppercase">{item.text}</span>
                             </div>
                         );
                     })}
