@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import HighlightedText from './common/HighlightedText';
 
 const Doctors = ({ data }: { data: any }) => {
+    const [showAll, setShowAll] = React.useState(false);
+
     const {
         badge = 'Команда',
         title = 'Ведущие врачи из Турции \n теперь в Алматы.',
@@ -37,8 +39,17 @@ const Doctors = ({ data }: { data: any }) => {
             years: '20 лет опыта',
             practice: 'Американский госпиталь',
             image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=800'
+        },
+        {
+            name: 'Д-р Фатих Террим',
+            role: 'Гастроэнтеролог',
+            years: '12 лет опыта',
+            practice: 'Medical Park',
+            image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800'
         }
     ];
+
+    const visibleItems = showAll ? items : items.slice(0, 3);
 
     return (
         <section
@@ -56,7 +67,7 @@ const Doctors = ({ data }: { data: any }) => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.4 }}
                     >
                         <span className="text-[#007f94] font-bold uppercase tracking-widest text-xs md:text-sm mb-4 block">{badge}</span>
                         <h2
@@ -76,13 +87,13 @@ const Doctors = ({ data }: { data: any }) => {
 
                 {/* Doctors Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8 mb-10 md:mb-16">
-                    {items.map((doc: any, i: number) => (
+                    {visibleItems.map((doc: any, i: number) => (
                         <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-20px" }}
-                            transition={{ duration: 0.6, delay: i * 0.15, ease: [0.21, 1, 0.36, 1] }}
+                            transition={{ duration: 0.4, delay: i * 0.08, ease: [0.21, 1, 0.36, 1] }}
                             className="group flex flex-col items-center text-center w-full"
                         >
                             {/* Image Container */}
@@ -126,9 +137,12 @@ const Doctors = ({ data }: { data: any }) => {
                 </div>
 
                 <div className="text-center">
-                    <a href="#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 font-bold rounded-full border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all w-full md:w-auto justify-center">
-                        Посмотреть всех врачей <ArrowUpRight size={18} />
-                    </a>
+                    <button
+                        onClick={() => setShowAll(!showAll)}
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 font-bold rounded-full border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all w-full md:w-auto justify-center"
+                    >
+                        {showAll ? 'Скрыть лишних' : 'Посмотреть всех врачей'} <ArrowUpRight size={18} className={showAll ? 'rotate-180' : ''} />
+                    </button>
                 </div>
             </div>
         </section>

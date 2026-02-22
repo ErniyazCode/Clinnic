@@ -134,22 +134,32 @@ const ProcessBlock = ({ data }: { data: any }) => {
                                             key={index}
                                             initial={{ opacity: 0, scale: 0.8 }}
                                             whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: true }}
                                             transition={{
-                                                delay: index * 0.1,
-                                                duration: 4 + index,
-                                                repeat: Infinity,
-                                                ease: "easeInOut"
-                                            } as any}
+                                                delay: index * 0.05,
+                                                duration: 0.5,
+                                                ease: "easeOut"
+                                            }}
                                             className="group relative flex flex-col items-center"
                                         >
-                                            <div className={`text-3xl md:text-5xl font-black text-white/40 group-hover:text-white transition-all duration-500 cursor-default select-none tracking-tighter`}>
+                                            <motion.div
+                                                animate={{
+                                                    y: [0, index % 2 === 0 ? -10 : 10, 0]
+                                                }}
+                                                transition={{
+                                                    duration: 3 + index,
+                                                    repeat: Infinity,
+                                                    ease: "easeInOut"
+                                                }}
+                                                className={`text-3xl md:text-5xl font-black text-white/40 group-hover:text-white transition-all duration-500 cursor-default select-none tracking-tighter`}
+                                            >
                                                 {partner.name === 'AXA' ? (
                                                     <span className="relative">
                                                         AXA
                                                         <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-red-500 rounded-full opacity-60 group-hover:opacity-100 transition-opacity" />
                                                     </span>
                                                 ) : partner.name}
-                                            </div>
+                                            </motion.div>
                                             {/* Subtle glow on hover */}
                                             <div className="absolute inset-0 bg-white/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity rounded-full -z-10" />
                                         </motion.div>
