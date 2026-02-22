@@ -17,8 +17,8 @@ const Navbar = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 className={`pointer-events-auto flex items-center justify-between w-full max-w-5xl transition-all duration-500 ease-in-out ${scrolled
-                        ? 'bg-white/80 backdrop-blur-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-full px-5 py-3 md:px-8 md:py-4'
-                        : 'bg-transparent border-transparent px-2 py-4 shadow-none'
+                    ? 'bg-white/80 backdrop-blur-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-full px-5 py-3 md:px-8 md:py-4'
+                    : 'bg-transparent border-transparent px-2 py-4 shadow-none'
                     }`}
             >
                 {/* Logo */}
@@ -35,12 +35,9 @@ const Navbar = () => {
                     <Magnetic>
                         <a
                             href="#contact"
-                            className="group relative px-6 py-2.5 md:px-8 md:py-3 bg-[#0a1e2b] text-white font-bold text-sm md:text-base rounded-full overflow-hidden shadow-[0_8px_20px_rgba(10,30,43,0.15)] flex items-center gap-2"
+                            className="group relative px-6 py-2.5 md:px-8 md:py-3 bg-[#007f94] text-white font-bold text-sm md:text-base rounded-full overflow-hidden shadow-[0_8px_20px_rgba(0,127,148,0.15)] flex items-center justify-center transition-all hover:bg-[#00c2e0] hover:shadow-[0_12px_24px_rgba(0,127,148,0.25)] hover:scale-[1.02] active:scale-[0.98]"
                         >
-                            <span className="relative z-10 transition-transform group-hover:-translate-y-12">Записаться</span>
-                            <span className="absolute inset-0 z-10 flex items-center justify-center translate-y-12 bg-[#007f94] transition-transform group-hover:translate-y-0">
-                                Записаться
-                            </span>
+                            <span className="relative z-10">Записаться</span>
                         </a>
                     </Magnetic>
                 </div>

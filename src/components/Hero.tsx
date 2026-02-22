@@ -119,8 +119,13 @@ const Hero = ({ data }: { data: any }) => {
                     {/* Buttons */}
                     <motion.div variants={itemVariants} className="flex justify-center w-full px-6 mb-12">
                         <Magnetic>
-                            <a href="#contact" className="px-10 py-4.5 bg-[#0a1e2b] hover:bg-[#007f94] text-white font-bold rounded-2xl shadow-2xl shadow-slate-900/20 transition-all flex items-center justify-center gap-3 text-base md:text-lg">
-                                {buttonPrimary} <ArrowUpRight className="w-5 h-5 opacity-90" />
+                            <a
+                                href="#contact"
+                                className="group relative overflow-hidden px-12 py-5 bg-[#007f94] text-white font-bold rounded-full shadow-[0_10px_30px_rgba(0,127,148,0.25)] transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,127,148,0.4)] hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3 text-base md:text-lg"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                                <span className="relative z-10">{buttonPrimary}</span>
+                                <ArrowUpRight className="w-5 h-5 opacity-90 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10" />
                             </a>
                         </Magnetic>
                     </motion.div>
