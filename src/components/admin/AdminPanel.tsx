@@ -40,7 +40,7 @@ const IconPicker = ({ label, value, onChange }: { label: string; value: string; 
                         <button
                             key={nameStr}
                             type="button"
-                            onClick={() => onChange(iconName)}
+                            onClick={() => onChange(nameStr)}
                             className={`p-2 rounded-lg flex items-center justify-center transition-all ${isActive
                                 ? 'bg-[#007f94] text-white shadow-lg shadow-[#007f94]/20 scale-110'
                                 : 'bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-[#007f94]'
