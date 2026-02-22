@@ -43,7 +43,7 @@ const Hero = ({ data }: { data: any }) => {
         <section
             ref={containerRef}
             id="hero"
-            className="relative flex flex-col items-center justify-center min-h-[90svh] pt-32 md:pt-40 pb-12 overflow-hidden bg-gradient-to-b from-[#fafcff] to-white"
+            className="relative flex flex-col items-center justify-center min-h-[80svh] pt-24 md:pt-32 pb-8 overflow-hidden bg-gradient-to-b from-[#fafcff] to-white"
         >
             {/* Soft Background */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -56,7 +56,7 @@ const Hero = ({ data }: { data: any }) => {
             </div>
 
             <motion.div
-                className="container mx-auto px-4 relative z-10 w-full mb-10 md:mb-16"
+                className="container mx-auto px-4 relative z-10 w-full mb-6 md:mb-10"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -65,51 +65,51 @@ const Hero = ({ data }: { data: any }) => {
                 <div className="flex flex-col items-center text-center max-w-5xl mx-auto w-full">
 
                     {/* Clean Badge */}
-                    <motion.div variants={itemVariants} className="inline-flex items-center gap-4 mb-8 md:mb-12 px-5 py-2.5 bg-white/80 backdrop-blur-md rounded-full border border-slate-200/60 shadow-sm mx-auto">
-                        <div className="flex items-center gap-2">
-                            <span className="relative flex h-2 w-2">
+                    <motion.div variants={itemVariants} className="inline-flex items-center gap-4 mb-6 md:mb-8 px-4 py-2 bg-white/80 backdrop-blur-md rounded-full border border-slate-200/60 shadow-sm mx-auto">
+                        <div className="flex items-center gap-1.5">
+                            <span className="relative flex h-1.5 w-1.5">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500"></span>
                             </span>
-                            <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-700">{badgeTR}</span>
+                            <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-slate-700">{badgeTR}</span>
                         </div>
-                        <div className="w-[1px] h-3 bg-slate-300"></div>
-                        <div className="flex items-center gap-2">
-                            <span className="relative flex h-2 w-2">
+                        <div className="w-[1px] h-2.5 bg-slate-300"></div>
+                        <div className="flex items-center gap-1.5">
+                            <span className="relative flex h-1.5 w-1.5">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00c2e0] opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00c2e0]"></span>
+                                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#00c2e0]"></span>
                             </span>
-                            <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-700">{badgeKZ}</span>
+                            <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-slate-700">{badgeKZ}</span>
                         </div>
                     </motion.div>
 
                     {/* Headline */}
                     <motion.h1
                         variants={itemVariants}
-                        className="text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold text-[#0a1e2b] tracking-[-0.02em] leading-[1.05] md:leading-[1.1] mb-8 max-w-4xl text-balance whitespace-pre-line mx-auto"
+                        className="text-[clamp(2rem,5vw,3.75rem)] font-extrabold text-[#0a1e2b] tracking-[-0.02em] leading-[1.1] mb-6 max-w-4xl text-balance whitespace-pre-line mx-auto"
                     >
                         <HighlightedText text={title} />
                     </motion.h1>
 
                     {/* Subtext and Description */}
-                    <motion.div variants={itemVariants} className="flex flex-col items-center gap-4 mb-12 max-w-2xl px-4 mx-auto">
-                        <h2 className="text-xs md:text-sm font-black text-[#007f94] tracking-[0.15em] uppercase text-balance">
+                    <motion.div variants={itemVariants} className="flex flex-col items-center gap-3 mb-8 max-w-2xl px-4 mx-auto">
+                        <h2 className="text-[10px] md:text-xs font-black text-[#007f94] tracking-[0.15em] uppercase text-balance">
                             {subtitle}
                         </h2>
-                        <p className="text-slate-500 text-base md:text-xl leading-relaxed text-balance font-medium">
+                        <p className="text-slate-500 text-sm md:text-lg leading-relaxed text-balance font-medium">
                             {description}
                         </p>
                     </motion.div>
 
                     {/* Buttons */}
-                    <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full px-6 sm:px-0 mb-16 shrink-0">
+                    <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full px-6 sm:px-0 mb-8 shrink-0">
                         <Magnetic>
-                            <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-[#007f94] hover:bg-[#00c2e0] text-white font-bold rounded-2xl shadow-lg shadow-[#007f94]/20 transition-all flex items-center justify-center gap-2 text-base">
-                                {buttonPrimary} <ArrowUpRight className="w-5 h-5 opacity-90" />
+                            <a href="#contact" className="w-full sm:w-auto px-7 py-3.5 bg-[#007f94] hover:bg-[#00c2e0] text-white font-bold rounded-xl shadow-lg shadow-[#007f94]/20 transition-all flex items-center justify-center gap-2 text-sm md:text-base">
+                                {buttonPrimary} <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 opacity-90" />
                             </a>
                         </Magnetic>
                         <Magnetic>
-                            <a href="#about" className="w-full sm:w-auto px-8 py-4 bg-white border border-slate-200 text-[#0a1e2b] hover:border-[#007f94] hover:bg-slate-50 rounded-2xl transition-all flex items-center justify-center text-base font-bold shadow-sm">
+                            <a href="#about" className="w-full sm:w-auto px-7 py-3.5 bg-white border border-slate-200 text-[#0a1e2b] hover:border-[#007f94] hover:bg-slate-50 rounded-xl transition-all flex items-center justify-center text-sm md:text-base font-bold shadow-sm">
                                 {buttonSecondary}
                             </a>
                         </Magnetic>
@@ -120,20 +120,20 @@ const Hero = ({ data }: { data: any }) => {
 
             {/* Clean Benefit Bar */}
             <motion.div
-                className="w-full relative z-20 container mx-auto px-4 mt-auto border-t border-slate-200/60 pt-6 md:pt-8"
+                className="w-full relative z-20 container mx-auto px-4 mt-auto border-t border-slate-200/60 pt-4 md:pt-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
             >
-                <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 md:gap-x-14">
+                <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 md:gap-x-12">
                     {(benefits || []).map((item: any, i: number) => {
                         const Icon = ICON_POOL[item.icon] || ICON_POOL.Activity;
                         return (
-                            <div key={i} className="flex items-center gap-2.5 group">
-                                <div className="w-8 h-8 rounded-full bg-[#007f94]/5 flex items-center justify-center text-[#007f94] transition-colors group-hover:bg-[#007f94]/10">
-                                    <Icon className="w-4 h-4 stroke-[2.5]" />
+                            <div key={i} className="flex items-center gap-2 group">
+                                <div className="w-7 h-7 rounded-full bg-[#007f94]/5 flex items-center justify-center text-[#007f94] transition-colors group-hover:bg-[#007f94]/10">
+                                    <Icon className="w-3.5 h-3.5 stroke-[2.5]" />
                                 </div>
-                                <span className="text-xs md:text-sm font-bold text-slate-600 tracking-wide group-hover:text-slate-800 transition-colors uppercase">{item.text}</span>
+                                <span className="text-[10px] md:text-xs font-bold text-slate-600 tracking-wide group-hover:text-slate-800 transition-colors uppercase">{item.text}</span>
                             </div>
                         );
                     })}
