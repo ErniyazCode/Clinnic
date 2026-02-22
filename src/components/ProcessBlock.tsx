@@ -104,24 +104,9 @@ const ProcessBlock = ({ data }: { data: any }) => {
                             <h3 className="text-3xl md:text-5xl font-black text-white mb-6 leading-[1.1] tracking-tighter whitespace-pre-line">
                                 <HighlightedText text={ctaTitle} />
                             </h3>
-                            <p className="text-slate-400 font-medium mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed whitespace-pre-line">
+                            <p className="text-slate-400 font-medium mb-10 md:mb-12 max-w-2xl mx-auto lg:mx-0 leading-relaxed whitespace-pre-line">
                                 {ctaDesc}
                             </p>
-
-                            {/* Integrated Partners Grid */}
-                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 mb-10 opacity-70">
-                                {partnersList.map((partner, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0 }}
-                                        whileInView={{ opacity: 1 }}
-                                        transition={{ delay: index * 0.1 }}
-                                        className={`text-xl md:text-2xl font-bold ${partner.color} hover:opacity-100 transition-opacity`}
-                                    >
-                                        {partner.name}
-                                    </motion.div>
-                                ))}
-                            </div>
 
                             <div className="flex justify-center lg:justify-start">
                                 <Magnetic>
@@ -135,19 +120,27 @@ const ProcessBlock = ({ data }: { data: any }) => {
                             </div>
                         </div>
 
-                        <div className="hidden lg:block relative h-full min-h-[400px]">
+                        {/* Partners Grid on Right/Bottom */}
+                        <div className="relative">
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.8 }}
-                                className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 h-full"
+                                className="relative rounded-3xl p-8 md:p-12 bg-white/5 border border-white/10 backdrop-blur-sm"
                             >
-                                <img
-                                    src={image}
-                                    alt="Medical Process"
-                                    className="w-full h-full object-cover"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1e2b]/60 to-transparent" />
+                                <div className="grid grid-cols-2 gap-8 md:gap-12 items-center justify-items-center">
+                                    {partnersList.map((partner, index) => (
+                                        <motion.div
+                                            key={index}
+                                            initial={{ opacity: 0, y: 10 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: index * 0.1 }}
+                                            className={`text-2xl md:text-4xl font-black ${partner.color} opacity-80 hover:opacity-100 transition-opacity whitespace-nowrap`}
+                                        >
+                                            {partner.name}
+                                        </motion.div>
+                                    ))}
+                                </div>
                             </motion.div>
                         </div>
                     </div>

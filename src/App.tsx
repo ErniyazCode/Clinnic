@@ -57,7 +57,6 @@ function App() {
         hero: Hero,
         values: ValueBlock,
         process: ProcessBlock,
-        partners: Partners,
         trust: WhyDifferent,
         doctors: Doctors,
         specialists: Specialists,
