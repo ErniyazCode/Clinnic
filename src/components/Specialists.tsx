@@ -53,22 +53,6 @@ const Specialists = ({ data }: { data: any }) => {
                             alt="Наши специалисты"
                         />
 
-                        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 z-20 flex flex-col md:flex-row justify-between items-end gap-8">
-                            <div className="flex flex-wrap gap-4 md:gap-8">
-                                {stats.length > 0 && stats.map((stat, idx) => (
-                                    <div
-                                        key={idx}
-                                        className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 md:p-6 min-w-[140px]"
-                                    >
-                                        <div className="flex items-baseline gap-1 mb-1">
-                                            <span className="text-3xl md:text-5xl font-black text-white">{stat.value}</span>
-                                            <span className="text-[#00c2e0] font-bold text-lg">{stat.suffix}</span>
-                                        </div>
-                                        <p className="text-white/80 text-xs md:text-sm font-medium">{stat.label}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
                     </div>
                 </FadeIn>
             </div>
