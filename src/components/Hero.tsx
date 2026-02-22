@@ -14,7 +14,7 @@ const Hero = ({ data }: { data: any }) => {
     const {
         badgeTR = 'Turkiye',
         badgeKZ = 'Kazakhstan',
-        title = 'Ведущие врачи из *Турции* \nтеперь принимают в Алматы',
+        title = 'Ведущие врачи из *Турции* теперь принимают в Алматы',
         subtitle = 'Узнайте риски до того, как они станут диагнозами',
         description = 'Консультации, диагностика и планы медицинской реабилитации экспертного уровня без выезда за границу.',
         buttonPrimary = 'Записаться на приём',
@@ -94,23 +94,23 @@ const Hero = ({ data }: { data: any }) => {
 
                     <motion.h1
                         variants={itemVariants}
-                        className="font-bold text-[#0a1e2b] tracking-tighter leading-[1.1] mb-6 md:mb-10 max-w-4xl whitespace-pre-line mx-auto px-1 sm:px-4"
-                        style={{ fontSize: `clamp(24px, 8vw, ${titleSize}px)` }}
+                        className="font-bold text-[#0a1e2b] tracking-tighter leading-[1.1] mb-6 md:mb-10 max-w-4xl whitespace-pre-line mx-auto px-0 sm:px-4"
+                        style={{ fontSize: `clamp(21px, 7.5vw, ${titleSize}px)` }}
                     >
                         <HighlightedText text={title} />
                     </motion.h1>
 
                     {/* Subtext and Description */}
-                    <motion.div variants={itemVariants} className="flex flex-col items-center gap-4 mb-8 md:mb-14 max-w-3xl px-2 sm:px-6 mx-auto">
+                    <motion.div variants={itemVariants} className="flex flex-col items-center gap-4 mb-8 md:mb-14 max-w-4xl px-0 sm:px-6 mx-auto">
                         <h2
                             className="font-black text-[#007f94] tracking-[0.2em] uppercase"
-                            style={{ fontSize: `clamp(11px, 2.5vw, ${subtitleSize}px)` }}
+                            style={{ fontSize: `clamp(10px, 2.5vw, ${subtitleSize}px)` }}
                         >
                             {subtitle}
                         </h2>
                         <p
-                            className="text-slate-500 font-medium leading-relaxed max-w-[95%] sm:max-w-none"
-                            style={{ fontSize: `clamp(13px, 3.8vw, ${descSize}px)` }}
+                            className="text-slate-500 font-medium leading-relaxed max-w-none px-2"
+                            style={{ fontSize: `clamp(12px, 3.5vw, ${descSize}px)` }}
                         >
                             {description}
                         </p>
