@@ -25,11 +25,11 @@ const ProcessBlock = ({ data }: { data: any }) => {
     const COLORS = ['bg-blue-50 text-blue-600', 'bg-indigo-50 text-indigo-600', 'bg-teal-50 text-teal-600'];
 
     const partnersList = [
-        { name: 'Bupa', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Bupa_logo.svg/512px-Bupa_logo.svg.png' },
-        { name: 'Cigna', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Cigna_logo.svg/512px-Cigna_logo.svg.png' },
-        { name: 'Aetna', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Aetna_logo.svg/512px-Aetna_logo.svg.png' },
-        { name: 'Allianz', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Allianz_logo.svg/512px-Allianz_logo.svg.png' },
-        { name: 'AXA', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/512px-AXA_Logo.svg.png' }
+        { name: 'Bupa', logo: 'https://logo.clearbit.com/bupa.com' },
+        { name: 'Cigna', logo: 'https://logo.clearbit.com/cigna.com' },
+        { name: 'Aetna', logo: 'https://logo.clearbit.com/aetna.com' },
+        { name: 'Allianz', logo: 'https://logo.clearbit.com/allianz.com' },
+        { name: 'AXA', logo: 'https://logo.clearbit.com/axa.com' }
     ];
 
     return (
@@ -91,11 +91,11 @@ const ProcessBlock = ({ data }: { data: any }) => {
                     direction="up"
                     delay={0.2}
                     duration={0.7}
-                    className="relative bg-[#0a1e2b] rounded-2xl md:rounded-[4rem] overflow-hidden p-8 md:p-10 lg:p-20 group mt-20"
+                    className="relative bg-[#0a1e2b] rounded-2xl md:rounded-[4rem] overflow-hidden p-8 md:p-10 lg:p-20 mt-20"
                 >
-                    {/* Abstract background graphics */}
-                    <div className="absolute top-0 right-0 w-full h-full">
-                        <div className="absolute top-[-20%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#007f94]/20 rounded-full blur-[60px] md:blur-[120px] group-hover:scale-110 transition-transform duration-1000" />
+                    {/* Background graphics */}
+                    <div className="absolute top-0 right-0 w-full h-full pointer-events-none">
+                        <div className="absolute top-[-20%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#007f94]/20 rounded-full blur-[60px] md:blur-[120px]" />
                         <div className="absolute bottom-[-20%] left-[-10%] w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-blue-500/10 rounded-full blur-[50px] md:blur-[100px]" />
                     </div>
 
@@ -132,16 +132,27 @@ const ProcessBlock = ({ data }: { data: any }) => {
                                 {partnersList.map((partner, index) => (
                                     <motion.div
                                         key={index}
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        initial={{ opacity: 0 }}
+                                        whileInView={{ opacity: 1 }}
                                         viewport={{ once: true }}
-                                        transition={{ delay: index * 0.05 }}
-                                        className="w-full max-w-[140px] md:max-w-[180px] aspect-[2.5/1] bg-white rounded-xl p-3 md:p-6 flex items-center justify-center shadow-lg"
+                                        transition={{ delay: index * 0.1 }}
+                                        className="w-full max-w-[140px] md:max-w-[180px] aspect-[2.5/1] bg-white rounded-xl p-4 md:p-6 flex items-center justify-center"
                                     >
                                         <img
                                             src={partner.logo}
                                             alt={partner.name}
                                             className="w-full h-full object-contain"
+                                            onError={(e) => {
+                                                const target = e.target as HTMLImageElement;
+                                                target.style.display = 'none';
+                                                const parent = target.parentElement;
+                                                if (parent) {
+                                                    const span = document.createElement('span');
+                                                    span.innerText = partner.name;
+                                                    span.className = 'text-slate-900 font-bold text-lg';
+                                                    parent.appendChild(span);
+                                                }
+                                            }}
                                         />
                                     </motion.div>
                                 ))}
