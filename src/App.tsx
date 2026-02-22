@@ -15,6 +15,7 @@ import { useContent } from './hooks/useContent';
 import AdminPanel from './components/admin/AdminPanel';
 import AdminLogin from './components/admin/AdminLogin';
 import Specialists from './components/Specialists';
+import Partners from './components/Partners';
 
 function App() {
     const { content, updateContent } = useContent();
@@ -56,6 +57,7 @@ function App() {
         hero: Hero,
         values: ValueBlock,
         process: ProcessBlock,
+        partners: Partners,
         trust: WhyDifferent,
         doctors: Doctors,
         specialists: Specialists,
