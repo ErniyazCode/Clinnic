@@ -120,28 +120,54 @@ const ProcessBlock = ({ data }: { data: any }) => {
                             </div>
                         </div>
 
-                        {/* Partners Grid on Right/Bottom */}
-                        <div className="relative">
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.8 }}
-                                className="relative rounded-3xl p-8 md:p-12 bg-white/5 border border-white/10 backdrop-blur-sm"
-                            >
-                                <div className="grid grid-cols-2 gap-8 md:gap-12 items-center justify-items-center">
+                        {/* Partners Display on Right */}
+                        <div className="relative flex flex-col items-center lg:items-start">
+                            <div className="mb-8 flex items-center gap-3">
+                                <div className="h-[1px] w-8 bg-[#007f94]" />
+                                <span className="text-[#007f94] font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs">Наши партнеры</span>
+                            </div>
+
+                            <div className="relative w-full overflow-hidden py-10">
+                                <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-16 md:gap-x-20 md:gap-y-24">
                                     {partnersList.map((partner, index) => (
                                         <motion.div
                                             key={index}
-                                            initial={{ opacity: 0, y: 10 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: index * 0.1 }}
-                                            className={`text-2xl md:text-4xl font-black ${partner.color} opacity-80 hover:opacity-100 transition-opacity whitespace-nowrap`}
+                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            transition={{
+                                                delay: index * 0.1,
+                                                duration: 0.8,
+                                                ease: [0.22, 1, 0.36, 1]
+                                            }}
+                                            animate={{
+                                                y: [0, index % 2 === 0 ? -10 : 10, 0]
+                                            }}
+                                            transition={{
+                                                duration: 4 + index,
+                                                repeat: Infinity,
+                                                ease: "easeInOut"
+                                            } as any}
+                                            className="group relative flex flex-col items-center"
                                         >
-                                            {partner.name}
+                                            <div className={`text-3xl md:text-5xl font-black text-white/40 group-hover:text-white transition-all duration-500 cursor-default select-none tracking-tighter`}>
+                                                {partner.name === 'AXA' ? (
+                                                    <span className="relative">
+                                                        AXA
+                                                        <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-red-500 rounded-full opacity-60 group-hover:opacity-100 transition-opacity" />
+                                                    </span>
+                                                ) : partner.name}
+                                            </div>
+                                            {/* Subtle glow on hover */}
+                                            <div className="absolute inset-0 bg-white/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity rounded-full -z-10" />
                                         </motion.div>
                                     ))}
                                 </div>
-                            </motion.div>
+
+                                {/* Abstract decorative backgrounds for the logos area */}
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-20 pointer-events-none">
+                                    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,#ffffff0a_0,transparent_70%)]" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </FadeIn>
