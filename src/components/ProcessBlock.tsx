@@ -136,13 +136,6 @@ const ProcessBlock = ({ data }: { data: any }) => {
                                             whileInView={{ opacity: 1, scale: 1 }}
                                             transition={{
                                                 delay: index * 0.1,
-                                                duration: 0.8,
-                                                ease: [0.22, 1, 0.36, 1]
-                                            }}
-                                            animate={{
-                                                y: [0, index % 2 === 0 ? -10 : 10, 0]
-                                            }}
-                                            transition={{
                                                 duration: 4 + index,
                                                 repeat: Infinity,
                                                 ease: "easeInOut"
