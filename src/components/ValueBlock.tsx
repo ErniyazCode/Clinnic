@@ -34,26 +34,21 @@ const ValueBlock = ({ data }: { data: any }) => {
             <div className="section-container relative z-10">
                 <div className="max-w-4xl mx-auto text-center mb-16 md:mb-20">
                     <FadeIn direction="up">
-                        <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 text-white text-[10px] md:text-xs font-black uppercase tracking-[0.2em] mb-8 shadow-xl shadow-slate-900/10">
-                            <Sparkles size={14} className="text-[#007f94]" /> Эффективная профилактика
-                        </div>
-                        <h2
-                            style={{ fontSize: `clamp(${Math.max(24, titleSize * 0.6)}px, 8vw, ${titleSize}px)` }}
-                            className="font-bold text-[#0a1e2b] mb-6 md:mb-8 leading-[1.1] tracking-tighter whitespace-pre-line"
-                        >
-                            <HighlightedText text={title} />
-                        </h2>
-
-                        {/* Infographic: 80% preventable (8 blue, 2 red) */}
-                        <div className="flex justify-center gap-2 md:gap-4 mb-10 py-6 px-8 rounded-3xl bg-slate-50 border border-slate-100 max-w-fit mx-auto">
+                        <div className="flex justify-center gap-1.5 md:gap-2.5 mb-10 py-5 px-8 rounded-full bg-slate-50 border border-slate-100 max-w-fit mx-auto shadow-sm">
                             {[...Array(10)].map((_, i) => (
                                 <User
                                     key={i}
-                                    className={`${i < 8 ? "text-[#007f94]" : "text-red-500 opacity-60"} w-5 h-5 md:w-7 md:h-7`}
+                                    className={`${i < 8 ? "text-[#007f94]" : "text-red-500/60"} w-5 h-5 md:w-6 md:h-6`}
                                     strokeWidth={3}
                                 />
                             ))}
                         </div>
+                        <h2
+                            style={{ fontSize: `clamp(${Math.max(24, titleSize * 0.6)}px, 8vw, ${titleSize}px)` }}
+                            className="font-bold text-[#0a1e2b] mb-10 leading-[1.1] tracking-tighter whitespace-pre-line"
+                        >
+                            <HighlightedText text={title} />
+                        </h2>
 
                         <div className="space-y-4 max-w-2xl mx-auto">
                             <p
