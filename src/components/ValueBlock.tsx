@@ -36,7 +36,7 @@ const ValueBlock = ({ data }: { data: any }) => {
                         </div>
                         <h2
                             style={{ fontSize: `${titleSize}px` }}
-                            className="font-black text-[#0a1e2b] mb-8 leading-[1.05] tracking-tightest whitespace-pre-line text-[clamp(2rem,5vw,1000px)]"
+                            className="font-bold text-[#0a1e2b] mb-8 leading-[1.1] tracking-tighter whitespace-pre-line text-[clamp(1.75rem,5vw,1000px)]"
                         >
                             <HighlightedText text={title} />
                         </h2>

@@ -34,7 +34,7 @@ const Specialists = ({ data }: { data: any }) => {
                     </div>
                     <h2
                         style={{ fontSize: `${defaultData.titleSize}px` }}
-                        className="font-extrabold text-[#0a1e2b] leading-[1] tracking-tighter mb-8 whitespace-pre-line text-[clamp(2.5rem,6vw,1000px)]"
+                        className="font-bold text-[#0a1e2b] leading-[1.1] tracking-tighter mb-6 md:mb-10 whitespace-pre-line text-[clamp(1.75rem,5vw,1000px)]"
                     >
                         <HighlightedText text={defaultData.title.replace('*', '').replace('*', '')} />
                     </h2>

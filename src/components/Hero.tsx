@@ -86,10 +86,9 @@ const Hero = ({ data }: { data: any }) => {
                         </div>
                     </motion.div>
 
-                    {/* Headline */}
                     <motion.h1
                         variants={itemVariants}
-                        className="font-extrabold text-[#0a1e2b] tracking-[-0.02em] leading-[1.1] mb-6 max-w-4xl text-balance whitespace-pre-line mx-auto"
+                        className="font-bold text-[#0a1e2b] tracking-tighter leading-[1.1] mb-6 max-w-4xl text-balance whitespace-pre-line mx-auto text-[clamp(1.75rem,5vw,1000px)]"
                         style={{ fontSize: `${titleSize}px` }}
                     >
                         <HighlightedText text={title} />

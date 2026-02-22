@@ -91,8 +91,8 @@ const WhyDifferent = ({ data }: { data: any }) => {
                             </div>
 
                             <h2
-                                style={{ fontSize: `clamp(1.75rem, 5vw, ${titleSize}px)` }}
-                                className="font-black text-[#0a1e2b] leading-[1.1] tracking-tighter mb-6 md:mb-10 whitespace-pre-line"
+                                style={{ fontSize: `${titleSize}px` }}
+                                className="font-bold text-[#0a1e2b] leading-[1.1] tracking-tighter mb-6 md:mb-10 whitespace-pre-line text-[clamp(1.75rem,5vw,1000px)]"
                             >
                                 <HighlightedText text={title} />
                             </h2>
