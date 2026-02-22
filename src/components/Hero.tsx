@@ -46,7 +46,7 @@ const Hero = ({ data }: { data: any }) => {
         <section
             ref={containerRef}
             id="hero"
-            className="relative flex flex-col items-center justify-center min-h-[80svh] pt-24 md:pt-32 pb-8 overflow-hidden bg-gradient-to-b from-[#fafcff] to-white"
+            className="relative flex flex-col items-center justify-center min-h-[100svh] pt-24 md:pt-32 pb-8 overflow-hidden bg-gradient-to-b from-[#fafcff] to-white"
         >
             {/* Soft Background */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
