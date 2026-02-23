@@ -18,7 +18,11 @@ import {
     Zap,
     Beaker,
     Sparkles,
-    CheckCircle2
+    CheckCircle2,
+    Flower2,
+    Apple,
+    Baby,
+    Waves
 } from 'lucide-react';
 
 export const ICON_POOL: any = {
@@ -41,7 +45,11 @@ export const ICON_POOL: any = {
     Zap,
     Beaker,
     Sparkles,
-    CheckCircle2
+    CheckCircle2,
+    Flower2,
+    Apple,
+    Baby,
+    Waves
 };
 
 export type IconName = keyof typeof ICON_POOL;
@@ -61,5 +69,13 @@ export const AVAILABLE_ICONS: IconName[] = [
     'FlaskConical',
     'Search',
     'ShieldCheck',
-    'UserPlus'
+    'UserPlus',
+    'Bone',
+    'Zap',
+    'Beaker',
+    'Sparkles',
+    'Flower2',
+    'Apple',
+    'Baby',
+    'Waves'
 ];

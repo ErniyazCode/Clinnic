@@ -745,6 +745,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                             items={data.specialties || []}
                             onUpdate={(items: any) => handleUpdate('directions', 'specialties', items)}
                             fields={[
+                                { key: 'icon', label: 'Иконка', type: 'icon' },
                                 { key: 'title', label: 'Название услуги', type: 'text' },
                                 { key: 'desc', label: 'Краткое описание', type: 'text', multiline: true }
                             ]}

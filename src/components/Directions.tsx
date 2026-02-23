@@ -11,6 +11,7 @@ import {
     Star,
     CheckCircle2
 } from 'lucide-react';
+import { ICON_POOL } from '../lib/icons';
 import FadeIn from './common/FadeIn';
 import Magnetic from './common/Magnetic';
 import HighlightedText from './common/HighlightedText';
@@ -90,7 +91,7 @@ const Directions = ({ data }: { data: any }) => {
                 {/* Grid - 2 columns on Mobile */}
                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
                     {items.map((item: any, i: number) => {
-                        const Icon = ICONS[i % ICONS.length];
+                        const Icon = (item.icon && ICON_POOL[item.icon]) ? ICON_POOL[item.icon] : ICONS[i % ICONS.length];
                         const colorKey = COLORS[i % COLORS.length];
                         const colorClass = colorMap[colorKey] || colorMap.blue;
 

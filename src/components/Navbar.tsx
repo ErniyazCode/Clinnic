@@ -26,7 +26,7 @@ const Navbar = () => {
                     <img
                         src="/logo.png"
                         alt="ReActive International"
-                        className="h-7 md:h-10 w-auto object-contain drop-shadow-sm"
+                        className="h-10 md:h-14 w-auto object-contain drop-shadow-sm"
                     />
                 </div>
 
