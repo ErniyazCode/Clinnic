@@ -6,7 +6,7 @@ import {
     Search,
     Beaker,
     Sparkles,
-    Pizza,
+    HeartPulse,
     ArrowRight,
     Star,
     CheckCircle2
@@ -29,7 +29,7 @@ const Directions = ({ data }: { data: any }) => {
         subTitleSize = 14
     } = data || {};
 
-    const ICONS = [Bone, Zap, Activity, Search, Beaker, Sparkles, Pizza];
+    const ICONS = [Bone, Zap, Activity, Search, Beaker, Sparkles, HeartPulse];
     const COLORS = ['blue', 'teal', 'indigo', 'brand', 'cyan', 'rose', 'orange'];
 
     const colorMap: any = {
