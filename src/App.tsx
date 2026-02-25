@@ -15,7 +15,6 @@ import { useContent } from './hooks/useContent';
 import AdminPanel from './components/admin/AdminPanel';
 import AdminLogin from './components/admin/AdminLogin';
 import Specialists from './components/Specialists';
-import Partners from './components/Partners';
 
 function App() {
     const { content, updateContent, language, setLanguage } = useContent();
@@ -67,12 +66,12 @@ function App() {
 
     return (
         <div className="min-h-screen bg-white selection:bg-[#007f94] selection:text-white">
-            <Navbar language={language} setLanguage={setLanguage} />
+            <Navbar language={language} setLanguage={setLanguage} data={content.ui} />
             <main>
                 {Array.isArray(content?.sectionsOrder) && content.sectionsOrder.map((sectionId: string) => {
                     const Component = componentsMap[sectionId];
                     if (!Component || sectionId === 'footer' || sectionId === 'contact') return null;
-                    return <Component key={sectionId} data={content[sectionId] || {}} />;
+                    return <Component key={sectionId} data={content[sectionId] || {}} ui={content.ui} />;
                 })}
             </main>
 

@@ -5,7 +5,7 @@ import Magnetic from './common/Magnetic';
 import { motion } from 'framer-motion';
 import HighlightedText from './common/HighlightedText';
 
-const ProcessBlock = ({ data }: { data: any }) => {
+const ProcessBlock = ({ data, ui }: { data: any, ui?: any }) => {
     const {
         badge = 'Ваш путь к здоровью',
         title = 'Как проходит \n приём у эксперта',
@@ -124,7 +124,7 @@ const ProcessBlock = ({ data }: { data: any }) => {
                         <div className="relative flex flex-col items-center">
                             <div className="mb-10 flex items-center gap-3">
                                 <div className="h-[1px] w-8 bg-[#007f94]" />
-                                <span className="text-[#007f94] font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs">Наши партнеры</span>
+                                <span className="text-[#007f94] font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs">{ui?.partners?.title || 'Наши партнеры'}</span>
                                 <div className="h-[1px] w-8 bg-[#007f94]" />
                             </div>
 

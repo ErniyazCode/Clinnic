@@ -805,14 +805,14 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
             {/* Header */}
             <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-white">
                 <div>
-                    <h2 className="text-xl font-black text-[#0a1e2b]">Управление сайтом</h2>
+                    <h2 className="text-xl font-black text-[#0a1e2b]">{content.ui?.admin?.title || 'Управление сайтом'}</h2>
                     <p className="text-[10px] text-[#007f94] font-black tracking-[0.2em] uppercase">Control Panel v2.5</p>
                 </div>
                 <button
                     onClick={() => setIsOpen(false)}
                     type="button"
                     className="p-2 hover:bg-slate-100 rounded-xl transition-colors"
-                    title="Закрыть панель"
+                    title={language === 'ru' ? 'Закрыть панель' : 'Close panel'}
                 >
                     <X size={24} className="text-slate-400" />
                 </button>
@@ -850,26 +850,26 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
             <div className="p-6 border-t border-slate-100 bg-slate-50/30 flex gap-4">
                 <button
                     onClick={() => {
-                        if (confirm('Выйти из режима администратора?')) {
+                        if (confirm(language === 'ru' ? 'Выйти из режима администратора?' : 'Exit administrator mode?')) {
                             localStorage.removeItem('admin_session');
                             window.location.reload();
                         }
                     }}
                     type="button"
                     className="py-5 px-6 bg-red-50 text-red-500 font-bold rounded-2xl flex items-center justify-center gap-3 hover:bg-red-100 border border-red-100 transition-all"
-                    title="Выйти из системы"
+                    title={language === 'ru' ? 'Выйти из системы' : 'Log out'}
                 >
-                    <X size={20} /> Выйти
+                    <X size={20} /> {language === 'ru' ? 'Выйти' : 'Logout'}
                 </button>
                 <button
                     onClick={() => {
-                        if (confirm('Отменить все несохраненные изменения? Страница будет перезагружена.')) {
+                        if (confirm(language === 'ru' ? 'Отменить все несохраненные изменения? Страница будет перезагружена.' : 'Discard all unsaved changes? The page will be reloaded.')) {
                             window.location.reload();
                         }
                     }}
                     type="button"
                     className="py-5 px-6 bg-white text-slate-500 font-bold rounded-2xl flex items-center justify-center gap-3 hover:bg-slate-50 border border-slate-200 transition-all"
-                    title="Отменить изменения"
+                    title={language === 'ru' ? 'Отменить изменения' : 'Discard changes'}
                 >
                     <X size={20} />
                 </button>
@@ -878,16 +878,16 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                     disabled={isDeploying}
                     type="button"
                     className="flex-1 py-5 bg-[#0a1e2b] text-white font-bold rounded-2xl flex items-center justify-center gap-3 hover:opacity-95 active:scale-95 transition-all shadow-xl shadow-slate-900/10 disabled:opacity-50"
-                    title="Сохранить и опубликовать на сайте"
+                    title={language === 'ru' ? 'Сохранить и опубликовать на сайте' : 'Save and publish to the website'}
                 >
                     {isDeploying ? (
                         <>
                             <Loader2 className="animate-spin" size={20} />
-                            Публикация...
+                            {content.ui?.admin?.saving || (language === 'ru' ? 'Публикация...' : 'Publishing...')}
                         </>
                     ) : (
                         <>
-                            <Save size={20} /> Применить изменения
+                            <Save size={20} /> {content.ui?.admin?.saveToGithub || (language === 'ru' ? 'Применить изменения' : 'Apply changes')}
                         </>
                     )}
                 </button>
