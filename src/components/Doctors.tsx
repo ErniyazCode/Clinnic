@@ -130,7 +130,7 @@ const Doctors = ({ data, ui }: { data: any, ui?: any }) => {
                             </div>
 
                             {doc.bio && (
-                                <p className="text-[10px] md:text-sm text-slate-500 line-clamp-3 mb-4 md:mb-6 px-4 leading-relaxed">
+                                <p className="text-[10px] md:text-sm text-slate-500 mb-4 md:mb-6 px-4 leading-relaxed whitespace-pre-line">
                                     {doc.bio}
                                 </p>
                             )}
