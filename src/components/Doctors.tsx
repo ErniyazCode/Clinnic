@@ -124,20 +124,32 @@ const Doctors = ({ data, ui }: { data: any, ui?: any }) => {
                                 {doc.role}
                             </p>
 
-                            <div className="flex items-center justify-center gap-1.5 md:gap-2 text-[8px] md:text-sm text-slate-400 mb-3 md:mb-4">
-                                <MapPin size={10} className="md:w-[14px] md:h-[14px]" />
-                                <span className="truncate max-w-[120px] md:max-w-none">{doc.practice}</span>
+                            <div className="flex flex-col items-center justify-center gap-1 text-[8px] md:text-sm text-slate-400 mb-4 px-4">
+                                <div className="flex items-center gap-1.5">
+                                    <MapPin size={12} className="text-[#007f94]/60" />
+                                    <span className="font-medium tracking-tight uppercase text-[9px] md:text-[11px]">{doc.practice}</span>
+                                </div>
                             </div>
 
                             {doc.bio && (
-                                <p className="text-[10px] md:text-sm text-slate-500 mb-4 md:mb-6 px-4 leading-relaxed whitespace-pre-line">
-                                    {doc.bio}
-                                </p>
+                                <div className="relative mb-6 px-6 group/bio">
+                                    {/* Quote Decor */}
+                                    <div className="absolute left-4 top-0 bottom-0 w-[1.5px] bg-gradient-to-b from-[#007f94]/40 via-[#007f94]/10 to-transparent rounded-full" />
+                                    <p className="text-[11px] md:text-[13px] text-slate-600 leading-relaxed text-left pl-2 italic font-light opacity-90 transition-opacity group-hover:opacity-100 whitespace-pre-line">
+                                        {doc.bio}
+                                    </p>
+                                </div>
                             )}
 
-                            <a href="#contact" className="inline-flex items-center gap-1 md:gap-2 text-[10px] md:text-base text-slate-900 font-bold border-b border-slate-200 pb-0.5 hover:border-[#007f94] hover:text-[#007f94] transition-colors">
-                                {ui?.navbar?.cta || 'Записаться'} <ArrowUpRight size={12} className="md:w-[18px]" />
-                            </a>
+                            <div className="mt-auto pt-2 pb-2">
+                                <a
+                                    href="#contact"
+                                    className="group/btn relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[11px] md:text-sm font-bold text-[#007f94] transition-all duration-300 hover:bg-[#007f94] hover:text-white border border-[#007f94]/20 hover:border-[#007f94] overflow-hidden"
+                                >
+                                    <span className="relative z-10">{ui?.navbar?.cta || 'Записаться'}</span>
+                                    <ArrowUpRight size={14} className="relative z-10 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                                </a>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
