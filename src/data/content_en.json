@@ -311,11 +311,6 @@
         "title": "Massage Therapy",
         "desc": "Individually tailored techniques",
         "icon": "Activity"
-      },
-      {
-        "title": "Massage procedures",
-        "desc": "Individual selection of methodology.",
-        "icon": "Sparkles"
       }
     ]
   },
