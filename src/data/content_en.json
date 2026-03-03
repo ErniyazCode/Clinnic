@@ -13,10 +13,6 @@
     "padding": 120,
     "benefits": [
       {
-        "icon": "ShieldCheck",
-        "text": "JCI protocols"
-      },
-      {
         "icon": "Clock",
         "text": "No waiting lists"
       },
@@ -262,11 +258,6 @@
     "cardTitleSize": 20,
     "cardDescSize": 14,
     "specialties": [
-      {
-        "title": "JCI Protocols",
-        "desc": "The gold standard of global healthcare",
-        "icon": "ShieldCheck"
-      },
       {
         "title": "All specialists — immediately and in one place",
         "desc": "Comprehensive body diagnostics",

@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import initialContentRu from '../data/content.json';
 import initialContentEn from '../data/content_en.json';
+import initialContentKz from '../data/content_kz.json';
 
 const DEFAULT_CONTENTS: { [key: string]: any } = {
     ru: initialContentRu,
-    en: initialContentEn
+    en: initialContentEn,
+    kz: initialContentKz
 };
 
 const syncContentData = (section: string, data: any, otherContent: any) => {
@@ -55,7 +57,7 @@ const syncContentData = (section: string, data: any, otherContent: any) => {
 export const useContent = () => {
     const [language, setLanguage] = useState(() => {
         const savedLang = localStorage.getItem('clinic_language');
-        return (savedLang === 'en' || savedLang === 'ru') ? savedLang : 'ru';
+        return (savedLang === 'en' || savedLang === 'ru' || savedLang === 'kz') ? savedLang : 'ru';
     });
 
     const loadLanguageContent = (lang: string) => {
@@ -106,11 +108,14 @@ export const useContent = () => {
         setContent(newContent);
         localStorage.setItem(`clinic_content_${language}`, JSON.stringify(newContent));
 
-        // 2. Sync to other language in localStorage
-        const otherLanguage = language === 'ru' ? 'en' : 'ru';
-        const otherContent = loadLanguageContent(otherLanguage);
-        const syncedOtherContent = syncContentData(section, data, otherContent);
-        localStorage.setItem(`clinic_content_${otherLanguage}`, JSON.stringify(syncedOtherContent));
+        // 2. Sync to other languages in localStorage
+        const otherLanguages = Object.keys(DEFAULT_CONTENTS).filter(lang => lang !== language);
+
+        otherLanguages.forEach(otherLang => {
+            const otherContent = loadLanguageContent(otherLang);
+            const syncedOtherContent = syncContentData(section, data, otherContent);
+            localStorage.setItem(`clinic_content_${otherLang}`, JSON.stringify(syncedOtherContent));
+        });
     };
 
     const reorderSections = (newOrder: string[]) => {
@@ -118,11 +123,14 @@ export const useContent = () => {
         setContent(newContent);
         localStorage.setItem(`clinic_content_${language}`, JSON.stringify(newContent));
 
-        // Sync order to other language
-        const otherLanguage = language === 'ru' ? 'en' : 'ru';
-        const otherContent = loadLanguageContent(otherLanguage);
-        otherContent.sectionsOrder = newOrder;
-        localStorage.setItem(`clinic_content_${otherLanguage}`, JSON.stringify(otherContent));
+        // Sync order to other languages
+        const otherLanguages = Object.keys(DEFAULT_CONTENTS).filter(lang => lang !== language);
+
+        otherLanguages.forEach(otherLang => {
+            const otherContent = loadLanguageContent(otherLang);
+            otherContent.sectionsOrder = newOrder;
+            localStorage.setItem(`clinic_content_${otherLang}`, JSON.stringify(otherContent));
+        });
     };
 
     return { content, updateContent, reorderSections, language, setLanguage };

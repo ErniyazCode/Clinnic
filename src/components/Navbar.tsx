@@ -4,7 +4,7 @@ import Magnetic from './common/Magnetic';
 
 interface NavbarProps {
     language: string;
-    setLanguage: (lang: 'ru' | 'en') => void;
+    setLanguage: (lang: 'ru' | 'en' | 'kz') => void;
     data?: any;
 }
 
@@ -50,6 +50,12 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, data }) => {
                             className={`px-3 py-1.5 rounded-full transition-all ${language === 'en' ? 'bg-[#007f94] text-white shadow-md' : 'text-slate-600 hover:bg-white/50'}`}
                         >
                             EN
+                        </button>
+                        <button
+                            onClick={() => setLanguage('kz')}
+                            className={`px-3 py-1.5 rounded-full transition-all ${language === 'kz' ? 'bg-[#007f94] text-white shadow-md' : 'text-slate-600 hover:bg-white/50'}`}
+                        >
+                            KZ
                         </button>
                     </div>
 

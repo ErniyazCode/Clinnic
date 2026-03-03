@@ -247,7 +247,8 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
 
             const filesToUpdate = [
                 { path: 'src/data/content.json', lang: 'ru' },
-                { path: 'src/data/content_en.json', lang: 'en' }
+                { path: 'src/data/content_en.json', lang: 'en' },
+                { path: 'src/data/content_kz.json', lang: 'kz' }
             ];
 
             // 1. Send telegram notification
@@ -256,7 +257,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     chat_id: '-5216692431',
-                    text: `🚀 <b>Начат деплой новой версии сайта (RU + EN)</b>\n\nОбновление контента отправлено в GitHub.`,
+                    text: `🚀 <b>Начат деплой новой версии сайта (RU + EN + KZ)</b>\n\nОбновление контента отправлено в GitHub.`,
                     parse_mode: 'HTML'
                 })
             }).catch(() => { });
@@ -305,12 +306,12 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, setIsOpen, content, upd
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     chat_id: '-5216692431',
-                    text: `✅ <b>Деплой успешно завершен!</b>\n\nОбе версии (RU и EN) обновлены.\n<a href="https://clinnic.vercel.app">Перейти на сайт</a>`,
+                    text: `✅ <b>Деплой успешно завершен!</b>\n\nВсе версии (RU, EN, KZ) обновлены.\n<a href="https://clinnic.vercel.app">Перейти на сайт</a>`,
                     parse_mode: 'HTML'
                 })
             }).catch(() => { });
 
-            alert("🚀 Изменения успешно отправлены на GitHub!\n\nОбе версии (RU и EN) обновлены. Сайт обновится автоматически в течение 2-3 минут.");
+            alert("🚀 Изменения успешно отправлены на GitHub!\n\nВсе версии (RU, EN, KZ) обновлены. Сайт обновится автоматически в течение 2-3 минут.");
             setIsOpen(false);
         } catch (error: any) {
             console.error('Deployment Error:', error);
