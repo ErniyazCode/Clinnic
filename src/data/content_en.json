@@ -14,19 +14,19 @@
     "benefits": [
       {
         "icon": "ShieldCheck",
-        "text": "No waiting lists"
+        "text": "No waiting lines"
       },
       {
-        "icon": "UserCheck",
-        "text": "No waiting lists"
+        "icon": "Activity",
+        "text": "Personal manager"
       },
       {
         "icon": "Zap",
-        "text": "No waiting lists"
+        "text": "Everything in one visit"
       },
       {
         "icon": "ClipboardCheck",
-        "text": "No waiting lists"
+        "text": "Treatment plan in 1 day"
       }
     ]
   },
