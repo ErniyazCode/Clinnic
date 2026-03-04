@@ -17,16 +17,16 @@
         "text": "Без очереди"
       },
       {
-        "icon": "Activity",
-        "text": "2"
+        "icon": "UserPlus",
+        "text": "Персональный менеджер"
       },
       {
         "icon": "Zap",
-        "text": "3"
+        "text": "Всё за один приём"
       },
       {
         "icon": "ClipboardCheck",
-        "text": "4"
+        "text": "План лечения за 1 день"
       }
     ]
   },
