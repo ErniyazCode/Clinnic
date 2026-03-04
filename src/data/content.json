@@ -14,11 +14,11 @@
     "benefits": [
       {
         "icon": "Clock",
-        "text": "Протоколы JCI"
+        "text": "Без очереди"
       },
       {
         "icon": "UserCheck",
-        "text": "Протоколы JCI"
+        "text": "Без очереди "
       },
       {
         "icon": "Zap",
