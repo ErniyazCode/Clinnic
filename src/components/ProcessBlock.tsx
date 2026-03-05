@@ -169,7 +169,7 @@ const ProcessBlock = ({ data, ui }: { data: any, ui?: any }) => {
                                 <div className="h-[1px] w-8 bg-[#007f94]" />
                             </div>
 
-                            <div className="grid grid-cols-2 gap-4 md:gap-8 items-center justify-items-center max-w-[320px] md:max-w-[480px] mx-auto">
+                            <div className="grid grid-cols-2 gap-6 md:gap-10 items-center justify-items-center max-w-[400px] md:max-w-[600px] mx-auto">
                                 {partnersList.map((partner, index) => (
                                     <motion.div
                                         key={index}
@@ -179,11 +179,11 @@ const ProcessBlock = ({ data, ui }: { data: any, ui?: any }) => {
                                         transition={{ delay: index * 0.1 }}
                                         className={`relative group ${partner.name === 'AXA' ? 'col-span-2 flex justify-center -my-2 md:-my-4 z-10' : ''}`}
                                     >
-                                        <div className="w-24 h-24 md:w-36 md:h-36 rounded-full bg-white p-4 md:p-8 flex items-center justify-center shadow-xl overflow-hidden border border-white/10 transition-transform duration-500 hover:scale-105">
+                                        <div className="w-32 h-32 md:w-44 md:h-44 rounded-full bg-white p-2 md:p-4 flex items-center justify-center shadow-xl overflow-hidden border border-white/10 transition-transform duration-500 hover:scale-105">
                                             <img
                                                 src={partner.logo}
                                                 alt={partner.name}
-                                                className="w-full h-full object-contain"
+                                                className="w-full h-full object-contain scale-110 md:scale-125"
                                                 onError={(e) => {
                                                     const target = e.target as HTMLImageElement;
                                                     target.style.display = 'none';
