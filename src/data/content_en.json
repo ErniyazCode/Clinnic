@@ -259,11 +259,6 @@
     "cardDescSize": 14,
     "specialties": [
       {
-        "title": "JCI Protocols",
-        "desc": "The gold standard of global healthcare",
-        "icon": "ShieldCheck"
-      },
-      {
         "title": "Orthopedics",
         "desc": "Treatment of musculoskeletal disorders",
         "icon": "Stethoscope"
@@ -294,14 +289,14 @@
         "icon": "Pill"
       },
       {
+        "title": "Pediatrics ",
+        "desc": "Professional medical care for children",
+        "icon": "Stethoscope"
+      },
+      {
         "title": "Ultrasound (US)",
         "desc": "Fast and safe diagnostics",
         "icon": "Activity"
-      },
-      {
-        "title": "Pediatrics",
-        "desc": "Professional medical care for children",
-        "icon": "Stethoscope"
       },
       {
         "title": "Massage Therapy",
