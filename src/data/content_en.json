@@ -88,7 +88,8 @@
         "title": "Recovery Plan",
         "desc": "You receive a clear, structured action plan — from treatment strategy to lifestyle recommendations."
       }
-    ]
+    ],
+    "ctaTitleSize": -2
   },
   "trust": {
     "badge": "Why Patients Trust Us",
