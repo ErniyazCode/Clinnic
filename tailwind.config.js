@@ -10,9 +10,9 @@ export default {
         primary: '#007f94',
       },
       fontFamily: {
-        sans: ['Golos Text', 'system-ui', 'sans-serif'],
-        display: ['Golos Text', 'Inter', 'system-ui', 'sans-serif'],
-        outfit: ['Golos Text', 'Outfit', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Inter', 'system-ui', 'sans-serif'],
+        outfit: ['Inter', 'Outfit', 'system-ui', 'sans-serif'],
         playfair: ['Playfair Display', 'serif'],
         montserrat: ['Montserrat', 'sans-serif'],
         cormorant: ['Cormorant Garamond', 'serif'],

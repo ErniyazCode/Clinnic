@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap&subset=cyrillic,cyrillic-ext');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap&subset=cyrillic,cyrillic-ext');
 
 @tailwind base;
 @tailwind components;
@@ -12,7 +12,7 @@
   }
 
   body {
-    font-family: 'Golos Text', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
     @apply bg-slate-50 text-slate-900 selection:bg-[#007f94]/20 selection:text-[#007f94] overflow-x-hidden;
     cursor: auto !important;
@@ -31,7 +31,7 @@
   h4,
   h5,
   h6 {
-    font-family: 'Golos Text', sans-serif;
+    font-family: 'Inter', sans-serif;
     @apply font-semibold tracking-tight text-slate-900;
   }
 
@@ -42,7 +42,7 @@
   /* Explicitly ensure Kazakh characters use Golos Text */
   [lang="kz"],
   .lang-kz {
-    font-family: 'Golos Text', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
   }
 }
 
