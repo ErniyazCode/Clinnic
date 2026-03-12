@@ -10,9 +10,9 @@ export default {
         primary: '#007f94',
       },
       fontFamily: {
-        sans: ['Montserrat', 'system-ui', 'sans-serif'],
-        display: ['Montserrat', 'system-ui', 'sans-serif'],
-        outfit: ['Montserrat', 'Outfit', 'system-ui', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        outfit: ['Plus Jakarta Sans', 'Outfit', 'system-ui', 'sans-serif'],
         playfair: ['Playfair Display', 'serif'],
         montserrat: ['Montserrat', 'sans-serif'],
         cormorant: ['Cormorant Garamond', 'serif'],
