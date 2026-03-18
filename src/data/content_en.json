@@ -265,54 +265,64 @@
         "icon": "Stethoscope"
       },
       {
-        "title": "Physiotherapy",
-        "desc": "Rehabilitation and manual therapy",
+        "title": "Orthopedics",
+        "desc": "Treatment of musculoskeletal disorders",
         "icon": "Activity"
       },
       {
-        "title": "IV Therapy",
-        "desc": "Detox, Energy & Immunity",
+        "title": "Orthopedics",
+        "desc": "Treatment of musculoskeletal disorders",
         "icon": "FlaskConical"
       },
       {
-        "title": "Laboratory",
-        "desc": "99.9% Accuracy",
+        "title": "Orthopedics",
+        "desc": "Treatment of musculoskeletal disorders",
         "icon": "Microscope"
       },
       {
-        "title": "Gynecology",
-        "desc": "Injection and hardware-based treatments",
+        "title": "Orthopedics",
+        "desc": "Treatment of musculoskeletal disorders",
         "icon": "Activity"
       },
       {
-        "title": "Dietetics",
-        "desc": "Nutrition and diet planning",
+        "title": "Orthopedics",
+        "desc": "Treatment of musculoskeletal disorders",
         "icon": "Pill"
       },
       {
-        "title": "Pediatrics ",
-        "desc": "Professional medical care for children",
+        "title": "Orthopedics",
+        "desc": "Treatment of musculoskeletal disorders",
         "icon": "Stethoscope"
       },
       {
-        "title": "Ultrasound (US)",
-        "desc": "Fast and safe diagnostics",
+        "title": "Orthopedics",
+        "desc": "Treatment of musculoskeletal disorders",
         "icon": "Activity"
       },
       {
-        "title": "Massage Therapy",
-        "desc": "Individually tailored techniques",
+        "title": "Orthopedics",
+        "desc": "Treatment of musculoskeletal disorders",
         "icon": "Activity"
       },
       {
-        "icon": "Waves",
-        "title": "Hernia",
-        "desc": "Diagnosis and treatment of hernias using modern minimally invasive techniques. Fast recovery and minimal discomfort."
+        "title": "Orthopedics",
+        "desc": "Treatment of musculoskeletal disorders",
+        "icon": "Waves"
       },
       {
-        "icon": "Zap",
-        "title": "Pectus",
-        "desc": "Diagnosis and correction of chest wall deformities (pectus excavatum, carinatum). индивидуальный approach and effective treatment."
+        "title": "Orthopedics",
+        "desc": "Treatment of musculoskeletal disorders",
+        "icon": "Zap"
+      },
+      {
+        "title": "Orthopedics",
+        "desc": "Treatment of musculoskeletal disorders",
+        "icon": "Zap"
+      },
+      {
+        "title": "Orthopedics",
+        "desc": "Treatment of musculoskeletal disorders",
+        "icon": "Waves"
       }
     ]
   },
