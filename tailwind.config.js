@@ -10,13 +10,8 @@ export default {
         primary: '#007f94',
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-        outfit: ['Plus Jakarta Sans', 'Outfit', 'system-ui', 'sans-serif'],
-        playfair: ['Playfair Display', 'serif'],
-        montserrat: ['Montserrat', 'sans-serif'],
-        cormorant: ['Cormorant Garamond', 'serif'],
-        syne: ['Syne', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

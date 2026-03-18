@@ -25,7 +25,7 @@ const ValueBlock = ({ data }: { data: any }) => {
                 paddingTop: `clamp(${padding * 0.4}px, 10vh, ${padding}px)`,
                 paddingBottom: `clamp(${padding * 0.4}px, 10vh, ${padding}px)`
             }}
-            className="relative bg-white overflow-hidden"
+            className="relative z-20 bg-white overflow-hidden"
         >
             {/* Subtle background detail */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_0%,#007f94_0,transparent_25%)] opacity-[0.03]" />

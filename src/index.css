@@ -30,11 +30,10 @@
   h5,
   h6 {
     font-family: 'Inter', sans-serif;
-    @apply font-extrabold tracking-tight text-slate-900;
+    @apply font-bold tracking-tighter text-slate-900;
   }
 
   h1 {
-    @apply tracking-tighter;
   }
 
   /* Explicitly ensure Kazakh characters use Inter */
