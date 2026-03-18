@@ -303,6 +303,16 @@
         "title": "Massage Therapy",
         "desc": "Individually tailored techniques",
         "icon": "Activity"
+      },
+      {
+        "icon": "Waves",
+        "title": "Hernia",
+        "desc": "Diagnosis and treatment of hernias using modern minimally invasive techniques. Fast recovery and minimal discomfort."
+      },
+      {
+        "icon": "Zap",
+        "title": "Pectus",
+        "desc": "Diagnosis and correction of chest wall deformities (pectus excavatum, carinatum). индивидуальный approach and effective treatment."
       }
     ]
   },
