@@ -49,7 +49,7 @@ const Specialists = ({ data }: { data: any }) => {
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0a1e2b] via-transparent to-transparent z-10 opacity-70" />
                         <img
                             src={defaultData.image}
-                            className="absolute inset-0 w-full h-full object-cover object-[50%_25%]"
+                            className="absolute inset-0 w-full h-full object-cover object-[50%_12%]"
                             alt="Наши специалисты"
                         />
 
