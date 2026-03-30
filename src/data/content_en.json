@@ -64,7 +64,7 @@
     "badge": "Your Path to Better Health",
     "title": "How Your Appointment\nwith an Expert Works",
     "ctaTitle": "International Standards of Medicine — in Almaty",
-    "ctaDesc": "Treatment based on international protocols.\nDoctors with overseas clinical experience.\nMedical documentation in Russian and English.\nSupport for international patients.",
+    "ctaDesc": "Treatment based on international protocols.\nDoctors with overseas clinical experience.\nMedical documentation in Russian and English.\nSupport for international patients.\nDirect billing with leading international insurance companies.",
     "ctaButton": "Book Now",
     "image": "https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&q=80&w=800",
     "titleSize": 48,
@@ -260,11 +260,6 @@
     "cardDescSize": 14,
     "specialties": [
       {
-        "title": "JCI Protocols",
-        "desc": "The gold standard of global healthcare",
-        "icon": "Activity"
-      },
-      {
         "title": "All Specialists in One Place",
         "desc": "Comprehensive body check-up",
         "icon": "Activity"
@@ -278,6 +273,16 @@
         "title": "Physiotherapy",
         "desc": "Rehabilitation and manual therapy",
         "icon": "Microscope"
+      },
+      {
+        "title": "Dietology",
+        "desc": "Nutrition and personalized meal planning",
+        "icon": "Activity"
+      },
+      {
+        "title": "Pediatrics",
+        "desc": "Professional medical care for children",
+        "icon": "Waves"
       },
       {
         "title": "IV Therapy",
@@ -295,19 +300,9 @@
         "icon": "Stethoscope"
       },
       {
-        "title": "Dietology",
-        "desc": "Nutrition and personalized meal planning",
-        "icon": "Activity"
-      },
-      {
         "title": "Ultrasound Examination (US)",
         "desc": "Fast and safe diagnostics",
         "icon": "Activity"
-      },
-      {
-        "title": "Pediatrics",
-        "desc": "Professional medical care for children",
-        "icon": "Waves"
       },
       {
         "title": "Massage Therapy",
@@ -315,14 +310,19 @@
         "icon": "Zap"
       },
       {
-        "title": "Hernia",
-        "desc": "Diagnosis and treatment of hernias using modern minimally invasive methods.",
-        "icon": "Zap"
+        "title": "Pectus",
+        "desc": "Modern non-surgical methods for the diagnosis and correction of chest deformities.",
+        "icon": "Waves"
       },
       {
-        "title": "Pectus",
-        "desc": "Modern methods for diagnosing and correcting chest wall deformities.",
-        "icon": "Waves"
+        "title": "Vaccination",
+        "desc": "Reliable immune protection according to international vaccination schedules.",
+        "icon": "ShieldCheck"
+      },
+      {
+        "title": "Hair Transplant",
+        "desc": "Modern seamless methods for hair density restoration.",
+        "icon": "Zap"
       }
     ]
   },
