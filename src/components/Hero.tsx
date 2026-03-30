@@ -100,7 +100,7 @@ const Hero = ({ data }: { data: any }) => {
             <div className="absolute right-[5%] bottom-0 pointer-events-none z-10 hidden md:flex items-end justify-center w-[45%] h-full max-w-[850px] overflow-visible">
                 <div className="relative w-full lg:w-[115%] lg:-left-[15%] flex items-end">
                     <img
-                        src="/groupPhoto.png"
+                        src="/groupPhoto.webp"
                         alt="Doctors"
                         className="w-full h-auto object-contain object-bottom translate-y-[6%] lg:translate-y-[8%] scale-[1.08] lg:scale-[1.12] origin-bottom drop-shadow-[0_20px_40px_rgba(15,23,42,0.15)]"
                     />
