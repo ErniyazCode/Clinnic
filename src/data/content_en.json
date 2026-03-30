@@ -456,7 +456,7 @@
     "specialists": {
         "title": "Our Specialists",
         "desc": "A team of doctors with international experience and an evidence-based approach to treatment.\nWe follow modern clinical protocols, ensuring safety, precision, and the highest standards of medical service.",
-        "image": "/team2.png",
+        "image": "/team2.webp",
         "titleSize": 48,
         "descSize": 18,
         "padding": 80
