@@ -292,7 +292,7 @@ const Directions = ({ data, ui }: { data: any, ui?: any }) => {
                             initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
                             animate={{ opacity: 1, backdropFilter: 'blur(12px)' }}
                             exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-                            transition={{ duration: 0.15, easing: 'easeOut' }}
+                            transition={{ duration: 0.15, ease: 'easeOut' }}
                             className="absolute inset-0 bg-[#0a1e2b]/60 cursor-pointer" 
                             onClick={() => setSelectedService(null)} 
                         />
