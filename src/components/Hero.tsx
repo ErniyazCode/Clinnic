@@ -14,9 +14,7 @@ const Hero = ({ data }: { data: any }) => {
 
     const padding = Number(data?.padding) || 120;
     const titleClean = String(title || '').replace(/\s*\n\s*/g, ' ').trim();
-    const titleWords = titleClean.split(/\s+/);
-    const mid = 4; // Split after "из Турции"
-    const resolvedTitleText = (titleWords.slice(0, mid).join(' ') + '\n' + titleWords.slice(mid).join(' ')).toUpperCase();
+    const resolvedTitleText = titleClean.toUpperCase();
 
     const subtitleText = String(subtitle || '').replace(/,\s+как/g, ',\nкак').toUpperCase();
     const descriptionText = String(description || '');

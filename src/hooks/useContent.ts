@@ -76,6 +76,7 @@ export const useContent = () => {
                         trust: { ...currentDefault.trust, ...(parsed.trust || {}) },
                         doctors: { ...currentDefault.doctors, ...(parsed.doctors || {}) },
                         specialists: { ...currentDefault.specialists, ...(parsed.specialists || {}) },
+                        reviews: { ...currentDefault.reviews, ...(parsed.reviews || {}) },
                         directions: { ...currentDefault.directions, ...(parsed.directions || {}) },
                         contact: { ...currentDefault.contact, ...(parsed.contact || {}) },
                         footer: { ...currentDefault.footer, ...(parsed.footer || {}) },
@@ -86,6 +87,10 @@ export const useContent = () => {
                     }
                     if (!Array.isArray(merged.sectionsOrder)) {
                         merged.sectionsOrder = currentDefault.sectionsOrder;
+                    } else {
+                        // Keep user-defined order, but append any newly introduced sections.
+                        const missingSections = currentDefault.sectionsOrder.filter((id: string) => !merged.sectionsOrder.includes(id));
+                        merged.sectionsOrder = [...merged.sectionsOrder, ...missingSections];
                     }
                     return merged;
                 }

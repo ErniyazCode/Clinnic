@@ -15,6 +15,7 @@ import { useContent } from './hooks/useContent';
 import AdminPanel from './components/admin/AdminPanel';
 import AdminLogin from './components/admin/AdminLogin';
 import Specialists from './components/Specialists';
+import Reviews from './components/Reviews';
 
 function App() {
     const { content, updateContent, language, setLanguage } = useContent();
@@ -59,6 +60,7 @@ function App() {
         trust: WhyDifferent,
         doctors: Doctors,
         specialists: Specialists,
+        reviews: Reviews,
         directions: Directions,
         contact: ContactForm,
         footer: Footer

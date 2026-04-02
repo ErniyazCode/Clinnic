@@ -135,8 +135,7 @@ const WhyDifferent = ({ data, ui }: { data: any, ui?: any }) => {
                                 <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6">
                                     <div>
                                         <h4
-                                            style={{ fontSize: `${descSize}px` }}
-                                            className="text-white font-semibold leading-tight whitespace-pre-line"
+                                            className="text-white font-bold text-[clamp(1.05rem,1.85vw,1.55rem)] leading-[1.22] tracking-[-0.01em] whitespace-pre-line max-w-3xl"
                                         >
                                             <HighlightedText text={verdictTitle} />
                                         </h4>

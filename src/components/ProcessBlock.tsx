@@ -39,9 +39,13 @@ const ProcessBlock = ({ data, ui }: { data: any, ui?: any }) => {
             className="relative bg-white overflow-hidden"
         >
             <div className="container mx-auto px-4 md:px-6">
-                <div className="max-w-4xl mx-auto mb-16 md:mb-24 text-center">
+                <div className="max-w-4xl mx-auto mb-10 md:mb-12 text-center">
                     <FadeIn>
-                        <span className="text-[#007f94] font-extrabold tracking-widest uppercase text-sm mb-2 md:mb-3 block">{badge}</span>
+                        <div className="inline-flex items-center gap-3 mb-2 md:mb-3">
+                            <span className="h-[1px] w-9 md:w-10 bg-[#007f94]/60" />
+                            <span className="text-[#007f94] font-extrabold tracking-widest uppercase text-sm">{badge}</span>
+                            <span className="h-[1px] w-9 md:w-10 bg-[#007f94]/60" />
+                        </div>
                         <h2
                             style={{ fontSize: `${titleSize}px` }}
                             className="font-extrabold text-[#0a1e2b] leading-[1.1] tracking-tighter whitespace-pre-line text-[clamp(1.75rem,5vw,1000px)] mb-4 md:mb-6"
@@ -51,7 +55,7 @@ const ProcessBlock = ({ data, ui }: { data: any, ui?: any }) => {
                     </FadeIn>
                 </div>
 
-                <div className="relative max-w-5xl mx-auto py-8 md:py-16">
+                <div className="relative max-w-5xl mx-auto py-2 md:py-6">
                     {/* Vertical connecting line using SVG from bottom to top */}
                     <div className="absolute left-[3.5rem] md:left-1/2 top-0 bottom-0 w-1 md:-ml-0.5 z-0" style={{ transform: 'scale(1, -1)' }}>
                         <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 4 100">
@@ -167,9 +171,9 @@ const ProcessBlock = ({ data, ui }: { data: any, ui?: any }) => {
                         {/* Partners Display on Right */}
                         <div className="relative flex flex-col items-center">
                             <div className="mb-10 flex items-center gap-3">
-                                <div className="h-[1px] w-8 bg-[#007f94]" />
-                                <span className="text-[#007f94] font-semibold uppercase tracking-[0.2em] text-[10px] md:text-xs">{ui?.partners?.title || 'Наши партнеры'}</span>
-                                <div className="h-[1px] w-8 bg-[#007f94]" />
+                                <div className="h-[1px] w-8 bg-white" />
+                                <span className="text-white font-semibold uppercase tracking-[0.2em] text-[10px] md:text-xs">{ui?.partners?.title || 'Наши партнеры'}</span>
+                                <div className="h-[1px] w-8 bg-white" />
                             </div>
 
                             <div className="grid grid-cols-2 gap-6 md:gap-10 items-center justify-items-center max-w-[400px] md:max-w-[600px] mx-auto">

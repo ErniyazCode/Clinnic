@@ -41,7 +41,11 @@ const Doctors = ({ data, ui }: { data: any, ui?: any }) => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.4 }}
                     >
-                        <span className="text-[#007f94] font-extrabold uppercase tracking-widest text-xs md:text-sm mb-4 block">{badge}</span>
+                        <div className="inline-flex items-center gap-3 mb-4">
+                            <span className="h-[1px] w-9 md:w-10 bg-[#007f94]/60" />
+                            <span className="text-[#007f94] font-extrabold uppercase tracking-widest text-xs md:text-sm">{badge}</span>
+                            <span className="h-[1px] w-9 md:w-10 bg-[#007f94]/60" />
+                        </div>
                         <h2
                             style={{ fontSize: `clamp(${Math.max(24, titleSize * 0.6)}px, 8vw, ${titleSize}px)` }}
                             className="font-extrabold text-[#0a1e2b] leading-[1.1] tracking-tighter mb-8 whitespace-pre-line text-[clamp(1.75rem,5vw,1000px)]"
