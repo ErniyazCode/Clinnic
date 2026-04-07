@@ -69,11 +69,6 @@ function whatsappDevApiPlugin(): Plugin {
       server.middlewares.use('/api/whatsapp-lead', async (req, res) => {
         const traceId = `wa-dev-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`
 
-        console.log('[whatsapp-dev-api] Incoming request', {
-          traceId,
-          method: req.method
-        })
-
         if (req.method !== 'POST') {
           res.statusCode = 405
           res.setHeader('Content-Type', 'application/json')
@@ -120,14 +115,6 @@ function whatsappDevApiPlugin(): Plugin {
         const phoneNumberId = env.PHONE_NUMBER_ID || '1055384357659254'
         const rawRecipientPhone = env.WHATSAPP_TO_NUMBER || env.WHATSAPP_RECIPIENT || '787757401405'
         const recipientPhone = normalizeRecipientPhone(rawRecipientPhone)
-
-        console.log('[whatsapp-dev-api] Normalized payload', {
-          traceId,
-          normalizedPhone,
-          recipientPhone: recipientPhone ? maskPhone(recipientPhone) : null,
-          phoneNumberId,
-          hasAccessToken: Boolean(accessToken)
-        })
 
         if (!accessToken) {
           res.statusCode = 500
@@ -183,15 +170,6 @@ function whatsappDevApiPlugin(): Plugin {
 
           const payload = await response.json()
 
-          console.log('[whatsapp-dev-api] Meta response', {
-            traceId,
-            status: response.status,
-            ok: response.ok,
-            error: payload?.error?.message || null,
-            messageId: payload?.messages?.[0]?.id || null,
-            messageStatus: payload?.messages?.[0]?.message_status || payload?.messages?.[0]?.status || null
-          })
-
           res.statusCode = response.status
           res.setHeader('Content-Type', 'application/json')
 
@@ -222,11 +200,6 @@ function whatsappDevApiPlugin(): Plugin {
             })
           )
         } catch (error) {
-          console.error('[whatsapp-dev-api] Unexpected error', {
-            traceId,
-            message: error instanceof Error ? error.message : 'Unknown server error'
-          })
-
           res.statusCode = 500
           res.setHeader('Content-Type', 'application/json')
           res.end(

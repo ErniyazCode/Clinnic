@@ -76,12 +76,6 @@ function maskPhone(input) {
 export default async function handler(req, res) {
   const traceId = `wa-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 
-  console.log('[whatsapp-lead] Incoming request', {
-    traceId,
-    method: req.method,
-    hasBody: Boolean(req.body)
-  });
-
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -98,15 +92,6 @@ export default async function handler(req, res) {
 
   const { accessToken, phoneNumberId, toNumber: rawRecipientPhone } = getConfig();
   const recipientPhone = normalizeRecipientPhone(rawRecipientPhone);
-
-  console.log('[whatsapp-lead] Normalized payload', {
-    traceId,
-    nameLength: String(name).trim().length,
-    normalizedPhone,
-    recipientPhone,
-    phoneNumberId,
-    hasAccessToken: Boolean(accessToken)
-  });
 
   if (!accessToken) {
     return res.status(500).json({ error: 'WhatsApp API token is missing' });
@@ -154,14 +139,6 @@ export default async function handler(req, res) {
 
     const payload = await response.json();
 
-    console.log('[whatsapp-lead] Meta response', {
-      traceId,
-      status: response.status,
-      ok: response.ok,
-      error: payload?.error?.message || null,
-      messageId: payload?.messages?.[0]?.id || null
-    });
-
     if (!response.ok) {
       return res.status(response.status).json({
         error: payload?.error?.message || 'WhatsApp API request failed',
@@ -180,11 +157,6 @@ export default async function handler(req, res) {
       }
     });
   } catch (error) {
-    console.error('[whatsapp-lead] Unexpected error', {
-      traceId,
-      message: error instanceof Error ? error.message : 'Unknown server error'
-    });
-
     return res.status(500).json({
       error: error instanceof Error ? error.message : 'Unknown server error'
     });

@@ -64,11 +64,6 @@ const ContactForm = ({ data, ui }: { data: any, ui?: any }) => {
                 throw new Error('Введите корректный номер телефона (например: +77771234567)');
             }
 
-            console.log('[ContactForm] Submitting WhatsApp lead', {
-                nameLength: name.trim().length,
-                normalizedPhone
-            });
-
             const response = await fetch('/api/whatsapp-lead', {
                 method: 'POST',
                 headers: {
@@ -81,12 +76,6 @@ const ContactForm = ({ data, ui }: { data: any, ui?: any }) => {
             });
 
             const payload = await response.json().catch(() => ({}));
-
-            console.log('[ContactForm] WhatsApp lead response', {
-                status: response.status,
-                ok: response.ok,
-                payload
-            });
 
             if (!response.ok) {
                 const knownError = typeof payload?.error === 'string' ? payload.error : '';
@@ -102,7 +91,6 @@ const ContactForm = ({ data, ui }: { data: any, ui?: any }) => {
             setName('');
             setPhoneInput('');
         } catch (error) {
-            console.error('[ContactForm] WhatsApp lead failed', error);
             setStatus('error');
             setErrorText(error instanceof Error ? error.message : 'Failed to send request');
         }
