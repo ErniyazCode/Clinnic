@@ -1,0 +1,177 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run fix Aibota",
+			"type": "shell",
+			"command": "node remove_aibota.js",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Fix aibota cjs",
+			"type": "shell",
+			"command": "node remove_aibota.cjs",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run update doctors",
+			"type": "shell",
+			"command": "node update_doctors.cjs",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run update doctors 2",
+			"type": "shell",
+			"command": "node update_doctors2.cjs",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Check keys of content json",
+			"type": "shell",
+			"command": "node -e \"const fs=require('fs'); console.log(Object.keys(JSON.parse(fs.readFileSync('src/data/content.json'))))\"",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run check keys",
+			"type": "shell",
+			"command": "node check_keys.cjs",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run check keys 2",
+			"type": "shell",
+			"command": "node check_keys.cjs",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run update doctors final",
+			"type": "shell",
+			"command": "node update_doctors2.cjs",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Check status of doctors",
+			"type": "shell",
+			"command": "node -e \"const fs = require('fs'); ['content_en.json', 'content.json', 'content_kz.json'].forEach(f => { let d = require('./src/data/' + f); let aibota = d.doctorsList ? d.doctorsList.some(x => x.name.includes('Aibota') || x.name.includes('Айбота')) : d.doctors.doctorsList ? d.doctors.doctorsList.some(x => x.name.includes('Aibota')) : 'no list'; let ahm = d.doctorsList ? d.doctorsList.some(x => x.name.includes('Ahmetcan Gencoglu')) : false; let tr = d.values.benefits.find(x => x.text && x.text.includes('TREATMENT')); console.log(f, 'Aibota:', aibota, 'Gencoglu:', ahm, 'TR:', tr ? tr.desc : 'no tr'); });\"",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Check status",
+			"type": "shell",
+			"command": "node check_status.js",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run check cjs",
+			"type": "shell",
+			"command": "mv check_status.js check_status.cjs; node check_status.cjs",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run check cjs",
+			"type": "shell",
+			"command": "node check_status.cjs",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run check_status.cjs directly",
+			"type": "shell",
+			"command": "node check_status.cjs",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Print Aibota blocks",
+			"type": "shell",
+			"command": "node -e \"const fs = require('fs'); ['content_en.json', 'content.json', 'content_kz.json'].forEach(f => { let txt = fs.readFileSync('src/data/' + f, 'utf8'); let idx = txt.indexOf('Aibota'); if(idx===-1) idx = txt.indexOf('Айбота'); console.log('--- ' + f + ' ---'); console.log(txt.substring(idx - 150, idx + 600)); });\"",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run print_aibota.cjs",
+			"type": "shell",
+			"command": "node print_aibota.cjs",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Clean up Aibota",
+			"type": "shell",
+			"command": "node .vscode/temp_remover.cjs && rm .vscode/temp_remover.cjs",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Clean up Aibota (powershell)",
+			"type": "shell",
+			"command": "node .vscode/temp_remover.cjs ; rm .vscode/temp_remover.cjs",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Remove temporary files",
+			"type": "shell",
+			"command": "Remove-Item *.cjs, *.py, *.js -Exclude postcss.config.js, tailwind.config.js -Force -ErrorAction SilentlyContinue",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Check scripts",
+			"type": "shell",
+			"command": "ls *.cjs, *.py",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run update specialists",
+			"type": "shell",
+			"command": "node update_specialists.cjs",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Dump KZ process data",
+			"type": "shell",
+			"command": "node check_kz.cjs > kz_output.json",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Update KZ module",
+			"type": "shell",
+			"command": "node update_kz_process.cjs",
+			"isBackground": false,
+			"group": "build"
+		}
+	]
+}
