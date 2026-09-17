@@ -27,22 +27,94 @@ const TEAM_ORDER = [
 
 const NEW_TEAM_MEMBERS: Record<TeamLanguage, Record<string, any>> = {
     ru: {
-        'aigerim-endocrinologist': { id: 'aigerim-endocrinologist', name: 'Айгерим', role: 'Эндокринолог', years: '—', practice: '—', bio: '', image: '' },
-        'munira-nurse': { id: 'munira-nurse', name: 'Мунира', role: 'Медсестра', years: '—', practice: '—', bio: '', image: '' },
+        'aigerim-endocrinologist': {
+            id: 'aigerim-endocrinologist',
+            name: 'Айгерим Сейдинова',
+            role: 'Эндокринолог',
+            years: '14 лет опыта',
+            practice: 'Reactive',
+            bio: 'Айгерим Сейдинова — врач-эндокринолог клиники ReActive. Окончила КазГМА в Астане. Опыт работы — 14 лет.\n\nСпециализируется на ведении сахарного диабета 1-го и 2-го типов, заболеваниях щитовидной железы, гипофиза и надпочечников, повышении пролактина, гормональных нарушениях, менопаузе, ожирении и недостатке веса. Разрабатывает индивидуальные медикаментозные программы для коррекции веса и ведения эндокринных заболеваний.\n\nПрошла специализацию и резидентуру по эндокринологии в Казахстане, стажировалась в Японии и Турции, участвовала в международных образовательных программах.',
+            image: ''
+        },
+        'munira-nurse': {
+            id: 'munira-nurse',
+            name: 'Союзова-Ирвен Мунира',
+            role: 'Анестезистка',
+            years: '13 лет опыта',
+            practice: 'Reactive',
+            bio: 'Профессиональный сестринский уход и всесторонняя клиническая поддержка персонала',
+            image: ''
+        },
         'minira-assistant': { id: 'minira-assistant', name: 'Минира', role: 'Ассистент врача', years: '—', practice: '—', bio: '', image: '' },
-        ayaulym: { id: 'ayaulym', name: 'Аяулым', role: 'Специалист клиники', years: '—', practice: '—', bio: '', image: '' },
+        ayaulym: {
+            id: 'ayaulym',
+            name: 'Даулеткызы Аяулым',
+            role: 'Специалист клиники',
+            years: '5 лет опыта',
+            practice: 'Reactive',
+            bio: 'Обеспечивает внимательную поддержку пациентов и помогает поддерживать слаженную ежедневную работу клиники.',
+            image: ''
+        },
     },
     en: {
-        'aigerim-endocrinologist': { id: 'aigerim-endocrinologist', name: 'Aigerim', role: 'Endocrinologist', years: '—', practice: '—', bio: '', image: '' },
-        'munira-nurse': { id: 'munira-nurse', name: 'Munira', role: 'Nurse', years: '—', practice: '—', bio: '', image: '' },
+        'aigerim-endocrinologist': {
+            id: 'aigerim-endocrinologist',
+            name: 'Aigerim Seydinova',
+            role: 'Endocrinologist',
+            years: '14 years of experience',
+            practice: 'Reactive',
+            bio: 'Aigerim Seydinova is an endocrinologist at ReActive Clinic. She graduated from KazGMA in Astana and has 14 years of clinical experience.\n\nShe specializes in the management of type 1 and type 2 diabetes, thyroid, pituitary and adrenal disorders, elevated prolactin, hormonal disorders, menopause, obesity and underweight. She develops individualized medical programs for weight management and endocrine conditions.\n\nShe completed specialist training and residency in endocrinology in Kazakhstan, completed clinical placements in Japan and Türkiye, and participates in continuing medical education.',
+            image: ''
+        },
+        'munira-nurse': {
+            id: 'munira-nurse',
+            name: 'Soyuzova-İrven Munira',
+            role: 'Anesthesia Technician',
+            years: '13 years of experience',
+            practice: 'Reactive',
+            bio: 'Professional nursing care and comprehensive clinical support for staff',
+            image: ''
+        },
         'minira-assistant': { id: 'minira-assistant', name: 'Minira', role: 'Doctor assistant', years: '—', practice: '—', bio: '', image: '' },
-        ayaulym: { id: 'ayaulym', name: 'Ayaulym', role: 'Clinic specialist', years: '—', practice: '—', bio: '', image: '' },
+        ayaulym: {
+            id: 'ayaulym',
+            name: 'Dauletkyzy Ayaulym',
+            role: 'Clinic Specialist',
+            years: '5 years of experience',
+            practice: 'Reactive',
+            bio: 'Provides attentive patient support and helps ensure the smooth daily operation of the clinic.',
+            image: ''
+        },
     },
     kz: {
-        'aigerim-endocrinologist': { id: 'aigerim-endocrinologist', name: 'Айгерім', role: 'Эндокринолог', years: '—', practice: '—', bio: '', image: '' },
-        'munira-nurse': { id: 'munira-nurse', name: 'Мунира', role: 'Медбике', years: '—', practice: '—', bio: '', image: '' },
+        'aigerim-endocrinologist': {
+            id: 'aigerim-endocrinologist',
+            name: 'Айгерім Сейдинова',
+            role: 'Эндокринолог',
+            years: '14 жылдық тәжірибе',
+            practice: 'Reactive',
+            bio: 'Айгерім Сейдинова — ReActive клиникасының эндокринолог дәрігері. Астана қаласындағы ҚазГМА-ны тәмамдаған. Клиникалық тәжірибесі 14 жыл.\n\n1 және 2 типті қант диабетін жүргізуге, қалқанша безі, гипофиз және бүйрекүсті бездері ауруларын диагностикалау мен емдеуге, пролактин деңгейінің жоғарылауына, гормондық бұзылыстарға, менопаузаға, семіздік пен салмақ жеткіліксіздігіне маманданған. Салмақты түзету және эндокриндік ауруларды емдеу үшін жеке дәрі-дәрмектік бағдарламалар әзірлейді.\n\nҚазақстанда эндокринология бойынша мамандану мен резидентурадан өткен, Жапония мен Түркияда клиникалық тағылымдамадан өткен, біліктілікті арттыру бағдарламаларына тұрақты қатысады.',
+            image: ''
+        },
+        'munira-nurse': {
+            id: 'munira-nurse',
+            name: 'Союзова-Ирвен Мунира',
+            role: 'Анестезист',
+            years: '13 жылдық тәжірибе',
+            practice: 'Reactive',
+            bio: 'Персоналға кәсіби мейіргерлік күтім және жан-жақты клиникалық қолдау',
+            image: ''
+        },
         'minira-assistant': { id: 'minira-assistant', name: 'Минира', role: 'Дәрігер ассистенті', years: '—', practice: '—', bio: '', image: '' },
-        ayaulym: { id: 'ayaulym', name: 'Аяулым', role: 'Клиника маманы', years: '—', practice: '—', bio: '', image: '' },
+        ayaulym: {
+            id: 'ayaulym',
+            name: 'Даулетқызы Аяулым',
+            role: 'Клиника маманы',
+            years: '5 жылдық тәжірибе',
+            practice: 'Reactive',
+            bio: 'Пациенттерге мұқият қолдау көрсетіп, клиниканың күнделікті жұмысының үйлесімді жүруіне көмектеседі.',
+            image: ''
+        },
     },
 };
 
